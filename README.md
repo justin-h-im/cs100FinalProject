@@ -1,12 +1,13 @@
 # Authors
 
->> Justin Im
->
->> Athena Nelson
->
->> Marcus Hsieh
->
->> Vimal Selvarajan
+
+[Justin Im](https://github.com/justin-h-im)
+
+[Athena Nelson](https://github.com/thena-ay)
+
+[Marcus Hsieh](https://github.com/MarcusHsieh)
+
+[Vimal Selvarajan](https://github.com/vselv001)
 
 ## Game name ideas
 ♔ **Clash of Chess** ♕ 
