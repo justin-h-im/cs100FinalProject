@@ -118,3 +118,7 @@ For Every Move
 1. Can the piece be moved like this? 
 1. Does moving that piece put your king in check?
 1. Does moving that piece put the opponent in check?
+
+### User Interface Specifications
+![CombatChessUIRoutine](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/e9ac340d-1acb-4b75-a162-2756cbaa4cb1)
+
