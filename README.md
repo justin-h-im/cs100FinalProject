@@ -122,3 +122,6 @@ For Every Move
 ### User Interface Specifications
 ![CombatChessUIRoutine](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/e9ac340d-1acb-4b75-a162-2756cbaa4cb1)
 
+### UML Diagram
+![CS100FinalProject drawio (1)](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/147112330/fcc3ca17-e0f8-422e-8ec1-af5f9524134b)
+
