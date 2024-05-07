@@ -123,7 +123,9 @@ For Every Move
 ![CombatChessUIRoutine](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/e9ac340d-1acb-4b75-a162-2756cbaa4cb1)
 
 ### UML Diagram
-![CS100FinalProject drawio (1)](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/147112330/fcc3ca17-e0f8-422e-8ec1-af5f9524134b)
+![CS100FinalProject drawio (3)](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/147112330/014a7bf7-30c2-4827-9dac-a8d1599fa716)
 
-
+### Class Descriptions
+The Game class will be the board and control the turns. Since it is the board, it is responsible for setting up the board which holds pointers to pieces in an 8 by 8 2D array and displaying the visuals. Along with that it will also control what phase the game is in (i.e. player turn, combat, and end game when king hp is 0).
+For the chess pieces there is a base class called Piece which contains a color, the coordinates of the piece, the type of piece it is, and the health of the piece for combat. The color of the piece and the pieceType have separate enums to make it simpler for identifying pieces for interactions. It also has cooresponding getters and setters. Along with the base class there are 6 derived classes for each of the unique chess piece types. These are responsible for the pieces specific movements and what they do in encounters.
 
