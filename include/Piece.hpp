@@ -1,5 +1,5 @@
-enum pieceType { KING, QUEEN, BISHOP, KNIGHT, PAWN, ROOK };
-enum color { WHITE, BLACK };
+enum PieceType { KING, QUEEN, BISHOP, KNIGHT, PAWN, ROOK };
+enum Color { WHITE, BLACK };
 
 class Piece {
 	

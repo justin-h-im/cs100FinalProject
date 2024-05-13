@@ -7,7 +7,8 @@ class Game {
 		color turn;
 	public:
 		Game();
+		Color getTurn();
 		void displayBoard();
+		void updateBoard(int oldX, int oldY, int newX, int newY);
 		bool kingStatus();
-		
 };
