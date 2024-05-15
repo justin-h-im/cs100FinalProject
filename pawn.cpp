@@ -2,16 +2,16 @@
 #include <cmath> 
 
 /*
-  0 1 2 3 4 5 6 7
-0 R N B Q K B N R 0
-1 P P P P P P P P 1
-2 - - - - - - - - 2
-3 - - - - - - - - 3
-4 - - - - - - - - 4
-5 - - - - - - - - 5
-6 p p p p p p p p 6
-7 r n b q k b n r 7
-  0 1 2 3 4 5 6 7
+      0 1 2 3 4 5 6 7
+    0 R N B Q K B N R 0
+    1 P P P P P P P P 1
+    2 - - - - - - - - 2
+    3 - - - - - - - - 3
+    4 - - - - - - - - 4
+    5 - - - - - - - - 5
+    6 p p p p p p p p 6
+    7 r n b q k b n r 7
+      0 1 2 3 4 5 6 7
 */
 
 bool Pawn::isInBounds(int x, int y) 
