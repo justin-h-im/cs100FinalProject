@@ -85,7 +85,6 @@ void Board::displayBoard() {
 			cout << "|\n";
 			cout << std::setfill('-') << std::setw(40) << endl;
 		}
-		}
 	}
 	else {
 		for (int i = 7; i >= 0; i--) {
@@ -142,6 +141,10 @@ void Board::displayBoard() {
 
 void Board::updateBoard(int oldX, int oldY, int newX, int newY) {
 	square[newX][newY] = square[oldX][oldY];
+	if (square[oldX][oldY].getPiece() == KING) {
+		kingX = newX;
+		kingY = newY;
+	}
 	square[oldX][oldY] = nullptr;
 }
 
@@ -150,9 +153,20 @@ bool Board::verifyPieceExists(int x, int y) {
 	return square[x][y] == nullptr;
 }
 
-// returns false if the piece has no possible moves
-bool Board::verifyCoordinates(int x, int y) {
+// returns -1 if the 
+int Board::verifyCoordinates(int x, int y) {
 	Piece* curr = square[x][y];
-	if (curr == nullptr || turn == WHITE && curr->getColor() == BLACk || turn == BLACK && curr->getColor() == WHITE) { return true; }
-	return false;
+	if (curr == nullptr) { return 0; }
+	else if (turn == WHITE && curr->getColor() == BLACk || turn == BLACK && curr->getColor() == WHITE) { return 1; }
+	return -1;
 }
+
+// returns a pointer to a piece
+Piece* Board::getStatus(int x, int y) {
+	return square[x][y];
+}
+
+bool Board::kingStatus() {
+	return square[kingX][kingY]->getHp() == 0;
+}
+
