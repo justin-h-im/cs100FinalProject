@@ -6,7 +6,7 @@ enum class PieceType {
 };
 
 enum class Color {
-    White, Black
+    WHITE, BLACK
 };
 
 class Piece {
@@ -21,10 +21,12 @@ public:
     Piece(Color color, int x, int y, PieceType type) : color(color), x(x), y(y), type(type), hp(0) {}
     virtual ~Piece() {}
 
-    virtual bool move(int newX, int newY) = 0;
+    virtual bool move(int x1, int y1, int x2, int y2) = 0;   
+
     Color getColor() const { return color; }
     PieceType getType() const { return type; }
     void getPosition(int& outX, int& outY) const { outX = x; outY = y; }
+    int getHp() const { return hp; }
 };
 
 #endif
