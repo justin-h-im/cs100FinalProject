@@ -14,15 +14,12 @@
   0 1 2 3 4 5 6 7
 */
 
-extern Piece* board[8][8];  
-// tmep
-
 bool Pawn::isInBounds(int x, int y) 
 {
     return x >= 0 && x < 8 && y >= 0 && y < 8;
 }
 
-bool Pawn::move(int x1, int y1, int x2, int y2) 
+bool Pawn::move(int x1, int y1, int x2, int y2, Board status) 
 {
     if (!isInBounds(x2, y2) || (x1 == x2 && y1 == y2)) 
     {
@@ -33,7 +30,7 @@ bool Pawn::move(int x1, int y1, int x2, int y2)
     int direction = (getColor() == Color::WHITE) ? 1 : -1;
     // Set the direction based on pawn color, WHITE = 1(moves up), BLACK -1(moves down)
 
-    Piece* target = board[y2][x2];
+    Piece* target = status.getStatus();
 
     if (x1 == x2 && (y2 - y1) == direction && target == nullptr) 
     {
