@@ -9,8 +9,6 @@ to terminal to prompt for more user input. */
 * Player chooses to make a turn.
 * Another infinite loop that calls outputTurnMenu().*/
 
-
-
 #pragma once
 
 // #include "board.h"
@@ -19,15 +17,11 @@ to terminal to prompt for more user input. */
 class ui {
     private:
 
-
-
     public:
         // Constructor
         ui() {}
         // Destructor
         ~ui() {}
-
-
 
         /* Outputs start menu from before the game starts. If the return statement is true, then the game begins. 
          Otherwise, the game ends. */
@@ -40,11 +34,7 @@ class ui {
         and choose a different piece. */
         void outputTurnMenu();
 
-
-
-        /* Gets the user input, and then sends it to board. If board states that there is no piece, then we exit out of the function
-         and then start again from the output. */
-
-        // Basically calls printBoard from the game class. 
+        /* Prints the game from the display class depending on the context. It will call the normal print if the 
+        game is in normal mode, and will call the combat print if the game is in a combat scenario. */
         void printGame();
 };

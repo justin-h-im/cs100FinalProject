@@ -73,6 +73,7 @@ void ui::outputTurnMenu() {
         // check for 0-7 value. if false, flag remains 1. 
         // if piece::validNewLoc from cin is invalid, flag remains 1.
         // if game::isCombat is valid, flag goes to 0, and combat scenario is activated.
+        // if there is no place that the piece can go, end the turn. 
     }
-    // FIXME: Enter seprate cout for combat scenario, pr manage combat scenario menu here?
+    // FIXME: Enter separate cout for combat scenario, or manage combat scenario menu here?
 }
