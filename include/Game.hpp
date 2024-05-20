@@ -1,10 +1,11 @@
+#include "Piece.hpp"
 
 // class responsible for keeping track of the game's status
 // this includes keeping track of which player's turn it is along with if a player has won based on king HP
 class Game {
 	private:
-		bool check;
-		color turn;
+		bool check = false;
+		color turn = WHITE;
 		Piece* whiteKing;
 		Piece* blackKing;
 	public:
@@ -13,4 +14,6 @@ class Game {
 		bool isInCheck();
 		bool whiteWin();
 		bool blackWin();
+		void setWhiteKing(Piece*);
+		void setBlackKing(Piece*);
 };
