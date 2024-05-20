@@ -34,110 +34,6 @@ Board::Board() {
 	}
 }
 
-void Board::displayBoard() {
-	if (turn == WHITE) {
-		for (int i = 0; i < 8; i++) {
-			for (int j = 0; j < 8; j++) {
-				Piece* curr = square[i][j];
-				if (curr != nullptr) {
-					switch(curr->getPiece()) {
-						cout << "|"
-						case(KING):
-						{
-							if (curr.getColor() == WHITE) { cout << " ♔ ";} 
-							else { cout << " ♚ "; }
-							break;
-						}
-						case(QUEEN):
-						{
-							if (curr.getColor() == WHITE) { cout << " ♕ "; }
-							else { cout << " ♛ ";}
-							break;
-						}
-						case(PAWN):
-						{
-							if (curr.getColor() == WHITE) { cout << " ♙ "; }
-							else { cout << "♟"; }
-							break;
-						}
-						case(KNIGHT):
-						{
-							if (curr.getColor() == WHITE) { cout << " ♘ "; }
-							else { cout << " ♞ "; }
-							break;
-						}
-						case(BISHOP):
-						{
-							if (curr.getColor() == WHITE) { cout << " ♗ "; }
-							else { cout << " ♝ "; }
-							break;
-						}
-						case(ROOK):
-						{
-							if (curr.getColor() == WHITE) { cout << " ♖ "; }
-							else { cout << " ♜ ";}
-							break;
-						}
-					}
-				}
-				else { cout << "   "; }
-			}
-			cout << "|\n";
-			cout << std::setfill('-') << std::setw(40) << endl;
-		}
-	}
-	else {
-		for (int i = 7; i >= 0; i--) {
-			for (int j = 7; j >= 0; j--) {
-				Piece* curr = square[i][j];
-				if (curr != nullptr) {
-					switch(curr->getPiece()) {
-						cout << "|"
-						case(KING):
-						{
-							if (curr.getColor() == WHITE) { cout << " ♔ ";} 
-							else { cout << " ♚ "; }
-							break;
-						}
-						case(QUEEN):
-						{
-							if (curr.getColor() == WHITE) { cout << " ♕ "; }
-							else { cout << " ♛ ";}
-							break;
-						}
-						case(PAWN):
-						{
-							if (curr.getColor() == WHITE) { cout << " ♙ "; }
-							else { cout << "♟"; }
-							break;
-						}
-						case(KNIGHT):
-						{
-							if (curr.getColor() == WHITE) { cout << " ♘ "; }
-							else { cout << " ♞ "; }
-							break;
-						}
-						case(BISHOP):
-						{
-							if (curr.getColor() == WHITE) { cout << " ♗ "; }
-							else { cout << " ♝ "; }
-							break;
-						}
-						case(ROOK):
-						{
-							if (curr.getColor() == WHITE) { cout << " ♖ "; }
-							else { cout << " ♜ ";}
-							break;
-						}
-					}
-				}
-				else { cout << "   "; }
-			}
-			cout << "|\n";
-			cout << std::setfill('-') << std::setw(40) << endl;
-		}
-	}
-}
 
 void Board::updateBoard(int oldX, int oldY, int newX, int newY) {
 	square[newX][newY] = square[oldX][oldY];
@@ -148,13 +44,15 @@ void Board::updateBoard(int oldX, int oldY, int newX, int newY) {
 	square[oldX][oldY] = nullptr;
 }
 
-// check if piece 
-bool Board::verifyPieceExists(int x, int y) {
-	return square[x][y] == nullptr;
+// check if piece is movable
+bool Board::verifyPieceToMove(int x, int y) {
+	Piece* curr = square[x][y];
+	if (curr->getColor() != game->getTurn()) { return false; }
+	return curr == nullptr;
 }
 
 // returns -1 if the 
-int Board::verifyCoordinates(int x, int y) {
+int Board::verifyMove(int x, int y) {
 	Piece* curr = square[x][y];
 	if (curr == nullptr) { return 0; }
 	else if (turn == WHITE && curr->getColor() == BLACk || turn == BLACK && curr->getColor() == WHITE) { return 1; }
