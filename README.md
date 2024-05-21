@@ -119,8 +119,8 @@ For Every Move
 1. Does moving that piece put your king in check?
 1. Does moving that piece put the opponent in check?
 
-### User Interface Specifications
-## Navigation Diagram
+## User Interface Specifications
+### Navigation Diagram
 The Menu Screen presents the user with three options. They may begin the game, review the game manual, or quit the game.  
 The Select Piece Screen is the same for both users. The user is prompted to choose the location of the piece that they want to move.  
 The Move Piece Screen is also the same for both users. The user is prompted to choose the new location of the piece that they want to move.  
@@ -128,12 +128,15 @@ The Combat Scenario Screen activates based on whether or not the new location is
 The Combat Move Screens are the same for both users, appearing based on alternating turns. The screen lists possible moves that the user can take to deal damage to the opposing piece. The screen then changes for the opposing player, since the fighting pieces may have differing movesets.  
 The Game Over Screen presents the user with a "GAME OVER" message. Underneath, there is a statment that declares victory to the winning player.  
 ![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/07d154ea-4a2a-4514-9b65-9855f05291b1)
-## Screen Layouts
-Menu:  
-Select Piece:  
-Move Piece:  
-Combat Scenario:  
-Combat Move:  
+### Screen Layouts
+Combat Chess is entirely terminal run. As such, the graphical interface is done entirely throught text and ASCII characters. User input is typically done through numerical input.
+Menu:![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/24bc81f2-dc31-443e-9d18-4f89ccc4186c)  
+Select Piece: ![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/6f93570d-6a5c-4c8a-be86-155ec31ee861)  
+Move Piece: ![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/43010332-6722-4239-8e94-60ad777b562e)  
+Combat Scenario:  ![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/c03277c9-3928-4ffd-88ce-94d5af870372)
+Combat Move:  ![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/79a8ae7a-cffa-4753-ac7a-ef8d259cc9c4)  
+              ![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/c207936a-d96b-4043-a494-2f2de10b956e)  
+              ![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/6262995b-7590-498d-8c19-62685e872229)  
 Game Over:  
 
 ### UML Diagram
