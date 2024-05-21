@@ -21,6 +21,10 @@ public:
     Piece(Color color, int x, int y, PieceType type) : color(color), x(x), y(y), type(type), hp(0) {}
     virtual ~Piece() {}
 
+    bool isInBounds(int x, int y){
+        return x >= 0 && x < 8 && y >= 0 && y < 8;
+    }
+    
     virtual bool move(int x1, int y1, int x2, int y2) = 0;   
 
     Color getColor() const { return color; }
