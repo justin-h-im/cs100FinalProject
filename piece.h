@@ -1,6 +1,9 @@
 #ifndef PIECE_H
 #define PIECE_H
 
+class Board;
+// DELETE LATER
+
 enum class PieceType {
     Pawn, Knight, Bishop, Rook, Queen, King
 };
@@ -31,6 +34,8 @@ public:
     PieceType getType() const { return type; }
     void getPosition(int& outX, int& outY) const { outX = x; outY = y; }
     int getHp() const { return hp; }
+    int getX() const { return x; }
+    int getY() const { return y; }
 };
 
 #endif
