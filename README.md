@@ -120,7 +120,21 @@ For Every Move
 1. Does moving that piece put the opponent in check?
 
 ### User Interface Specifications
+## Navigation Diagram
+The Menu Screen presents the user with three options. They may begin the game, review the game manual, or quit the game.
+The Select Piece Screen is the same for both users. The user is prompted to choose the location of the piece that they want to move.
+The Move Piece Screen is also the same for both users. The user is prompted to choose the new location of the piece that they want to move.
+The Combat Scenario Screen activates based on whether or not the new location is occupyed by an opposing piece. The screen features the white piece on the left and the black piece on the right, with their healthbars listed underneath each piece.
+The Combat Move Screens are the same for both users, appearing based on alternating turns. The screen lists possible moves that the user can take to deal damage to the opposing piece. The screen then changes for the opposing player, since the fighting pieces may have differing movesets. 
+The Game Over Screen presents the user with a "GAME OVER" message. Underneath, there is a statment that declares victory to the winning player. 
 ![CombatChessUIRoutine](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/e9ac340d-1acb-4b75-a162-2756cbaa4cb1)
+## Screen Layouts
+Menu:
+Select Piece:
+Move Piece:
+Combat Scenario:
+Combat Move:
+Game Over:
 
 ### UML Diagram
 ![CS100FinalProject drawio (3)](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/147112330/014a7bf7-30c2-4827-9dac-a8d1599fa716)
