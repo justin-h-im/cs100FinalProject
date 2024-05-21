@@ -23,10 +23,11 @@ bool Queen::move(int x1, int y1, int x2, int y2) {
         return false;
     }
 
+    // find absolute value difference of start and end x and y coordinates
     int dx = abs(x2 - x1);
     int dy = abs(y2 - y1);
 
-    // queen movement: rook AND bishop
+    // queen movement: combination of rook AND bishop
     if (dx != dy && x1 != x2 && y1 != y2) {
         return false;
     }
@@ -34,8 +35,7 @@ bool Queen::move(int x1, int y1, int x2, int y2) {
     int xStep = 0;
     int yStep = 0;
     
-
-    /* determine direction of movement */
+    /* determine direction of movement (calculate step movement) */
     // vertical movement (if horizontal coordinate is same)
     if (x1 == x2) { 
         yStep = (y2 > y1) ? 1 : -1;
@@ -51,11 +51,13 @@ bool Queen::move(int x1, int y1, int x2, int y2) {
         xStep = (x2 > x1) ? 1 : -1;
         yStep = (y2 > y1) ? 1 : -1;
     }
-    
+
+    // start moving towards destination coordinates
     int x = x1 + xStep;
     int y = y1 + yStep;
 
     // check if all squares between the start and end are empty
+    // (stops right before destination coordinate!)
     while (x != x2 || y != y2) {
         if (board[y][x] != nullptr) {
             return false;
@@ -65,7 +67,7 @@ bool Queen::move(int x1, int y1, int x2, int y2) {
     }
 
     Piece* target = board[y2][x2];
-    // check if destination is either empty or occupied by an opponent's piece
+    // check if destination is empty or occupied by an opponent's piece
     if (target == nullptr || target->getColor() != this->getColor()) {
         // move or capture
         if (target != nullptr) {

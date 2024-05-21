@@ -33,7 +33,7 @@ bool Knight::move(int x1, int y1, int x2, int y2) {
     }
 
     Piece* target = board[y2][x2];
-    // check if destination is either empty or occupied by opponent's piece
+    // check if destination is empty or occupied by opponent's piece
     if (target == nullptr || target->getColor() != this->getColor()) {
         // move or capture
         if (target != nullptr) {
