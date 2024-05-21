@@ -19,7 +19,7 @@ extern Piece* board[8][8];
 // [start coordinate] (x1, y1) 
 //  move to 
 // [destination coordinate] (x2, y2)
-bool Bishop::move(int x1, int y1, int x2, int y2) {
+bool Bishop::move(int x1, int y1, int x2, int y2, const Board& board) {
     if (!isInBounds(x2, y2) || (x1 == x2 && y1 == y2)) {
         return false;
     }

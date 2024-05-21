@@ -25,7 +25,7 @@ public:
         return x >= 0 && x < 8 && y >= 0 && y < 8;
     }
     
-    virtual bool move(int x1, int y1, int x2, int y2) = 0;   
+    virtual bool move(int x1, int y1, int x2, int y2, const Board& board) = 0;   
 
     Color getColor() const { return color; }
     PieceType getType() const { return type; }
