@@ -11,7 +11,6 @@ class Game {
 	public:
 		Game();
 		Color getTurn();
-		bool isInCheck();
 		bool whiteWin();
 		bool blackWin();
 		void setWhiteKing(Piece*);

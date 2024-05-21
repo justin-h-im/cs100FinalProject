@@ -21,7 +21,3 @@ void Game::setWhiteKing(Piece* wk) {
 void Game::setBlackKing(Piece* bk) {
 	blackKing == bk;
 }
-
-bool Game::isInCheck() {
-
-}
