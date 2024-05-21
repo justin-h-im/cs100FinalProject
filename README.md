@@ -146,6 +146,7 @@ Combat Move: Prompts both users for moves and performs combat actions based on t
 ![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/6262995b-7590-498d-8c19-62685e872229)  
 Game Over: Display a "GAME OVER" screen and declare the victor of the game. 
 ![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/6356b397-ad4e-4c96-b670-949561212365)  
+UNICODE courtesty of https://www.unicode.org/charts/PDF/U2600.pdf.  
 
 ### UML Diagram
 ![CS100FinalProject drawio (3)](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/147112330/014a7bf7-30c2-4827-9dac-a8d1599fa716)
