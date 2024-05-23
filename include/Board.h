@@ -11,6 +11,11 @@ class Board {
 		// board is a 2d array storing pointers to the pieces (if there is no piece it stores nullptr)
 		Piece* square[8][8];
 
+		int kingX; // X position of the king
+    	int kingY; // Y position of the king
+
+		
+
 	public:
 		// sets up the board to the standard start for chess
 		Board();
