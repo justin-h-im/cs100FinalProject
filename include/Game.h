@@ -5,7 +5,7 @@
 class Game {
 	private:
 		bool check = false;
-		Color turn = WHITE;
+		Color turn = Color::WHITE;
 		Piece* whiteKing;
 		Piece* blackKing;
 	public:

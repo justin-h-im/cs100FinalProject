@@ -1,4 +1,11 @@
-#include "../include/Board.hpp"
+#include "../include/Board.h"
+#include "../include/bishop.h"
+#include "../include/king.h"
+#include "../include/knight.h"
+#include "../include/pawn.h"
+#include "../include/piece.h"
+#include "../include/queen.h"
+#include "../include/rook.h"
 
 #include <iostream>
 
@@ -8,35 +15,36 @@ using std::endl;
 // Constructor sets up the Board
 Board::Board() {
 	// set up black pieces
-	square[0][0] = new Piece(BLACK, 0, 0, ROOK);
-	square[0][1] = new Piece(BLACK, 0, 1, KNIGHT);
-	square[0][2] = new Piece(BLACK, 0, 2, BISHOP);
-	square[0][3] = new Piece(BLACK, 0, 3, QUEEN);
-	square[0][4] = new Piece(BLACK, 0, 4, KING);
-	square[0][5] = new Piece(BLACK, 0, 5, BISHOP);
-	square[0][6] = new Piece(BLACK, 0, 6, KNIGHT);
-	square[0][7] = new Piece(BLACK, 0, 7, ROOK);
-	for (int i = 0; i < 8; i++) {
-		square[1][i] = new Piece (BLACK, 1, i, PAWN);
-	}
+	// square[0][0] = new Rook(Color::BLACK, 0, 0);
+	// square[0][1] = new Knight(Color::BLACK, 0, 1);
+	// square[0][2] = new Piece(BLACK, 0, 2, BISHOP);
+	// square[0][3] = new Piece(BLACK, 0, 3, QUEEN);
+	// square[0][4] = new Piece(BLACK, 0, 4, KING);
+	// square[0][5] = new Piece(BLACK, 0, 5, BISHOP);
+	// square[0][6] = new Piece(BLACK, 0, 6, KNIGHT);
+	// square[0][7] = new Piece(BLACK, 0, 7, ROOK);
+	// for (int i = 0; i < 8; i++) {
+	// 	square[1][i] = new Piece (BLACK, 1, i, PAWN);
+	// }
 
-	// set up white pieces
-	square[7][0] = new Piece(WHITE, 6, 0, ROOK);
-	square[7][1] = new Piece(WHITE, 6, 1, KNIGHT);
-	square[7][2] = new Piece(WHITE, 6, 2, BISHOP);
-	square[6][3] = new Piece(WHITE, 6, 3, QUEEN);
-	square[6][4] = new Piece(WHITE, 6, 4, KING);
-	square[0][5] = new Piece(WHITE, 6, 5, BISHOP);
-	square[0][6] = new Piece(WHITE, 6, 6, KNIGHT);
-	square[0][7] = new Piece(WHITE, 6, 7, ROOK);
-	for (int i = 0; i < 8; i++) {
-		square[7][i] = new Piece (WHITE, 7, i, PAWN);
-	}
+	// // set up white pieces
+	// square[7][0] = new Piece(WHITE, 6, 0, ROOK);
+	// square[7][1] = new Piece(WHITE, 6, 1, KNIGHT);
+	// square[7][2] = new Piece(WHITE, 6, 2, BISHOP);
+	// square[6][3] = new Piece(WHITE, 6, 3, QUEEN);
+	// square[6][4] = new Piece(WHITE, 6, 4, KING);
+	// square[0][5] = new Piece(WHITE, 6, 5, BISHOP);
+	// square[0][6] = new Piece(WHITE, 6, 6, KNIGHT);
+	// square[0][7] = new Piece(WHITE, 6, 7, ROOK);
+	// for (int i = 0; i < 8; i++) {
+	// 	square[7][i] = new Piece (WHITE, 7, i, PAWN);
+	// }
 }
 
 void Board::updateBoard(int oldX, int oldY, int newX, int newY) {
 	square[newX][newY] = square[oldX][oldY];
-	if (square[oldX][oldY].getPiece() == KING) {
+	if (square[oldX][oldY] && square[oldX][oldY]->getType() == PieceType::King) 
+	{
 		kingX = newX;
 		kingY = newY;
 	}
