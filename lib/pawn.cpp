@@ -16,6 +16,7 @@
 */
 
 bool Pawn::move(int x1, int y1, int x2, int y2, const Board& board) 
+// change x1 and y1 and x2 and y2 after
 {
     if (!isInBounds(x2, y2) || (x1 == x2 && y1 == y2)) 
     {
