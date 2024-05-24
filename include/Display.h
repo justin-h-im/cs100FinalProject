@@ -1,7 +1,9 @@
 #include "./lib/Display.h"
 class Display {
 	private:
-		void displayWhitePiece(Piece* piece);
+		Board board;
+		void displayBlackPiece(Piece*);
+		void displayWhitePiece(Piece*);
 	public: 
 		void displayBoard();
 		void displayCombat(Piece*, Piece*);
