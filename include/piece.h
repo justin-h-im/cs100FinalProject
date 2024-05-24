@@ -31,6 +31,8 @@ public:
     PieceType getType() const { return type; }
     void getPosition(int& outX, int& outY) const { outX = x; outY = y; }
     int getHp() const { return hp; }
+    int getX() const { return x; }
+    int getY() const { return y; }
 };
 
 #endif
