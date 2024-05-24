@@ -1,11 +1,13 @@
 #pragma once
 
-#include "./Piece.hpp"
+class Piece;
+class Game;
 
 // class responsible for storing where pieces are on the board
 class Board {
 	private:
 		// board is a 2d array storing pointers to the pieces (if there is no piece it stores nullptr)
+		Game game;
 		Piece* square[8][8];
 	public:
 		// sets up the board to the standard start for chess
@@ -17,5 +19,5 @@ class Board {
 		// determines if the player is making a possible move
 		int verifyMove(int x, int y);
 		// Returns whatever piece is at that square
-		Piece* getStatus(int x, int y);
+		Piece* getPiece(int x, int y);
 };
