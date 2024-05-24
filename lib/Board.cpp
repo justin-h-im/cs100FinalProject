@@ -67,7 +67,7 @@ Board::Board() {
 // }
 
 // returns a pointer to a piece
-Piece* Board::getStatus(int x, int y) {
+Piece* Board::getStatus(int x, int y) const {
 	return square[x][y];
 }
 

@@ -23,5 +23,5 @@ class Board {
 		// // Returns whatever piece is at that square
 		// int verifyMove(int x, int y);
 
-		Piece* getStatus(int x, int y);
+		Piece* getStatus(int x, int y) const;
 };
