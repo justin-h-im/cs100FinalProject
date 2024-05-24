@@ -119,8 +119,34 @@ For Every Move
 1. Does moving that piece put your king in check?
 1. Does moving that piece put the opponent in check?
 
-### User Interface Specifications
-![CombatChessUIRoutine](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/e9ac340d-1acb-4b75-a162-2756cbaa4cb1)
+## User Interface Specifications
+### Navigation Diagram
+The Menu Screen presents the user with three options. They may begin the game, review the game manual, or quit the game.  
+The Select Piece Screen is the same for both users. The user is prompted to choose the location of the piece that they want to move.  
+The Move Piece Screen is also the same for both users. The user is prompted to choose the new location of the piece that they want to move.  
+The Combat Scenario Screen activates based on whether or not the new location is occupyed by an opposing piece. The screen features the white piece on the left and the black piece on the right, with their healthbars listed underneath each piece.  
+The Combat Move Screens are the same for both users, appearing based on alternating turns. The screen lists possible moves that the user can take to deal damage to the opposing piece. The screen then changes for the opposing player, since the fighting pieces may have differing movesets.  
+The Game Over Screen presents the user with a "GAME OVER" message. Underneath, there is a statement that declares victory to the winning player.  
+![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/07d154ea-4a2a-4514-9b65-9855f05291b1)
+### Screen Layouts
+Combat Chess is entirely terminal run. As such, the graphical interface is done entirely throught text and ASCII characters. User input is typically done through numerical input.
+Menu: Presents the user with options to begin the game, review the game manual, or quit the game.  
+![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/24bc81f2-dc31-443e-9d18-4f89ccc4186c)  
+Display User Guide: Presents the user with a user guide in terminal. The user may press "q" to quit.  
+![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/05f2702e-6a9e-44da-a8ee-c194c0e8d4cc)  
+Select Piece: Prompts the user to choose the location of the piece to be moved.  
+![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/6f93570d-6a5c-4c8a-be86-155ec31ee861)  
+Move Piece: Prompts the user to choose the new location of the selected piece.  
+![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/43010332-6722-4239-8e94-60ad777b562e)  
+Combat Scenario: Introduces the combat scenario with the dueling pieces.  
+![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/c03277c9-3928-4ffd-88ce-94d5af870372)
+Combat Move: Prompts both users for moves and performs combat actions based on the user turn and their chosen input.  
+![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/79a8ae7a-cffa-4753-ac7a-ef8d259cc9c4)  
+![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/c207936a-d96b-4043-a494-2f2de10b956e)  
+![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/6262995b-7590-498d-8c19-62685e872229)  
+Game Over: Display a "GAME OVER" screen and declare the victor of the game. 
+![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/6356b397-ad4e-4c96-b670-949561212365)  
+UNICODE courtesy of https://www.unicode.org/charts/PDF/U2600.pdf.  
 
 ### UML Diagram
 ![CS100FinalProject drawio (3)](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/147112330/014a7bf7-30c2-4827-9dac-a8d1599fa716)
