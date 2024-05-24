@@ -6,6 +6,11 @@ Color Game::getTurn() {
 	return turn;
 }
 
+void Game::updateTurn() {
+	if (turn == Color::WHITE) { turn = Color::BLACK; }
+	else { turn = Color::WHITE; }
+}
+
 bool Game::whiteWin() {
 	return whiteKing->getHP() == 0;
 }
