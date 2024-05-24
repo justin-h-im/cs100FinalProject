@@ -14,18 +14,16 @@
   0 1 2 3 4 5 6 7
 */
 
-extern Piece* board[8][8];
-
 // [start coordinate] (x1, y1) 
 //  move to 
 // [destination coordinate] (x2, y2)
-bool Bishop::move(int x1, int y1, int x2, int y2) {
+bool Bishop::move(int x1, int y1, int x2, int y2, const Board& board) {
     if (!isInBounds(x2, y2) || (x1 == x2 && y1 == y2)) {
         return false;
     }
 
-    int dx = abs(x2 - x1);
-    int dy = abs(y2 - y1);
+    int dx = std::abs(x2 - x1);
+    int dy = std::abs(y2 - y1);
 
     // bishops move diagonally, so absolute difference b/n x and y coordinates must be equal
     if (dx != dy) {
@@ -46,31 +44,32 @@ bool Bishop::move(int x1, int y1, int x2, int y2) {
     // does NOT check the actual destination coordinate (stops right before)
     while (x != x2 && y != y2) {
       // return false if any coordinate b/n start and end is NOT valid 
-      if (board[y][x] != nullptr) {
-          return false;
+      if (board.getStatus(x, y) != nullptr) {
+        return false;
       }
       // step towards destination coordinate
       x += xStep;
       y += yStep;
     }
 
-    Piece* target = board[y2][x2];
+    Piece* target = board.getStatus(x2, y2);
     // if empty OR spot has piece on it
     if (target == nullptr || target->getColor() != this->getColor()) {
-        // move or capture
-        if (target != nullptr) {
-            // capture the piece
-            // replace with INITIATE FIGHT later
-            delete target;  
-        }
-        board[y2][x2] = this; // destination coordinate now holds new piece
-        board[y1][x1] = nullptr; // start coordinate is now empty
+      /* athena does this in board */
+      // // move or capture
+      // if (target != nullptr) {
+      //     // capture the piece
+      //     // replace with INITIATE FIGHT later
+      //     delete target;  
+      // }
+      // board.setStatus(x2, y2, this); // destination coordinate now holds new piece
+      // board.setStatus(x1, y1, nullptr); // start coordinate is now empty
 
-        // update own coordinates
-        this->x = x2;
-        this->y = y2;
+      // update own coordinates
+      this->x = x2;
+      this->y = y2;
 
-        return true; // has moved
+      return true; // has moved
     }
 
     return false;
