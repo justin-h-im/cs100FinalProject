@@ -3,8 +3,6 @@
 
 #include "../include/Board.h"
 
-class Board;
-
 enum class PieceType {
     Pawn, Knight, Bishop, Rook, Queen, King
 };
