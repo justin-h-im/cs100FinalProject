@@ -5,7 +5,7 @@
 using std::cout;
 using std::endl;
 
-// Constructor sets up the Board
+// constructor sets up the Board
 Board::Board() {
 	// set up black pieces
 	square[0][0] = new Rook(Color::BLACK, 0, 0);

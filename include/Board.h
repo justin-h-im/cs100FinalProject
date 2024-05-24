@@ -3,7 +3,7 @@
 class Piece;
 class Game;
 
-// class responsible for storing where pieces are on the board
+// class is responsible for storing where pieces are on the board
 class Board {
 	private:
 		// board is a 2d array storing pointers to the pieces (if there is no piece it stores nullptr) 
