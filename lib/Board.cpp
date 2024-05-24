@@ -41,30 +41,30 @@ Board::Board() {
     }
 }
 
-void Board::updateBoard(int oldX, int oldY, int newX, int newY) {
-	square[newX][newY] = square[oldX][oldY];
-	if (square[oldX][oldY] && square[oldX][oldY]->getType() == PieceType::King) 
-	{
-		kingX = newX;
-		kingY = newY;
-	}
-	square[oldX][oldY] = nullptr;
-}
+// void Board::updateBoard(int oldX, int oldY, int newX, int newY) {
+// 	square[newX][newY] = square[oldX][oldY];
+// 	if (square[oldX][oldY] && square[oldX][oldY]->getType() == PieceType::King) 
+// 	{
+// 		kingX = newX;
+// 		kingY = newY;
+// 	}
+// 	square[oldX][oldY] = nullptr;
+// }
 
-// check if piece 
-bool Board::verifyPieceToMove(int x, int y) {
-	Piece* curr = square[x][y];
-	if (curr->getColor() != game.getTurn()) { return false; }
-	return curr == nullptr;
-}
+// // check if piece 
+// bool Board::verifyPieceToMove(int x, int y) {
+// 	Piece* curr = square[x][y];
+// 	if (curr->getColor() != game.getTurn()) { return false; }
+// 	return curr == nullptr;
+// }
 
 // returns -1 if the 
-int Board::verifyMove(int x, int y) {
-	Piece* curr = square[x][y];
-	if (curr == nullptr) { return 0; }
-	else if (turn == WHITE && curr->getColor() == BLACK || turn == BLACK && curr->getColor() == WHITE) { return 1; }
-	return -1;
-}
+// int Board::verifyMove(int x, int y) {
+// 	Piece* curr = square[x][y];
+// 	if (curr == nullptr) { return 0; }
+// 	else if (turn == WHITE && curr->getColor() == BLACK || turn == BLACK && curr->getColor() == WHITE) { return 1; }
+// 	return -1;
+// }
 
 // returns a pointer to a piece
 Piece* Board::getStatus(int x, int y) {

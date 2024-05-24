@@ -13,7 +13,6 @@
   0 1 2 3 4 5 6 7
 */
 
-extern Piece* board[8][8];
 
 // [start coordinate] (x1, y1) 
 //  move to 
