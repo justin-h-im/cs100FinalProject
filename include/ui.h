@@ -11,11 +11,18 @@ to terminal to prompt for more user input. */
 
 #pragma once
 
-#include "../include/Board.h"
 #include "../include/piece.h"
+#include "../include/Board.h"
+#include "../include/Game.h"
+
+#include <iostream>
+#include <ostream>
+#include <fstream>
 
 class ui {
     private:
+        Board* board;
+        Game* game;
 
     public:
         // Constructor
@@ -37,4 +44,7 @@ class ui {
         /* Prints the game from the display class depending on the context. It will call the normal print if the 
         game is in normal mode, and will call the combat print if the game is in a combat scenario. */
         void printGame();
+
+        /* Introduces the rules and mechanics of the game to the user. Then prompts them with a return to menu option. */
+        void outputUserGuide();
 };
