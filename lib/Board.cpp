@@ -47,7 +47,7 @@ bool Board::verifyPieceToMove(int x, int y) const {
 	return piece == nullptr;
 }
 
-// returns -1 if the move is not possible, return 0 if space is empty, return 
+// returns -1 if the move is not possible, return 0 if space is empty, return 1 if combat scenario should be entered
 int Board::verifyMove(int x, int y) const {
 	Piece* piece = square[x][y];
 	if (piece == nullptr) { return 0; }
