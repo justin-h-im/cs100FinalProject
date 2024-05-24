@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-bool King::move(int x1, int y1, int x2, int y2, Board status) 
+bool King::move(int x1, int y1, int x2, int y2, const Board& board) 
 {
     if (isMoveValid(x1, y1, x2, y2)) 
     {
