@@ -55,7 +55,8 @@ bool Bishop::move(int x1, int y1, int x2, int y2, const Board& board) {
     }
 
     Piece* target = board[y2][x2];
-    // if empty OR spot has piece on it
+    // if empty OR spot has piece on it\
+    
     if (target == nullptr || target->getColor() != this->getColor()) {
         // move or capture
         if (target != nullptr) {
