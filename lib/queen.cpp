@@ -1,4 +1,4 @@
-#include "queen.h"
+#include "../include/queen.h"
 #include <cmath>
 
 // [start coordinate] (x1, y1) 
