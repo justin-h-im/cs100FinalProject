@@ -11,8 +11,8 @@ to terminal to prompt for more user input. */
 
 #pragma once
 
-// #include "board.h"
-// #include "piece.h"
+#include "../include/Board.h"
+#include "../include/piece.h"
 
 class ui {
     private:

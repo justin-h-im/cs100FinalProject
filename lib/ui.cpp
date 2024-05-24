@@ -50,19 +50,24 @@ void ui::outputTurnMenu() {
         cout << "State the location of your vassal: " << endl;
         cin >> x;
         if (!cin.good() || x < 0 || x > 7) {
-            cout << "Your vassal cannot flee the battlefield." << endl;
+            cout << "Your vassal cannot be outside the battlefield." << endl;
             continue;
         }
         else {
             cin >> y;
             if (!cin.good() || y < 0 || y > 7) {
-                cout << "Your vassal cannot flee the battlefield." << endl;
+                cout << "Your vassal cannot be outside the battlefield." << endl;
                 continue;
             }
         }
 
+        
         // if game::validInput from cin is invalid, flag remains 1.
         // else, flag = 0
+        if (verifyPieceToMove(x, y) != true) {
+            
+        }
+
     }
 
     flag = 1;
