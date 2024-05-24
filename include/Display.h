@@ -1,4 +1,5 @@
-#include "./lib/Display.h"
+#include "../include/Board.h"
+
 class Display {
 	private:
 		Board board;
