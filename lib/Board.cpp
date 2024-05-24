@@ -56,7 +56,7 @@ int Board::verifyMove(int x, int y) const {
 }
 
 // returns a pointer to a piece
-const Piece* Board::getPiece(int x, int y) const {
+Piece* Board::getPiece(int x, int y) const {
 	return square[x][y];
 }
 
