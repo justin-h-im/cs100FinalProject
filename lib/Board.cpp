@@ -1,4 +1,11 @@
-#include "../include/Board.hpp"
+#include "../include/Board.h"
+#include "../include/piece.h"
+#include "../include/bishop.h"
+#include "../include/king.h"
+#include "../include/knight.h"
+#include "../include/pawn.h"
+#include "../include/queen.h"
+#include "../include/rook.h"
 
 #include <iostream>
 
