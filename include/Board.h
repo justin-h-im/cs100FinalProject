@@ -15,9 +15,9 @@ class Board {
 		// moves a piece
 		void updateBoard(int oldX, int oldY, int newX, int newY);
 		// determines there a player can move whatever is at the location
-		bool verifyPieceToMove(int x, int y);
+		bool verifyPieceToMove(int x, int y) const;
 		// determines if the player is making a possible move
-		int verifyMove(int x, int y);
+		int verifyMove(int x, int y) const;
 		// Returns whatever piece is at that square
-		Piece* getPiece(int x, int y);
+		Piece* getPiece(int x, int y) const;
 };
