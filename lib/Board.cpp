@@ -5,7 +5,7 @@
 using std::cout;
 using std::endl;
 
-// constructor sets up the Board
+// Constructor sets up the Board
 Board::Board() {
 	// set up black pieces
 	square[0][0] = new Rook(Color::BLACK, 0, 0);
@@ -34,24 +34,23 @@ Board::Board() {
 	}
 }
 
-// updates where a piece is on the board
 void Board::updateBoard(int oldX, int oldY, int newX, int newY) {
 	square[newX][newY] = square[oldX][oldY];
 	square[oldX][oldY] = nullptr;
 }
 
-// checks if the player can move the piece at the coordinates
-bool Board::verifyPieceToMove(int x, int y) const {
-	Piece* piece = square[x][y];
-	if (piece->getColor() != game.getTurn()) { return false; }
-	return piece == nullptr;
+// check if piece 
+bool Board::verifyPieceToMove(int x, int y) {
+	Piece* curr = square[x][y];
+	if (curr->getColor() != game.getTurn()) { return false; }
+	return curr == nullptr;
 }
 
-// returns -1 if the move is not possible, return 0 if space is empty, return 1 if combat scenario should be entered
-int Board::verifyMove(int x, int y) const {
-	Piece* piece = square[x][y];
-	if (piece == nullptr) { return 0; }
-	else if (game.getTurn() == Color::WHITE && piece->getColor() == Color::BLACK || game.getTurn() == Color::BLACK && piece->getColor() == Color::WHITE) { return 1; }
+// returns -1 if the 
+int Board::verifyMove(int x, int y) {
+	Piece* curr = square[x][y];
+	if (curr == nullptr) { return 0; }
+	else if (turn == WHITE && curr->getColor() == BLACK || turn == BLACK && curr->getColor() == WHITE) { return 1; }
 	return -1;
 }
 
