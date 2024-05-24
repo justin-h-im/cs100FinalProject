@@ -1,47 +1,77 @@
 #include "./include/Display.h"
 
-void Board::displayBoard() {
+void Display::displayBoard() {
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
 			Piece* curr = board.getPiece(i, j);
+			cout << "|"
 			if (curr != nullptr) {
-				switch(curr->getPiece()) {
-					cout << "|"
-					case(KING):
-					{
-						if (curr.getColor() == WHITE) { cout << " ♔ ";} 
-						else { cout << " ♚ "; }
-						break;
+				if (curr->getColor() == Color::WHITE) {
+					switch (curr->getType()) {
+						case KING: 
+						{
+							cout << " ♚ ";
+							break;
+						}
+						case QUEEN:
+						{
+							cout << " ♛ ";
+							break;
+						}
+						case PAWN:
+						{
+							cout << " ♟ ";
+							break;
+						}
+						case KNIGHT:
+						{
+							cout << " ♞ ";
+							break;
+						}
+						case BISHOP:
+						{
+							cout << " ♝ ";
+							break;
+						}
+						case ROOK:
+						{
+							cout << " ♜ ";
+							break;
+						}
 					}
-					case(QUEEN):
-					{
-						if (curr.getColor() == WHITE) { cout << " ♕ "; }
-						else { cout << " ♛ ";}
-						break;
-					}
-					case(PAWN):
-					{
-						if (curr.getColor() == WHITE) { cout << " ♙ "; }
-						else { cout << "♟"; }
-						break;
-					}
-					case(KNIGHT):
-					{
-						if (curr.getColor() == WHITE) { cout << " ♘ "; }
-						else { cout << " ♞ "; }
-						break;
-					}
-					case(BISHOP):
-					{
-						if (curr.getColor() == WHITE) { cout << " ♗ "; }
-						else { cout << " ♝ "; }
-						break;
-					}
-					case(ROOK):
-					{
-						if (curr.getColor() == WHITE) { cout << " ♖ "; }
-						else { cout << " ♜ ";}
-						break;
+				}
+				else {
+					switch (curr->getType()) {
+						case KING: 
+						{
+							cout << " ♔ ";
+							break;
+						}
+						case QUEEN:
+						{
+							cout << " ♕ ";
+							break;
+						}
+						case PAWN:
+						{
+							cout << " ♙ ";
+							break;
+						}
+						case KNIGHT:
+						{
+							cout << " ♘ ";
+							break;
+						}
+						case BISHOP:
+						{
+							cout << " ♗ ";
+							break;
+						}
+						case ROOK:
+						{
+							cout << " ♖ ";
+							break;
+						}
 					}
 				}
 			}
@@ -66,51 +96,74 @@ void Display::displayCombat(Piece* attacker, Piece* defender) {
 void Display::displayWhitePiece(Piece* piece) {
 	switch(piece->getType()) {
 		case PAWN:
+		{
 			printWhitePawn();
 			break;
+		}
 		case KNIGHT:
+		{
 			printWhiteKnight();
 			break;
+		}
 		case BISHOP
+		{
 			printWhiteBishop();
 			break;
+		}
 		case ROOK:
+		{
 			printWhiteRook();
 			break;
+		}
 		case QUEEN:
+		{
 			printWhiteQueen();
 			break;
+		}
 		case KING:
+		{
 			printWhiteKing();
 			break;
+		}
 	}
 }
 
 void Display::displayBlackPiece(Piece* piece) {
 	switch(piece->getType()) {
-	case PAWN:
-		printBlackPawn();
-		break;
-	case KNIGHT:
-		printBlackKnight();
-		break;
-	case BISHOP
-		printBlackBishop();
-		break;
-	case ROOK:
-		printBlackRook();
-		break;
-	case QUEEN:
-		printBlackQueen();
-		break;
-	case KING:
-		printBlackKing();
-		break;
+		case PAWN:
+		{
+			printBlackPawn();
+			break;
+		}
+		case KNIGHT:
+		{
+			printBlackKnight();
+			break;
+		}
+		case BISHOP
+		{
+			printBlackBishop();
+			break;
+		}
+		case ROOK:
+		{
+			printBlackRook();
+			break;
+		}
+		case QUEEN:
+		{
+			printBlackQueen();
+			break;
+		}
+		case KING:
+		{
+			printBlackKing();
+			break;
+		}
 	}
 }
 
-
-void printWhitePawn() {
+void Display::printWhitePawn() {
 	cout << "             " << endl;
 	cout << "     ■■■     " << endl;
 	cout << "    ■■■■■    " << endl;
@@ -120,7 +173,7 @@ void printWhitePawn() {
 	cout << "  ■■■■■■■■■  " << endl;
 }
 
-void printWhiteKnight() {
+void Display::printWhiteKnight() {
 	cout << "             " << endl;
 	cout << "     ■■■     " << endl;
 	cout << "  ■■■■■■■    " << endl;
@@ -130,7 +183,7 @@ void printWhiteKnight() {
 	cout << "  ■■■■■■■■■  " << endl;
 }
 
-void printWhiteBishop() {
+void Display::printWhiteBishop() {
 	cout << "     ■■      " << endl;
 	cout << "    ■■  ■    " << endl;
 	cout << "    ■■■■■    " << endl;
@@ -140,7 +193,7 @@ void printWhiteBishop() {
 	cout << "   ■■■■■■■   " << endl;
 }
 
-void printWhiteRook() {
+void Display::printWhiteRook() {
 	cout << "             " << endl;
 	cout << "   ■ ■ ■ ■   " << endl;
 	cout << "   ■■■■■■■   " << endl;
@@ -150,7 +203,7 @@ void printWhiteRook() {
 	cout << "  ■■■■■■■■■  " << endl;
 }
 
-void printWhiteQueen() {
+void Display::printWhiteQueen() {
 	cout << "    ■ ■ ■    " << endl;
 	cout << "    ■■■■■    " << endl;
 	cout << "     ■■■     " << endl;
@@ -160,7 +213,7 @@ void printWhiteQueen() {
 	cout << "   ■■■■■■■   " << endl;
 }
 
-void printWhiteKing() {
+void Display::printWhiteKing() {
 	cout << "      ■      " << endl;
 	cout << "   ■■■■■■■    " << endl;
 	cout << "    ■■■■■      " << endl;
@@ -170,7 +223,7 @@ void printWhiteKing() {
 	cout << "   ■■■■■■■   " << endl;
 }
 
-void printBlackPawn() {
+void Display::printBlackPawn() {
 	cout << "             " << endl;
 	cout << "     |||     " << endl;
 	cout << "    |||||    " << endl;
@@ -180,7 +233,7 @@ void printBlackPawn() {
 	cout << "  |||||||||  " << endl;
 }
 
-void printBlackKnight() {
+void Display::printBlackKnight() {
 	cout << "             " << endl;
 	cout << "     |||     " << endl;
 	cout << "  |||||||    " << endl;
@@ -190,7 +243,7 @@ void printBlackKnight() {
 	cout << "  |||||||||  " << endl;
 }
 
-void printBlackBishop() {
+void Display::printBlackBishop() {
 	cout << "     ||      " << endl;
 	cout << "    ||  |   " << endl;
 	cout << "    |||||    " << endl;
@@ -200,7 +253,7 @@ void printBlackBishop() {
 	cout << "   |||||||   " << endl;
 }
 
-void printBlackRook() {
+void Display::printBlackRook() {
 	cout << "             " << endl;
 	cout << "   | | | |   " << endl;
 	cout << "   |||||||   " << endl;
@@ -210,7 +263,7 @@ void printBlackRook() {
 	cout << "  |||||||||  " << endl;
 }
 
-void printBlackQueen() {
+void Display::printBlackQueen() {
 	cout << "    | | |    " << endl;
 	cout << "    |||||    " << endl;
 	cout << "     |||     " << endl;
@@ -220,7 +273,7 @@ void printBlackQueen() {
 	cout << "   |||||||   " << endl;
 }
 
-void printBlackKing() {
+void Display::printBlackKing() {
 	cout << "      |      " << endl;
 	cout << "   |||||||    " << endl;
 	cout << "    |||||      " << endl;
