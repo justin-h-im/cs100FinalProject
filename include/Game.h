@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Piece.h"
+#include "../include/piece.h"
 
 // class responsible for keeping track of the game's status
 // this includes keeping track of which player's turn it is along with if a player has won based on king HP

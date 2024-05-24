@@ -149,9 +149,13 @@ Game Over: Display a "GAME OVER" screen and declare the victor of the game.
 UNICODE courtesy of https://www.unicode.org/charts/PDF/U2600.pdf.  
 
 ### UML Diagram
-![CS100FinalProject drawio (3)](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/147112330/014a7bf7-30c2-4827-9dac-a8d1599fa716)
+![Chess UML Diagram](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/147112330/003aa3c6-35c3-4fe8-9e95-94ffbac9ab86)
 
 ### Class Descriptions
 The Game class will be the board and control the turns. Since it is the board, it is responsible for setting up the board which holds pointers to pieces in an 8 by 8 2D array and displaying the visuals. Along with that it will also control what phase the game is in (i.e. player turn, combat, and end game when king hp is 0).
 For the chess pieces there is a base class called Piece which contains a color, the coordinates of the piece, the type of piece it is, and the health of the piece for combat. The color of the piece and the pieceType have separate enums to make it simpler for identifying pieces for interactions. It also has cooresponding getters and setters. Along with the base class there are 6 derived classes for each of the unique chess piece types. These are responsible for the pieces specific movements and what they do in encounters.
+
+### Class Description SOLID Updates
+In the previous phase the class diagram for this project had several violations of SOLID principles. The main violation was a violation of the single responsibility principle by the Game class which was responsible for 3 actions: updating the board, tracking the game's status, and display. In order to fix this violation, two additional classes were created, the Display class and the Board class. The Game class now only has the responsibility of tracking the game's status while the Display class prints the chess board and combat interactions and the Board class keeps track of the pieces' locations. This made the code significantly more organized. Along with this violation, there was also a violation of the dependency inversion principle as there was no class for user interactions as it was planned that main would handle this. This would result in the main (a high level module) interacting with the low level modules like Board and Piece. To fix this a UI class was added to communicate with the user. This ensures that the main function at the end of this project will be much cleaner than before.
+
 
