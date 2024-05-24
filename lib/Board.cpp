@@ -36,10 +36,6 @@ Board::Board() {
 
 void Board::updateBoard(int oldX, int oldY, int newX, int newY) {
 	square[newX][newY] = square[oldX][oldY];
-	if (square[oldX][oldY].getPiece() == KING) {
-		kingX = newX;
-		kingY = newY;
-	}
 	square[oldX][oldY] = nullptr;
 }
 
