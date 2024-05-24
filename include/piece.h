@@ -2,11 +2,8 @@
 #define PIECE_H
 
 #include "../include/Board.h"
-<<<<<<< HEAD
 
 class Board;
-=======
->>>>>>> 3323e66f487680020bdb50d6cb8e2ad3216e669f
 
 enum class PieceType {
     Pawn, Knight, Bishop, Rook, Queen, King
