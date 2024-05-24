@@ -108,3 +108,124 @@ void Display::displayBlackPiece(Piece* piece) {
 		break;
 	}
 }
+
+
+void printWhitePawn() {
+	cout << "             " << endl;
+	cout << "     ■■■     " << endl;
+	cout << "    ■■■■■    " << endl;
+	cout << "     ■■■     " << endl;
+	cout << "    ■■■■■    " << endl;
+	cout << "   ■■■■■■■   " << endl;
+	cout << "  ■■■■■■■■■  " << endl;
+}
+
+void printWhiteKnight() {
+	cout << "             " << endl;
+	cout << "     ■■■     " << endl;
+	cout << "  ■■■■■■■    " << endl;
+	cout << "  ■■■■■■■    " << endl;
+	cout << "    ■■■■■    " << endl;
+	cout << "   ■■■■■■■   " << endl;
+	cout << "  ■■■■■■■■■  " << endl;
+}
+
+void printWhiteBishop() {
+	cout << "     ■■      " << endl;
+	cout << "    ■■  ■    " << endl;
+	cout << "    ■■■■■    " << endl;
+	cout << "     ■■■     " << endl;
+	cout << "     ■■■     " << endl;
+	cout << "    ■■■■■    " << endl;
+	cout << "   ■■■■■■■   " << endl;
+}
+
+void printWhiteRook() {
+	cout << "             " << endl;
+	cout << "   ■ ■ ■ ■   " << endl;
+	cout << "   ■■■■■■■   " << endl;
+	cout << "    ■■■■■    " << endl;
+	cout << "    ■■■■■    " << endl;
+	cout << "   ■■■■■■■   " << endl;
+	cout << "  ■■■■■■■■■  " << endl;
+}
+
+void printWhiteQueen() {
+	cout << "    ■ ■ ■    " << endl;
+	cout << "    ■■■■■    " << endl;
+	cout << "     ■■■     " << endl;
+	cout << "     ■■■     " << endl;
+	cout << "     ■■■     " << endl;
+	cout << "    ■■■■■    " << endl;
+	cout << "   ■■■■■■■   " << endl;
+}
+
+void printWhiteKing() {
+	cout << "      ■      " << endl;
+	cout << "   ■■■■■■■    " << endl;
+	cout << "    ■■■■■      " << endl;
+	cout << "     ■■■     " << endl;
+	cout << "     ■■■     " << endl;
+	cout << "    ■■■■■    " << endl;
+	cout << "   ■■■■■■■   " << endl;
+}
+
+void printBlackPawn() {
+	cout << "             " << endl;
+	cout << "     |||     " << endl;
+	cout << "    |||||    " << endl;
+	cout << "     |||     " << endl;
+	cout << "    |||||    " << endl;
+	cout << "   |||||||   " << endl;
+	cout << "  |||||||||  " << endl;
+}
+
+void printBlackKnight() {
+	cout << "             " << endl;
+	cout << "     |||     " << endl;
+	cout << "  |||||||    " << endl;
+	cout << "  |||||||    " << endl;
+	cout << "    |||||    " << endl;
+	cout << "   |||||||   " << endl;
+	cout << "  |||||||||  " << endl;
+}
+
+void printBlackBishop() {
+	cout << "     ||      " << endl;
+	cout << "    ||  |   " << endl;
+	cout << "    |||||    " << endl;
+	cout << "     |||     " << endl;
+	cout << "     |||     " << endl;
+	cout << "    |||||    " << endl;
+	cout << "   |||||||   " << endl;
+}
+
+void printBlackRook() {
+	cout << "             " << endl;
+	cout << "   | | | |   " << endl;
+	cout << "   |||||||   " << endl;
+	cout << "    |||||    " << endl;
+	cout << "    |||||    " << endl;
+	cout << "   |||||||   " << endl;
+	cout << "  |||||||||  " << endl;
+}
+
+void printBlackQueen() {
+	cout << "    | | |    " << endl;
+	cout << "    |||||    " << endl;
+	cout << "     |||     " << endl;
+	cout << "     |||     " << endl;
+	cout << "     |||     " << endl;
+	cout << "    |||||    " << endl;
+	cout << "   |||||||   " << endl;
+}
+
+void printBlackKing() {
+	cout << "      |      " << endl;
+	cout << "   |||||||    " << endl;
+	cout << "    |||||      " << endl;
+	cout << "     |||     " << endl;
+	cout << "     |||     " << endl;
+	cout << "    |||||    " << endl;
+	cout << "   |||||||   " << endl;
+}
