@@ -19,6 +19,7 @@ add_library(game
     lib/knight.cpp
     lib/queen.cpp
     lib/Display.cpp
+    lib/ui.cpp
 )
 
 # Add executable target
