@@ -14,6 +14,7 @@ add_library(game
     lib/Board.cpp
     lib/pawn.cpp
     lib/king.cpp
+    lib/rook.cpp
 )
 
 # Add executable target
