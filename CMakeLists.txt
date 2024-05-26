@@ -13,5 +13,5 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/lib")
 # Add library "game" based on the source files
 add_library(game
     lib/Board.cpp
-    lib/pawn.cpp
+    lib/Game.cpp
 )
