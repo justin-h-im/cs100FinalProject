@@ -2,7 +2,7 @@
 #include "../include/Board.h"
 #include "../include/Game.h"
 
-Game() {}
+Game::Game() {}
 
 Color Game::getTurn() const {
 	return turn;

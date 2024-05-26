@@ -149,12 +149,7 @@ Game Over: Display a "GAME OVER" screen and declare the victor of the game.
 UNICODE courtesy of https://www.unicode.org/charts/PDF/U2600.pdf.  
 
 ### UML Diagram
-![Chess UML Diagram]([10](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/166081771/a383c3a9-91d3-4aef-8dea-6fc186265cb4)
-35c3-4fe8-9e95-94ffbac9ab86)
-
-
-![Uploading 10.png…]()
-
+![Chess UML Diagram](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/166081771/e1737286-9bde-486f-9892-ed63ac264202)
 
 ### Class Descriptions
 The Game class will be the board and control the turns. Since it is the board, it is responsible for setting up the board which holds pointers to pieces in an 8 by 8 2D array and displaying the visuals. Along with that it will also control what phase the game is in (i.e. player turn, combat, and end game when king hp is 0).

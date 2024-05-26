@@ -1,4 +1,4 @@
-#include "../include/Board.hpp"
+#include "../include/Board.h"
 
 #include <iostream>
 
@@ -40,7 +40,7 @@ void Board::updateBoard(int oldX, int oldY, int newX, int newY) {
 }
 
 // check if piece 
-bool Board::verifyPieceToMove(int x, int y) {
+bool Board::verifyPieceToMove(int x, int y) const {
 	Piece* curr = square[x][y];
 	if (curr->getColor() != game.getTurn()) { return false; }
 	return curr == nullptr;
