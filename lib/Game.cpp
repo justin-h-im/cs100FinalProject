@@ -1,6 +1,4 @@
-#include "Piece.h"
-#include "Board.h"
-#include "Game.h"
+#include "../include/Game.h"
 
 Game() {}
 
