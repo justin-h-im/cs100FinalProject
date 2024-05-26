@@ -1,10 +1,15 @@
-#include "./include/Display.h"
+#include "../include/Display.h"
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
 
 void Display::displayBoard() {
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
 			Piece* curr = board.getPiece(i, j);
-			cout << "|"
+			cout << "|";
 			if (curr != nullptr) {
 				if (curr->getColor() == Color::WHITE) {
 					switch (curr->getType()) {

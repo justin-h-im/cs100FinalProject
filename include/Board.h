@@ -1,7 +1,8 @@
 #pragma once
 
+#include "../include/Game.h"  
+
 class Piece;
-class Game;
 
 // class responsible for storing where pieces are on the board
 class Board {
