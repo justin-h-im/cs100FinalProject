@@ -14,7 +14,7 @@ using std::endl;
 
 // Constructor sets up the Board
 Board::Board() {
-
+	game = new Game();
 	// set up black pieces
 	square[0][0] = new Rook(Color::BLACK, 0, 0);
 	square[0][1] = new Knight(Color::BLACK, 0, 1);
@@ -50,7 +50,7 @@ void Board::updateBoard(int oldX, int oldY, int newX, int newY) {
 
 // Correcting verifyPieceToMove
 bool Board::verifyPieceToMove(int x, int y) const {
-    Piece* curr = square[x][y];
+    Piece* curr = square[y][x];
     if (curr == nullptr) { return false; }
     return curr->getColor() == game->getTurn();
 }
