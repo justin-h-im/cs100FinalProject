@@ -20,7 +20,7 @@ bool Rook::move(int x1, int y1, int x2, int y2, const Board& board)
         {
             for (int i = startY; i < endY; ++i)
             {
-                if (board.getStatus(x1, i) != nullptr) 
+                if (board.getPiece(x1, i) != nullptr) 
                 {
                     return false;
                 }
@@ -30,7 +30,7 @@ bool Rook::move(int x1, int y1, int x2, int y2, const Board& board)
         {
             for (int i = startX; i < endX; ++i) 
             {
-                if (board.getStatus(i, y1) != nullptr) 
+                if (board.getPiece(i, y1) != nullptr) 
                 {
                     return false;
                 }
@@ -66,7 +66,7 @@ bool Rook::canCastle(const King& king, int rookX, int rookY, int kingX, int king
 
     for (int i = startX; i < endX; ++i)
     {
-        if (board.getStatus(i, kingY) != nullptr)
+        if (board.getPiece(i, kingY) != nullptr)
         {
             return false;
         }
@@ -90,7 +90,7 @@ bool Rook::isSquareUnderAttack(int x, int y, Color color, const Board& board) co
     {
         for (int j = 0; j < 8; ++j) 
         {
-            Piece* piece = board.getStatus(i, j);
+            Piece* piece = board.getPiece(i, j);
 
             if (piece != nullptr && piece->getColor() != color) 
             {

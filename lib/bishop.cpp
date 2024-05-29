@@ -44,7 +44,7 @@ bool Bishop::move(int x1, int y1, int x2, int y2, const Board& board) {
     // does NOT check the actual destination coordinate (stops right before)
     while (x != x2 && y != y2) {
       // return false if any coordinate b/n start and end is NOT valid 
-      if (board.getStatus(x, y) != nullptr) {
+      if (board.getPiece(x, y) != nullptr) {
         return false;
       }
       // step towards destination coordinate
@@ -52,7 +52,7 @@ bool Bishop::move(int x1, int y1, int x2, int y2, const Board& board) {
       y += yStep;
     }
 
-    Piece* target = board.getStatus(x2, y2);
+    Piece* target = board.getPiece(x2, y2);
     // if empty OR spot has piece on it
     if (target == nullptr || target->getColor() != this->getColor()) {
       /* athena does this in board */
