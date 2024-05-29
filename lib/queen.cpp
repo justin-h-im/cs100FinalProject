@@ -45,14 +45,14 @@ bool Queen::move(int x1, int y1, int x2, int y2, const Board& board) {
     // check if all squares between the start and end are empty
     // (stops right before destination coordinate!)
     while (x != x2 || y != y2) {
-        if (board.getStatus(x, y) != nullptr) {
+        if (board.getPiece(x, y) != nullptr) {
             return false;
         }
         x += xStep;
         y += yStep;
     }
 
-    Piece* target = board.getStatus(x2, y2);
+    Piece* target = board.getPiece(x2, y2);
     // check if destination is empty or occupied by an opponent's piece
     if (target == nullptr || target->getColor() != this->getColor()) {
         /* athena does this in board */

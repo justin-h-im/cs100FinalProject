@@ -46,22 +46,24 @@ void Board::updateBoard(int oldX, int oldY, int newX, int newY) {
 	square[oldX][oldY] = nullptr;
 }
 
-// check if piece 
+
+// Correcting verifyPieceToMove
 bool Board::verifyPieceToMove(int x, int y) const {
-	Piece* curr = square[x][y];
-	if (curr->getColor() != game.getTurn()) { return false; }
-	return curr == nullptr;
+    Piece* curr = square[x][y];
+    if (curr == nullptr) { return false; }
+    return curr->getColor() == game->getTurn();
 }
 
-// returns -1 if the 
-int Board::verifyMove(int x, int y) {
-	Piece* curr = square[x][y];
-	if (curr == nullptr) { return 0; }
-	else if (turn == WHITE && curr->getColor() == BLACK || turn == BLACK && curr->getColor() == WHITE) { return 1; }
-	return -1;
+int Board::verifyMove(int x, int y) const {
+    Piece* curr = square[x][y];
+    if (curr == nullptr) { return 0; }
+    Color currentTurn = game->getTurn();
+    if (currentTurn == Color::WHITE && curr->getColor() == Color::BLACK || currentTurn == Color::BLACK && curr->getColor() == Color::WHITE) { return 1; }
+    return -1;
 }
 
-// returns a pointer to a piece
-const Piece* Board::getPiece(int x, int y) const {
-	return square[x][y];
+
+// Correcting getPiece
+Piece* Board::getPiece(int x, int y) const {
+    return square[x][y];
 }

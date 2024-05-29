@@ -2,14 +2,9 @@
 #define PIECE_H
 
 #include "../include/Board.h"
+#include "../include/enums.h" 
 
-enum class PieceType {
-    Pawn, Knight, Bishop, Rook, Queen, King
-};
-
-enum class Color {
-    WHITE, BLACK
-};
+class Board; 
 
 class Piece {
 protected:
@@ -23,7 +18,7 @@ public:
     Piece(Color color, int x, int y, PieceType type) : color(color), x(x), y(y), type(type), hp(0) {}
     virtual ~Piece() {}
 
-    bool isInBounds(int x, int y){
+    bool isInBounds(int x, int y) {
         return x >= 0 && x < 8 && y >= 0 && y < 8;
     }
     
