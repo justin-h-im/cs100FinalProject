@@ -21,4 +21,5 @@ class Board {
 		int verifyMove(int x, int y) const;
 		// Returns whatever piece is at that square
 		Piece* getPiece(int x, int y) const;
+
 };

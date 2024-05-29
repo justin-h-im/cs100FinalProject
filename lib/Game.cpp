@@ -1,5 +1,3 @@
-#include "../include/piece.h"
-#include "../include/Board.h"
 #include "../include/Game.h"
 
 Game::Game() {}
