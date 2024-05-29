@@ -20,6 +20,9 @@ int main() {
     *1: Start the game. First player is white and second player is black by default. Enters the infinite game cycle while loop.
     *2: Quit the game. IDoes not enter the game cycle loop and returns 0.  */
     bool runGame = UserInterface->outputStartMenu();
+    if (!runGame) {
+        return 0;
+    }
     while(UserInterface->outputTurnMenu()) {
         /* Print output menu. Get user coordinate selection
         * Send that selection to board class for verification.

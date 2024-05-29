@@ -7,8 +7,8 @@ Color Game::getTurn() const {
 }
 
 void Game::updateTurn() {
-	if (turn == Color::WHITE) { turn = BLACK; }
-	else { turn = WHITE; }
+	if (turn == Color::WHITE) { turn = Color::BLACK; }
+	else { turn = Color::WHITE; }
 }
 
 bool Game::whiteWin() {

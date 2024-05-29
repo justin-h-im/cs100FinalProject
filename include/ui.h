@@ -26,7 +26,7 @@ class ui {
 
     public:
         // Constructor
-        ui() {}
+        ui();
         // Destructor
         ~ui() {}
 

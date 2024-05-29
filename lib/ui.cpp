@@ -5,7 +5,8 @@ and performs the correct actions, and the ui class outputs back
 to terminal to prompt for more user input. */
 
 #include "../include/ui.h"
-
+#include "../include/Game.h"
+#include "../include/Board.h"
 
 // Necessary includes for printing to terminal.
 
@@ -14,6 +15,7 @@ using namespace std;
 // Constructor
 ui::ui() {
     board = new Board();
+    game = new Game();
 }
 
 bool ui::outputStartMenu() {
@@ -34,8 +36,7 @@ bool ui::outputStartMenu() {
             return true;
         }
         else if (userInput == 2) {
-            // FIXME: Implement RuleBook. 
-            continue;
+            outputUserGuide();
         }
         else {
             break;
@@ -45,30 +46,35 @@ bool ui::outputStartMenu() {
     return false;
 }
 
-
 bool ui::outputTurnMenu() {
-    // FIXME:: Implment turn toggling. 
+    // Prints color turn.
     string turn = "WHITE";
     if (game->getTurn() == Color::BLACK) {
         turn = "BLACK";
     }
-
-    cout << "PLAYER " << turn << "TURN" << endl;
+    cout << "PLAYER " << turn << " TURN" << endl;
     int xCoord = 0; int yCoord = 0;
 
+    // Prints user for valid x and y locations for the piece that they want to move. 
     cout << "State the location of your vassal: " << endl;
-
     while (1) {
+        cout << "Proclaim the location, in the X direction: " << endl;
         cin >> xCoord;
         if (!cin.good() || xCoord < 0 || xCoord > 7) {
-            cout << "Your vassal cannot be outside the battlefield." << endl;
+            cout << "Your vassal cannot be outside the battlefield. They await new orders." << endl;
+        }
+        else {
+            break;
         }
     }
-
     while (1) {
+        cout << "Decree the location, in the Y direction. " << endl;
         cin >> yCoord;
         if (!cin.good() || yCoord < 0 || yCoord > 7) {
-            cout << "Your vassal cannot be outside the battlefield." << endl;
+            cout << "Your vassal cannot be outside the battlefield. They await new orders." << endl;
+        }
+        else {
+            break;
         }
     }
  
@@ -80,19 +86,26 @@ bool ui::outputTurnMenu() {
     }
 
     int newXCoord = 0; int newYCoord = 0;
+    // Repeatedly prompts the user for the location that they want to move th epiece to.
     cout << "State the new location for your vassal: " << endl;
-
     while (1) {
+        cout << "Herald the new location in the X direction." << endl;
         cin >> newXCoord;
         if (!cin.good() || newXCoord < 0 || newXCoord > 7) {
             cout << "Your vassal does not understand your command." << endl;
         }
+        else {
+            break;
+        }
     }
-
     while(1) {
+        cout << "Promulgate the new location in the Y direction." << endl;
         cin >> newYCoord;
         if (!cin.good() || newYCoord < 0 || newYCoord > 7) {
             cout << "Your vassal does not understand your command." << endl;
+        }
+        else {
+            break;
         }
     }
 
@@ -124,13 +137,12 @@ bool ui::outputTurnMenu() {
         }
         return false;
     }
-
     game->updateTurn();
     return true;
 }
 
-void outputUserGuide() {
-    ifstream userGuide("Combat Chess User Guide");
+void ui::outputUserGuide() {
+    ofstream userGuide("Combat Chess User Guide.txt");
     if (userGuide.is_open()) {
         cout << userGuide.rdbuf();
     }
@@ -153,9 +165,9 @@ void outputUserGuide() {
 
 void ui::outputEndScreen() {
     if (game->blackWin()) {
-
+        cout << "Black wins!" << endl;
     }
     else {
-        
+        cout << "White wins!" << endl;
     }
 }

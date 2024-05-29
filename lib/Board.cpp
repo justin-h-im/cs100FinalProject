@@ -14,6 +14,7 @@ using std::endl;
 
 // Constructor sets up the Board
 Board::Board() {
+
 	// set up black pieces
 	square[0][0] = new Rook(Color::BLACK, 0, 0);
 	square[0][1] = new Knight(Color::BLACK, 0, 1);
