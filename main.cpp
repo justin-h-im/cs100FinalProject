@@ -20,7 +20,7 @@ int main() {
     *1: Start the game. First player is white and second player is black by default. Enters the infinite game cycle while loop.
     *2: Quit the game. IDoes not enter the game cycle loop and returns 0.  */
     bool runGame = UserInterface->outputStartMenu();
-    while(runGame) {
+    while(UserInterface->outputTurnMenu()) {
         /* Print output menu. Get user coordinate selection
         * Send that selection to board class for verification.
         * If bad flag, print again.
@@ -33,10 +33,9 @@ int main() {
         * 3. Invalid turn: invalid new slot.
         * */
 
-       UserInterface->outputTurnMenu();
-
         /* If the king is dead during a combat scenario, the runGame flag is triggered to false.
         The game ends with a cout message.*/    
     }
+
     return 0;
 }

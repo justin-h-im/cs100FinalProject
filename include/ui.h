@@ -39,7 +39,7 @@ class ui {
         a piece, and asking for the move location. Since it is 
         one touch chess, the player should not be allowed to revert
         and choose a different piece. */
-        void outputTurnMenu();
+        bool outputTurnMenu();
 
         /* Prints the game from the display class depending on the context. It will call the normal print if the 
         game is in normal mode, and will call the combat print if the game is in a combat scenario. */
@@ -47,4 +47,8 @@ class ui {
 
         /* Introduces the rules and mechanics of the game to the user. Then prompts them with a return to menu option. */
         void outputUserGuide();
+
+        /* Prints the end screen at the end of the game. */
+        void outputEndScreen();
+        
 };

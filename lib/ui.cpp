@@ -46,7 +46,7 @@ bool ui::outputStartMenu() {
 }
 
 
-void ui::outputTurnMenu() {
+bool ui::outputTurnMenu() {
     // FIXME:: Implment turn toggling. 
     string turn = "WHITE";
     if (game->getTurn() == Color::BLACK) {
@@ -62,10 +62,6 @@ void ui::outputTurnMenu() {
         cin >> xCoord;
         if (!cin.good() || xCoord < 0 || xCoord > 7) {
             cout << "Your vassal cannot be outside the battlefield." << endl;
-            continue;
-        }
-        else {
-            break;
         }
     }
 
@@ -73,17 +69,14 @@ void ui::outputTurnMenu() {
         cin >> yCoord;
         if (!cin.good() || yCoord < 0 || yCoord > 7) {
             cout << "Your vassal cannot be outside the battlefield." << endl;
-            continue;
-        }
-        else {
-            break;
         }
     }
  
     // If board->verifyPieceToMove(x, y) is false, toggle game turn and return to main. 
     if (!board->verifyPieceToMove(xCoord, yCoord)) {
         cout << "Your mistaken hand has cost you your turn." << endl;
-        return;
+        game->updateTurn();
+        return true;
     }
 
     int newXCoord = 0; int newYCoord = 0;
@@ -93,10 +86,6 @@ void ui::outputTurnMenu() {
         cin >> newXCoord;
         if (!cin.good() || newXCoord < 0 || newXCoord > 7) {
             cout << "Your vassal does not understand your command." << endl;
-            continue;
-        }
-        else {
-            break;
         }
     }
 
@@ -104,38 +93,41 @@ void ui::outputTurnMenu() {
         cin >> newYCoord;
         if (!cin.good() || newYCoord < 0 || newYCoord > 7) {
             cout << "Your vassal does not understand your command." << endl;
-            continue;
-        }
-        else {
-            break;
         }
     }
 
     // Toggle Game turn and return to main if this returns false.
     if (!board->verifyMove(newXCoord, newYCoord)) {
         cout << "Your careless command has cost you your turn." << endl;
-        return;
+        game->updateTurn();
+        return true;
     }
     // If there is not a piece at the new location, just move the piece. Then toggle the turn and return to main.
-    Piece* possiblePiece = board->getStatus(newXCoord, newYCoord);
+    Piece* possiblePiece = board->getPiece(newXCoord, newYCoord);
     if (possiblePiece == nullptr) {
         board->updateBoard(xCoord, yCoord, newXCoord, newYCoord);
         cout << "Successful move, your highness." << endl;
-        return;
+        game->updateTurn();
+        return true;
     }
+    // If there is an allied piece at the new location, turn is switched and the game continues. 
     else if (possiblePiece->getColor() == game->getTurn()) {
         cout << "Your subject exists at that slot. Your actions have caused confusion on the battlefield, costing you your turn." << endl;
-        //game->setTurn;
-        return;
+        game->updateTurn();
+        return true;
     }
     // If there is a piece at the new location, activate combat scenario
     else {
         /* Check for game ending within combat scenario (king death) and respond to death accordingly. */
+        if (game->blackWin() || game->whiteWin()) {
+            outputEndScreen();
+        }
+        return false;
     }
 
-    // FIXME: Enter separate cout for combat scenario, or manage combat scenario menu here?
+    game->updateTurn();
+    return true;
 }
-
 
 void outputUserGuide() {
     ifstream userGuide("Combat Chess User Guide");
@@ -156,5 +148,14 @@ void outputUserGuide() {
         if (quitChar == "q") {
             return;
         }
+    }
+}
+
+void ui::outputEndScreen() {
+    if (game->blackWin()) {
+
+    }
+    else {
+        
     }
 }
