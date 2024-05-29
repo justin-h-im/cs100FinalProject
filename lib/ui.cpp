@@ -16,6 +16,7 @@ using namespace std;
 ui::ui() {
     board = new Board();
     game = new Game();
+    board->setGame(game);
 }
 
 bool ui::outputStartMenu() {
@@ -110,7 +111,7 @@ bool ui::outputTurnMenu() {
     }
 
     // Toggle Game turn and return to main if this returns false.
-    if (!board->verifyMove(newXCoord, newYCoord)) {
+    if (board->verifyMove(newXCoord, newYCoord) == -1) {
         cout << "Your careless command has cost you your turn." << endl;
         game->updateTurn();
         return true;

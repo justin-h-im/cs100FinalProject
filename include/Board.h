@@ -14,6 +14,8 @@ class Board {
 	public:
 		// sets up the board to the standard start for chess
 		Board();
+		// sets the board's game to a pointer to a game
+		void setGame(Game* game);
 		// moves a piece
 		void updateBoard(int oldX, int oldY, int newX, int newY);
 		// determines there a player can move whatever is at the location
