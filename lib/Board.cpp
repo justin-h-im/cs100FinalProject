@@ -32,13 +32,13 @@ Board::Board() {
 	square[7][0] = new Rook(Color::WHITE, 7, 0);
 	square[7][1] = new Knight(Color::WHITE, 7, 1);
 	square[7][2] = new Bishop(Color::WHITE, 7, 2);
-	square[6][3] = new Queen(Color::WHITE, 7, 3);
-	square[6][4] = new King(Color::WHITE, 7, 4);
-	square[0][5] = new Bishop(Color::WHITE, 7, 5);
-	square[0][6] = new Knight(Color::WHITE, 7, 6);
-	square[0][7] = new Rook(Color::WHITE, 7, 7);
+	square[7][3] = new Queen(Color::WHITE, 7, 3);
+	square[7][4] = new King(Color::WHITE, 7, 4);
+	square[7][5] = new Bishop(Color::WHITE, 7, 5);
+	square[7][6] = new Knight(Color::WHITE, 7, 6);
+	square[7][7] = new Rook(Color::WHITE, 7, 7);
 	for (int i = 0; i < 8; i++) {
-		square[7][i] = new Pawn(Color::WHITE, 6, i);
+		square[6][i] = new Pawn(Color::WHITE, 6, i);
 	}
 }
 
