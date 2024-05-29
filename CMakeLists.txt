@@ -13,15 +13,23 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/build")
 ADD_EXECUTABLE(game
     lib/Board.cpp
     lib/pawn.cpp
+    lib/king.cpp
+    lib/rook.cpp
+    lib/bishop.cpp
+    lib/knight.cpp
+    lib/queen.cpp
+    lib/Display.cpp
+    lib/ui.cpp
+    lib/Game.cpp
 )
 
 # Add executable target
-# add_executable(ChessGameExecutable
-#    main.cpp  # Replace with your actual main file
-# )
+add_executable(ChessGameExecutable
+   main.cpp  # Replace with your actual main file
+)
 
 # Link the library to the executable
-# target_link_libraries(ChessGameExecutable PRIVATE game)
+target_link_libraries(ChessGameExecutable PRIVATE game)
 
 # ptionally, you can set the output name explicitly
 # set_target_properties(ChessGameExecutable PROPERTIES OUTPUT_NAME "ChessGame")

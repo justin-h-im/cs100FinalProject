@@ -14,7 +14,7 @@ class Game {
 		Piece* blackKing;
 	public:
 		Game();
-		Color getTurn();
+		Color getTurn() const;
 		void updateTurn();
 		bool whiteWin();
 		bool blackWin();

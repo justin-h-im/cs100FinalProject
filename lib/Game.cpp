@@ -1,14 +1,14 @@
 #include "../include/Game.h"
 
-Game() {}
+Game::Game() {}
 
 Color Game::getTurn() const {
 	return turn;
 }
 
 void Game::updateTurn() {
-	if (turn == Color::WHITE) { turn = BLACK; }
-	else { turn = WHITE; }
+	if (turn == Color::WHITE) { turn = Color::BLACK; }
+	else { turn = Color::WHITE; }
 }
 
 bool Game::whiteWin() {
