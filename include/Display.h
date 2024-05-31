@@ -1,5 +1,4 @@
-#include "../include/Board.h"
-
+#include "./lib/Display.h"
 class Display {
 	private:
 		Board board;
@@ -18,6 +17,7 @@ class Display {
 		void printBlackQueen();
 		void printBlackKing();
 	public: 
+		Display(Board*);
 		void displayBoard();
 		void displayCombat(Piece*, Piece*);
 };

@@ -1,0 +1,3 @@
+/home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/CMakeFiles/game.dir
+/home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/CMakeFiles/edit_cache.dir
+/home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/CMakeFiles/rebuild_cache.dir

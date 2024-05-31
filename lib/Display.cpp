@@ -1,44 +1,43 @@
-#include "../include/Display.h"
-#include <iostream>
-#include <iomanip>
+#include "./include/Display.h"
 
-using namespace std;
-
+Display::Display(Board* b) {
+	board = b;
+}
 
 void Display::displayBoard() {
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
 			Piece* curr = board.getPiece(i, j);
-			cout << "|";
+			cout << "|"
 			if (curr != nullptr) {
 				if (curr->getColor() == Color::WHITE) {
 					switch (curr->getType()) {
-						case PieceType::King: 
+						case KING: 
 						{
 							cout << " ♚ ";
 							break;
 						}
-						case PieceType::Queen:
+						case QUEEN:
 						{
 							cout << " ♛ ";
 							break;
 						}
-						case PieceType::Pawn:
+						case PAWN:
 						{
 							cout << " ♟ ";
 							break;
 						}
-						case PieceType::Knight:
+						case KNIGHT:
 						{
 							cout << " ♞ ";
 							break;
 						}
-						case PieceType::Bishop:
+						case BISHOP:
 						{
 							cout << " ♝ ";
 							break;
 						}
-						case PieceType::Rook:
+						case ROOK:
 						{
 							cout << " ♜ ";
 							break;
@@ -47,32 +46,32 @@ void Display::displayBoard() {
 				}
 				else {
 					switch (curr->getType()) {
-						case PieceType::King: 
+						case KING: 
 						{
 							cout << " ♔ ";
 							break;
 						}
-						case PieceType::Queen:
+						case QUEEN:
 						{
 							cout << " ♕ ";
 							break;
 						}
-						case PieceType::Pawn:
+						case PAWN:
 						{
 							cout << " ♙ ";
 							break;
 						}
-						case PieceType::Knight:
+						case KNIGHT:
 						{
 							cout << " ♘ ";
 							break;
 						}
-						case PieceType::Bishop:
+						case BISHOP:
 						{
 							cout << " ♗ ";
 							break;
 						}
-						case PieceType::Rook:
+						case ROOK:
 						{
 							cout << " ♖ ";
 							break;
@@ -88,7 +87,7 @@ void Display::displayBoard() {
 }
 
 void Display::displayCombat(Piece* attacker, Piece* defender) {
-	if (attacker->getColor() == Color::WHITE) {
+	if (attacker->getColor() == WHITE) {
 		displayWhitePiece(attacker);
 		displayBlackPiece(defender);
 	}
@@ -100,32 +99,32 @@ void Display::displayCombat(Piece* attacker, Piece* defender) {
 
 void Display::displayWhitePiece(Piece* piece) {
 	switch(piece->getType()) {
-		case PieceType::Pawn:
+		case PAWN:
 		{
 			printWhitePawn();
 			break;
 		}
-		case PieceType::Knight:
+		case KNIGHT:
 		{
 			printWhiteKnight();
 			break;
 		}
-		case PieceType::Bishop:
+		case BISHOP
 		{
 			printWhiteBishop();
 			break;
 		}
-		case PieceType::Rook:
+		case ROOK:
 		{
 			printWhiteRook();
 			break;
 		}
-		case PieceType::Queen:
+		case QUEEN:
 		{
 			printWhiteQueen();
 			break;
 		}
-		case PieceType::King:
+		case KING:
 		{
 			printWhiteKing();
 			break;
@@ -135,32 +134,32 @@ void Display::displayWhitePiece(Piece* piece) {
 
 void Display::displayBlackPiece(Piece* piece) {
 	switch(piece->getType()) {
-		case PieceType::Pawn:
+		case PAWN:
 		{
 			printBlackPawn();
 			break;
 		}
-		case PieceType::Knight:
+		case KNIGHT:
 		{
 			printBlackKnight();
 			break;
 		}
-		case PieceType::Bishop:
+		case BISHOP
 		{
 			printBlackBishop();
 			break;
 		}
-		case PieceType::Rook:
+		case ROOK:
 		{
 			printBlackRook();
 			break;
 		}
-		case PieceType::Queen:
+		case QUEEN:
 		{
 			printBlackQueen();
 			break;
 		}
-		case PieceType::King:
+		case KING:
 		{
 			printBlackKing();
 			break;
