@@ -17,6 +17,7 @@ class Display {
 		void printBlackQueen();
 		void printBlackKing();
 	public: 
+		Display(Board*);
 		void displayBoard();
 		void displayCombat(Piece*, Piece*);
 };

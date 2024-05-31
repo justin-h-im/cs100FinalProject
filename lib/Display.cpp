@@ -1,5 +1,9 @@
 #include "./include/Display.h"
 
+Display::Display(Board* b) {
+	board = b;
+}
+
 void Display::displayBoard() {
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 8; j++) {
