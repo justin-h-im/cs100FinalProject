@@ -1,5 +1,4 @@
-#ifndef PAWN_H
-#define PAWN_H
+#pragma once
 
 #include "../include/piece.h"
 #include "../include/Board.h"
@@ -17,5 +16,3 @@ public:
     void promoteToQueen(int x, int y);
 
 };
-
-#endif 

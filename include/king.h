@@ -1,5 +1,4 @@
-#ifndef KING_H
-#define KING_H
+#pragma once
 
 #include "../include/piece.h"
 
@@ -12,4 +11,3 @@ public:
     bool hasMoved; // Track if the King has moved
 };
 
-#endif // KING_H

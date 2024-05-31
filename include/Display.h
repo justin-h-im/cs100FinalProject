@@ -1,8 +1,11 @@
+#pragma once
+
 #include "../include/Board.h"
 
 class Display {
 	private:
-		Board board;
+		Board* board;
+		
 		void displayBlackPiece(Piece*);
 		void displayWhitePiece(Piece*);
 		void printWhitePawn();
@@ -18,6 +21,7 @@ class Display {
 		void printBlackQueen();
 		void printBlackKing();
 	public: 
+		Display(Board*);
 		void displayBoard();
 		void displayCombat(Piece*, Piece*);
 };

@@ -1,5 +1,4 @@
-#ifndef ROOK_H
-#define ROOK_H
+#pragma once
 
 #include "../include/piece.h"
 #include "../include/Board.h"
@@ -18,4 +17,3 @@ public:
     bool hasMoved; 
 };
 
-#endif // ROOK_H
