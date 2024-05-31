@@ -57,7 +57,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001
+CMAKE_BINARY_DIR = /data/home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -83,14 +83,14 @@ clean: CMakeFiles/ChessGameExecutable.dir/clean
 CMakeFiles/game.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/CMakeFiles --progress-num=3,4,5,6,7,8,9,10,11,12,13 "Built target game"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/CMakeFiles --progress-num=3,4,5,6,7,8,9,10,11,12,13 "Built target game"
 .PHONY : CMakeFiles/game.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/game.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/game.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/CMakeFiles 0
 .PHONY : CMakeFiles/game.dir/rule
 
 # Convenience name for target.
@@ -109,14 +109,14 @@ CMakeFiles/game.dir/clean:
 CMakeFiles/ChessGameExecutable.dir/all: CMakeFiles/game.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChessGameExecutable.dir/build.make CMakeFiles/ChessGameExecutable.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChessGameExecutable.dir/build.make CMakeFiles/ChessGameExecutable.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/CMakeFiles --progress-num=1,2 "Built target ChessGameExecutable"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/data/home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/CMakeFiles --progress-num=1,2 "Built target ChessGameExecutable"
 .PHONY : CMakeFiles/ChessGameExecutable.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ChessGameExecutable.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/CMakeFiles 13
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/CMakeFiles 13
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ChessGameExecutable.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/CMakeFiles 0
 .PHONY : CMakeFiles/ChessGameExecutable.dir/rule
 
 # Convenience name for target.

@@ -57,6 +57,7 @@ int main() {
 		Display display(board);
 
 		display.displayBoard();
+		display.displayCombat(board->getPiece(0, 4), board->getPiece(7, 4));
 	}
     
   return 0;
