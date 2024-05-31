@@ -12,10 +12,11 @@ protected:
     PieceType type;
     int x;
     int y;
-    int hp; 
+    int currHp; 
+    int maxHp;
 
 public:
-    Piece(Color color, int x, int y, PieceType type) : color(color), x(x), y(y), type(type), hp(0) {}
+    Piece(Color color, int x, int y, PieceType type, int currHp, int maxHp) : color(color), x(x), y(y), type(type), currHp(currHp), maxHp(maxHp) {}
     virtual ~Piece() {}
 
     bool isInBounds(int x, int y) {
@@ -27,7 +28,8 @@ public:
     Color getColor() const { return color; }
     PieceType getType() const { return type; }
     void getPosition(int& outX, int& outY) const { outX = x; outY = y; }
-    int getHp() const { return hp; }
+    int getCurrHp() const { return currHp; }
+    int getMaxHp() const { return maxHp; }
     int getX() const { return x; }
     int getY() const { return y; }
 };
