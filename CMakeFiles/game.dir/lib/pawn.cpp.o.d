@@ -4,9 +4,6 @@ CMakeFiles/game.dir/lib/pawn.cpp.o: \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/pawn.h \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/piece.h \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/Board.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/../include/Game.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/../include/../include/piece.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/../include/../include/enums.h \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/enums.h \
  /usr/include/c++/8/vector /usr/include/c++/8/bits/stl_algobase.h \
  /usr/include/c++/8/x86_64-redhat-linux/bits/c++config.h \

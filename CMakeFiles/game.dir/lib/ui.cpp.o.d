@@ -4,10 +4,9 @@ CMakeFiles/game.dir/lib/ui.cpp.o: \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/ui.h \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/piece.h \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/Board.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/../include/Game.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/../include/../include/piece.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/../include/../include/enums.h \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/enums.h \
+ /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/Game.h \
+ /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/piece.h \
  /usr/include/c++/8/iostream \
  /usr/include/c++/8/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/bits/wordsize.h \

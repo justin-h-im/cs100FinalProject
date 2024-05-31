@@ -1,7 +1,8 @@
-#include "./lib/Display.h"
+#include "piece.h"
+
 class Display {
 	private:
-		Board board;
+		Board* board;
 		void displayBlackPiece(Piece*);
 		void displayWhitePiece(Piece*);
 		void printWhitePawn();

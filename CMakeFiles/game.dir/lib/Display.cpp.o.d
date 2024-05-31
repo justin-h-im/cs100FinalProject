@@ -2,11 +2,10 @@ CMakeFiles/game.dir/lib/Display.cpp.o: \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/Display.cpp \
  /usr/include/stdc-predef.h \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/Display.h \
+ /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/piece.h \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/Board.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/Game.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/../include/piece.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/../include/../include/enums.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/../include/enums.h \
+ /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/enums.h \
+ /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/piece.h \
  /usr/include/c++/8/iostream \
  /usr/include/c++/8/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/bits/wordsize.h \

@@ -4,9 +4,6 @@ CMakeFiles/game.dir/lib/rook.cpp.o: \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/rook.h \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/piece.h \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/Board.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/../include/Game.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/../include/../include/piece.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/../include/../include/enums.h \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/enums.h \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/king.h \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/piece.h \

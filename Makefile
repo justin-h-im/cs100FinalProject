@@ -129,6 +129,19 @@ game/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/build
 .PHONY : game/fast
 
+#=============================================================================
+# Target rules for targets named ChessGameExecutable
+
+# Build rule for target.
+ChessGameExecutable: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ChessGameExecutable
+.PHONY : ChessGameExecutable
+
+# fast build rule for target.
+ChessGameExecutable/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChessGameExecutable.dir/build.make CMakeFiles/ChessGameExecutable.dir/build
+.PHONY : ChessGameExecutable/fast
+
 lib/Board.o: lib/Board.cpp.o
 .PHONY : lib/Board.o
 
@@ -369,6 +382,30 @@ lib/ui.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/lib/ui.cpp.s
 .PHONY : lib/ui.cpp.s
 
+main.o: main.cpp.o
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChessGameExecutable.dir/build.make CMakeFiles/ChessGameExecutable.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChessGameExecutable.dir/build.make CMakeFiles/ChessGameExecutable.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChessGameExecutable.dir/build.make CMakeFiles/ChessGameExecutable.dir/main.cpp.s
+.PHONY : main.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -377,6 +414,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... ChessGameExecutable"
 	@echo "... game"
 	@echo "... lib/Board.o"
 	@echo "... lib/Board.i"
@@ -408,6 +446,9 @@ help:
 	@echo "... lib/ui.o"
 	@echo "... lib/ui.i"
 	@echo "... lib/ui.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

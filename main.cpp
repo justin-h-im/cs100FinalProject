@@ -9,11 +9,22 @@ following classes:
 */
 
 // Necessary includes.
-#include "../include/ui.h"
+#include "include/ui.h"
+#include "include/Board.h"
+#include "include/Display.h"
+#include "include/piece.h"
+#include "include/bishop.h"
+#include "include/king.h"
+#include "include/knight.h"
+#include "include/pawn.h"
+#include "include/queen.h"
+#include "include/rook.h"
+
 using namespace std;
 
 int main() {
-    // Generates a new ui for the game instance.
+	if (false) {
+		// Generates a new ui for the game instance.
     ui *UserInterface = new ui();
     // Output Start Menu.
     /* This function reads input from the terminal and decides:
@@ -39,6 +50,14 @@ int main() {
         /* If the king is dead during a combat scenario, the runGame flag is triggered to false.
         The game ends with a cout message.*/    
     }
+	}
 
-    return 0;
+	if (true) {
+		Board *board = new Board();
+		Display display(board);
+
+		display.displayBoard();
+	}
+    
+  return 0;
 }

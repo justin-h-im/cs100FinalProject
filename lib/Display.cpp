@@ -1,43 +1,58 @@
-#include "./include/Display.h"
+#include "../include/Display.h"
+#include "../include/piece.h"
+
+#include <iostream>
+#include <iomanip>
+
+using std::cout;
+using std::endl;
 
 Display::Display(Board* b) {
 	board = b;
 }
 
 void Display::displayBoard() {
+	cout << "   |";
 	for (int i = 0; i < 8; i++) {
+		cout << " " << i << " |";
+	}
+
+	cout << endl << std::setfill('-') << std::setw(37) << "" << endl;
+
+	for (int i = 0; i < 8; i++) {
+		cout << " " << i << " ";
 		for (int j = 0; j < 8; j++) {
-			Piece* curr = board.getPiece(i, j);
-			cout << "|"
+			Piece* curr = board->getPiece(i, j);
+			cout << "|";
 			if (curr != nullptr) {
 				if (curr->getColor() == Color::WHITE) {
 					switch (curr->getType()) {
-						case KING: 
+						case PieceType::King: 
 						{
 							cout << " ♚ ";
 							break;
 						}
-						case QUEEN:
+						case PieceType::Queen:
 						{
 							cout << " ♛ ";
 							break;
 						}
-						case PAWN:
+						case PieceType::Pawn:
 						{
 							cout << " ♟ ";
 							break;
 						}
-						case KNIGHT:
+						case PieceType::Knight:
 						{
 							cout << " ♞ ";
 							break;
 						}
-						case BISHOP:
+						case PieceType::Bishop:
 						{
 							cout << " ♝ ";
 							break;
 						}
-						case ROOK:
+						case PieceType::Rook:
 						{
 							cout << " ♜ ";
 							break;
@@ -46,32 +61,32 @@ void Display::displayBoard() {
 				}
 				else {
 					switch (curr->getType()) {
-						case KING: 
+						case PieceType::King: 
 						{
 							cout << " ♔ ";
 							break;
 						}
-						case QUEEN:
+						case PieceType::Queen:
 						{
 							cout << " ♕ ";
 							break;
 						}
-						case PAWN:
+						case PieceType::Pawn:
 						{
 							cout << " ♙ ";
 							break;
 						}
-						case KNIGHT:
+						case PieceType::Knight:
 						{
 							cout << " ♘ ";
 							break;
 						}
-						case BISHOP:
+						case PieceType::Bishop:
 						{
 							cout << " ♗ ";
 							break;
 						}
-						case ROOK:
+						case PieceType::Rook:
 						{
 							cout << " ♖ ";
 							break;
@@ -82,12 +97,12 @@ void Display::displayBoard() {
 			else { cout << "   "; }
 		}
 		cout << "|\n";
-		cout << std::setfill('-') << std::setw(40) << endl;
+		cout << std::setfill('-') << std::setw(37) << "" << endl;
 	}
 }
 
 void Display::displayCombat(Piece* attacker, Piece* defender) {
-	if (attacker->getColor() == WHITE) {
+	if (attacker->getColor() == Color::WHITE) {
 		displayWhitePiece(attacker);
 		displayBlackPiece(defender);
 	}
@@ -99,32 +114,32 @@ void Display::displayCombat(Piece* attacker, Piece* defender) {
 
 void Display::displayWhitePiece(Piece* piece) {
 	switch(piece->getType()) {
-		case PAWN:
+		case PieceType::Pawn:
 		{
 			printWhitePawn();
 			break;
 		}
-		case KNIGHT:
+		case PieceType::Knight:
 		{
 			printWhiteKnight();
 			break;
 		}
-		case BISHOP
+		case PieceType::Bishop:
 		{
 			printWhiteBishop();
 			break;
 		}
-		case ROOK:
+		case PieceType::Rook:
 		{
 			printWhiteRook();
 			break;
 		}
-		case QUEEN:
+		case PieceType::Queen:
 		{
 			printWhiteQueen();
 			break;
 		}
-		case KING:
+		case PieceType::King:
 		{
 			printWhiteKing();
 			break;
@@ -134,32 +149,32 @@ void Display::displayWhitePiece(Piece* piece) {
 
 void Display::displayBlackPiece(Piece* piece) {
 	switch(piece->getType()) {
-		case PAWN:
+		case PieceType::Pawn:
 		{
 			printBlackPawn();
 			break;
 		}
-		case KNIGHT:
+		case PieceType::Knight:
 		{
 			printBlackKnight();
 			break;
 		}
-		case BISHOP
+		case PieceType::Bishop:
 		{
 			printBlackBishop();
 			break;
 		}
-		case ROOK:
+		case PieceType::Rook:
 		{
 			printBlackRook();
 			break;
 		}
-		case QUEEN:
+		case PieceType::Queen:
 		{
 			printBlackQueen();
 			break;
 		}
-		case KING:
+		case PieceType::King:
 		{
 			printBlackKing();
 			break;

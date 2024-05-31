@@ -2,10 +2,12 @@ CMakeFiles/game.dir/lib/Board.cpp.o: \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/Board.cpp \
  /usr/include/stdc-predef.h \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/Board.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/piece.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/enums.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/bishop.h \
+ /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/Game.h \
  /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/piece.h \
+ /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/../include/enums.h \
+ /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/../include/enums.h \
+ /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/piece.h \
+ /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/lib/../include/bishop.h \
  /usr/include/c++/8/cmath \
  /usr/include/c++/8/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/bits/wordsize.h \

@@ -1,4 +1,5 @@
 #include "../include/Board.h"
+#include "../include/Game.h"
 #include "../include/piece.h"
 #include "../include/bishop.h"
 #include "../include/king.h"
