@@ -12,15 +12,15 @@ protected:
     PieceType type;
     int x;
     int y;
-    int currHp; 
-    int maxHp;
-    int atk;
+    int currHp; // current health
+    int maxHp; // max health
+    int atk; // attack stat
+    int acc; // accuracy stat
 
 public:
-    Piece(Color color, int x, int y, PieceType type, int maxHp, int atk) 
-        : color(color), x(x), y(y), type(type), maxHp(maxHp), atk(atk) {
-            this.currHp = maxHp;
-        }
+    Piece(Color color, int x, int y, PieceType type, int maxHp, int atk, int acc) 
+        : color(color), x(x), y(y), type(type), 
+          maxHp(maxHp), currHp(maxHp), atk(atk), acc(acc) {}
     virtual ~Piece() {}
 
     bool isInBounds(int x, int y) {
@@ -32,7 +32,7 @@ public:
     Color getColor() const { return color; }
     PieceType getType() const { return type; }
     void getPosition(int& outX, int& outY) const { outX = x; outY = y; }
-    int getCurrHp() const { return currHp; }
+    int getHp() const { return currHp; }
     int getMaxHp() const { return maxHp; }
     int getAtk() const { return atk; }
     int getX() const { return x; }
