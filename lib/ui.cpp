@@ -5,8 +5,6 @@ and performs the correct actions, and the ui class outputs back
 to terminal to prompt for more user input. */
 
 #include "../include/ui.h"
-#include "../include/Game.h"
-#include "../include/Board.h"
 
 // Necessary includes for printing to terminal.
 
@@ -17,6 +15,7 @@ ui::ui() {
     board = new Board();
     game = new Game();
     board->setGame(game);
+    display = new Display(board);
 }
 
 bool ui::outputStartMenu() {
@@ -56,6 +55,8 @@ bool ui::outputTurnMenu() {
     cout << "PLAYER " << turn << " TURN" << endl;
     int xCoord = 0; int yCoord = 0;
 
+    display->displayBoard();
+
     // Prints user for valid x and y locations for the piece that they want to move. 
     cout << "State the location of your vassal: " << endl;
     while (1) {
@@ -80,7 +81,7 @@ bool ui::outputTurnMenu() {
     }
  
     // If board->verifyPieceToMove(x, y) is false, toggle game turn and return to main. 
-    if (!board->verifyPieceToMove(xCoord, yCoord)) {
+    if (!board->verifyPieceToMove(yCoord, xCoord)) {
         cout << "Your mistaken hand has cost you your turn." << endl;
         game->updateTurn();
         return true;
@@ -111,15 +112,15 @@ bool ui::outputTurnMenu() {
     }
 
     // Toggle Game turn and return to main if this returns false.
-    if (board->verifyMove(newXCoord, newYCoord) == -1) {
+    if (board->verifyMove(newYCoord, newXCoord) == -1) {
         cout << "Your careless command has cost you your turn." << endl;
         game->updateTurn();
         return true;
     }
     // If there is not a piece at the new location, just move the piece. Then toggle the turn and return to main.
-    Piece* possiblePiece = board->getPiece(newXCoord, newYCoord);
+    Piece* possiblePiece = board->getPiece(newYCoord, newXCoord);
     if (possiblePiece == nullptr) {
-        board->updateBoard(xCoord, yCoord, newXCoord, newYCoord);
+        board->updateBoard(yCoord, xCoord, newYCoord, newXCoord);
         cout << "Successful move, your highness." << endl;
         game->updateTurn();
         return true;

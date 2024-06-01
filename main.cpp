@@ -10,20 +10,20 @@ following classes:
 
 // Necessary includes.
 #include "include/ui.h"
-#include "include/Board.h"
-#include "include/Display.h"
-#include "include/piece.h"
-#include "include/bishop.h"
-#include "include/king.h"
-#include "include/knight.h"
-#include "include/pawn.h"
-#include "include/queen.h"
-#include "include/rook.h"
+// #include "include/Board.h"
+// #include "include/Display.h"
+// #include "include/piece.h"
+// #include "include/bishop.h"
+// #include "include/king.h"
+// #include "include/knight.h"
+// #include "include/pawn.h"
+// #include "include/queen.h"
+// #include "include/rook.h"
 
 using namespace std;
 
 int main() {
-	if (false) {
+	if (true) {
 		// Generates a new ui for the game instance.
     ui *UserInterface = new ui();
     // Output Start Menu.
@@ -52,13 +52,13 @@ int main() {
     }
 	}
 
-	if (true) {
-		Board *board = new Board();
-		Display display(board);
+	// if (true) {
+	// 	Board *board = new Board();
+	// 	Display display(board);
 
-		display.displayBoard();
-		display.displayCombat(board->getPiece(0, 4), board->getPiece(7, 4));
-	}
+	// 	display.displayBoard();
+	// 	display.displayCombat(board->getPiece(0, 4), board->getPiece(7, 4));
+	// }
     
   return 0;
 }

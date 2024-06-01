@@ -1,2 +1,0 @@
-/usr/bin/ar qc build/libgame.a CMakeFiles/game.dir/lib/Board.cpp.o CMakeFiles/game.dir/lib/pawn.cpp.o CMakeFiles/game.dir/lib/king.cpp.o CMakeFiles/game.dir/lib/rook.cpp.o CMakeFiles/game.dir/lib/bishop.cpp.o CMakeFiles/game.dir/lib/knight.cpp.o CMakeFiles/game.dir/lib/queen.cpp.o CMakeFiles/game.dir/lib/Display.cpp.o CMakeFiles/game.dir/lib/ui.cpp.o CMakeFiles/game.dir/lib/Game.cpp.o
-/usr/bin/ranlib build/libgame.a
