@@ -14,9 +14,13 @@ protected:
     int y;
     int currHp; 
     int maxHp;
+    int atk;
 
 public:
-    Piece(Color color, int x, int y, PieceType type, int currHp, int maxHp) : color(color), x(x), y(y), type(type), currHp(currHp), maxHp(maxHp) {}
+    Piece(Color color, int x, int y, PieceType type, int maxHp, int atk) 
+        : color(color), x(x), y(y), type(type), maxHp(maxHp), atk(atk) {
+            this.currHp = maxHp;
+        }
     virtual ~Piece() {}
 
     bool isInBounds(int x, int y) {
@@ -30,6 +34,7 @@ public:
     void getPosition(int& outX, int& outY) const { outX = x; outY = y; }
     int getCurrHp() const { return currHp; }
     int getMaxHp() const { return maxHp; }
+    int getAtk() const { return atk; }
     int getX() const { return x; }
     int getY() const { return y; }
 };
