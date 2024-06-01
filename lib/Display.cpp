@@ -1,14 +1,30 @@
 #include "../include/Display.h"
+#include "../include/piece.h"
+
 #include <iostream>
 #include <iomanip>
 
-using namespace std;
+using std::cout;
+using std::endl;
+using std::string;
+using std::vector;
 
+Display::Display(Board* b) {
+	board = b;
+}
 
 void Display::displayBoard() {
+	cout << "   |";
 	for (int i = 0; i < 8; i++) {
+		cout << " " << i << " |";
+	}
+
+	cout << endl << std::setfill('-') << std::setw(37) << "" << endl;
+
+	for (int i = 0; i < 8; i++) {
+		cout << " " << i << " ";
 		for (int j = 0; j < 8; j++) {
-			Piece* curr = board.getPiece(i, j);
+			Piece* curr = board->getPiece(i, j);
 			cout << "|";
 			if (curr != nullptr) {
 				if (curr->getColor() == Color::WHITE) {
@@ -83,207 +99,247 @@ void Display::displayBoard() {
 			else { cout << "   "; }
 		}
 		cout << "|\n";
-		cout << std::setfill('-') << std::setw(40) << endl;
+		cout << std::setfill('-') << std::setw(37) << "" << endl;
 	}
 }
 
 void Display::displayCombat(Piece* attacker, Piece* defender) {
 	if (attacker->getColor() == Color::WHITE) {
-		displayWhitePiece(attacker);
-		displayBlackPiece(defender);
+		vector<string> attackPiece = displayWhitePiece(attacker);
+		vector<string> defendPiece = displayBlackPiece(defender);
+		cout << attackPiece.at(0) << std::setfill(' ') << std::setw(2) << "" << "VERSUS" << std::setfill(' ') << std::setw(2) << "" << defendPiece[0] << endl;
+		for (int i = 1; i < 8; i++) {
+			cout << attackPiece[i];
+			cout << std::setfill(' ') << std::setw(10) << "";
+			cout << defendPiece[i] << endl;
+		}
 	}
 	else {
-		displayWhitePiece(attacker);
-		displayBlackPiece(defender);
+		vector<string> attackPiece = displayWhitePiece(attacker);
+		vector<string> defendPiece = displayBlackPiece(defender);
+		cout << attackPiece.at(0) << std::setfill(' ') << std::setw(2) << "" << "VERSUS" << std::setfill(' ') << std::setw(2) << "" << defendPiece[0] << endl;
+		for (int i = 1; i < 8; i++) {
+			cout << attackPiece[i];
+			cout << std::setfill(' ') << std::setw(10) << "";
+			cout << defendPiece[i] << endl;
+		}
 	}
 }
 
-void Display::displayWhitePiece(Piece* piece) {
+vector<string> Display::displayWhitePiece(Piece* piece) {
 	switch(piece->getType()) {
 		case PieceType::Pawn:
 		{
-			printWhitePawn();
-			break;
+			return printWhitePawn();
 		}
 		case PieceType::Knight:
 		{
-			printWhiteKnight();
-			break;
+			return printWhiteKnight();
 		}
 		case PieceType::Bishop:
 		{
-			printWhiteBishop();
-			break;
+			return printWhiteBishop();
 		}
 		case PieceType::Rook:
 		{
-			printWhiteRook();
-			break;
+			return printWhiteRook();
 		}
 		case PieceType::Queen:
 		{
-			printWhiteQueen();
-			break;
+			return printWhiteQueen();
 		}
 		case PieceType::King:
 		{
-			printWhiteKing();
-			break;
+			return printWhiteKing();
 		}
 	}
+	vector<string> nothing;
+	return nothing;
 }
 
-void Display::displayBlackPiece(Piece* piece) {
+vector<string> Display::displayBlackPiece(Piece* piece) {
 	switch(piece->getType()) {
 		case PieceType::Pawn:
 		{
-			printBlackPawn();
-			break;
+			return printBlackPawn();
 		}
 		case PieceType::Knight:
 		{
-			printBlackKnight();
-			break;
+			return printBlackKnight();
 		}
 		case PieceType::Bishop:
 		{
-			printBlackBishop();
-			break;
+			return printBlackBishop();
 		}
 		case PieceType::Rook:
 		{
-			printBlackRook();
-			break;
+			return printBlackRook();
 		}
 		case PieceType::Queen:
 		{
-			printBlackQueen();
-			break;
+			return printBlackQueen();
 		}
 		case PieceType::King:
 		{
-			printBlackKing();
-			break;
+			return printBlackKing();
 		}
 	}
+	vector<string> nothing;
+	return nothing;
 }
 
-void Display::printWhitePawn() {
-	cout << "             " << endl;
-	cout << "     ■■■     " << endl;
-	cout << "    ■■■■■    " << endl;
-	cout << "     ■■■     " << endl;
-	cout << "    ■■■■■    " << endl;
-	cout << "   ■■■■■■■   " << endl;
-	cout << "  ■■■■■■■■■  " << endl;
+vector<string> Display::printWhitePawn() {
+	vector<string> out;
+	out.push_back("  WHITE PAWN ");
+	out.push_back("             ");
+	out.push_back("     ■■■     ");
+	out.push_back("    ■■■■■    ");
+	out.push_back("     ■■■     ");
+	out.push_back("    ■■■■■    ");
+	out.push_back("   ■■■■■■■   ");
+	out.push_back("  ■■■■■■■■■  ");
+	return out;
 }
 
-void Display::printWhiteKnight() {
-	cout << "             " << endl;
-	cout << "     ■■■     " << endl;
-	cout << "  ■■■■■■■    " << endl;
-	cout << "  ■■■■■■■    " << endl;
-	cout << "    ■■■■■    " << endl;
-	cout << "   ■■■■■■■   " << endl;
-	cout << "  ■■■■■■■■■  " << endl;
+vector<string> Display::printWhiteKnight() {
+	vector<string> out;
+	out.push_back(" WHITE KNIGHT");
+	out.push_back("             ");
+	out.push_back("     ■■■     ");
+	out.push_back("  ■■■■■■■    ");
+	out.push_back("  ■■■■■■■    ");
+	out.push_back("    ■■■■■    ");
+	out.push_back("   ■■■■■■■   ");
+	out.push_back("  ■■■■■■■■■  ");
+	return out;
 }
 
-void Display::printWhiteBishop() {
-	cout << "     ■■      " << endl;
-	cout << "    ■■  ■    " << endl;
-	cout << "    ■■■■■    " << endl;
-	cout << "     ■■■     " << endl;
-	cout << "     ■■■     " << endl;
-	cout << "    ■■■■■    " << endl;
-	cout << "   ■■■■■■■   " << endl;
+vector<string> Display::printWhiteBishop() {
+	vector<string> out;
+	out.push_back(" WHITE BISHOP");
+	out.push_back("     ■■      ");
+	out.push_back("    ■■  ■    ");
+	out.push_back("    ■■■■■    ");
+	out.push_back("     ■■■     ");
+	out.push_back("     ■■■     ");
+	out.push_back("    ■■■■■    ");
+	out.push_back("   ■■■■■■■   ");
+	return out;
 }
 
-void Display::printWhiteRook() {
-	cout << "             " << endl;
-	cout << "   ■ ■ ■ ■   " << endl;
-	cout << "   ■■■■■■■   " << endl;
-	cout << "    ■■■■■    " << endl;
-	cout << "    ■■■■■    " << endl;
-	cout << "   ■■■■■■■   " << endl;
-	cout << "  ■■■■■■■■■  " << endl;
+vector<string> Display::printWhiteRook() {
+	vector<string> out;
+	out.push_back("  WHITE ROOK ");
+	out.push_back("             ");
+	out.push_back("   ■ ■ ■ ■   ");
+	out.push_back("   ■■■■■■■   ");
+	out.push_back("    ■■■■■    ");
+	out.push_back("    ■■■■■    ");
+	out.push_back("   ■■■■■■■   ");
+	out.push_back("  ■■■■■■■■■  ");
+	return out;
 }
 
-void Display::printWhiteQueen() {
-	cout << "    ■ ■ ■    " << endl;
-	cout << "    ■■■■■    " << endl;
-	cout << "     ■■■     " << endl;
-	cout << "     ■■■     " << endl;
-	cout << "     ■■■     " << endl;
-	cout << "    ■■■■■    " << endl;
-	cout << "   ■■■■■■■   " << endl;
+vector<string> Display::printWhiteQueen() {
+	vector<string> out;
+	out.push_back(" WHITE QUEEN ");
+	out.push_back("    ■ ■ ■    ");
+	out.push_back("    ■■■■■    ");
+	out.push_back("     ■■■     ");
+	out.push_back("     ■■■     ");
+	out.push_back("     ■■■     ");
+	out.push_back("    ■■■■■    ");
+	out.push_back("   ■■■■■■■   ");
+	return out;
 }
 
-void Display::printWhiteKing() {
-	cout << "      ■      " << endl;
-	cout << "   ■■■■■■■    " << endl;
-	cout << "    ■■■■■      " << endl;
-	cout << "     ■■■     " << endl;
-	cout << "     ■■■     " << endl;
-	cout << "    ■■■■■    " << endl;
-	cout << "   ■■■■■■■   " << endl;
+vector<string> Display::printWhiteKing() {
+	vector<string> out;
+	out.push_back("  WHITE KING ");
+	out.push_back("      ■      ");
+	out.push_back("   ■■■■■■■   ");
+	out.push_back("    ■■■■■    ");
+	out.push_back("     ■■■     ");
+	out.push_back("     ■■■     ");
+	out.push_back("    ■■■■■    ");
+	out.push_back("   ■■■■■■■   ");
+	return out; 
 }
 
-void Display::printBlackPawn() {
-	cout << "             " << endl;
-	cout << "     |||     " << endl;
-	cout << "    |||||    " << endl;
-	cout << "     |||     " << endl;
-	cout << "    |||||    " << endl;
-	cout << "   |||||||   " << endl;
-	cout << "  |||||||||  " << endl;
+vector<string> Display::printBlackPawn() {
+	vector<string> out;
+	out.push_back("  BLACK PAWN ");
+	out.push_back("             ");
+	out.push_back("     |||     ");
+	out.push_back("    |||||    ");
+	out.push_back("     |||     ");
+	out.push_back("    |||||    ");
+	out.push_back("   |||||||   ");
+	out.push_back("  |||||||||  ");
+	return out;
 }
 
-void Display::printBlackKnight() {
-	cout << "             " << endl;
-	cout << "     |||     " << endl;
-	cout << "  |||||||    " << endl;
-	cout << "  |||||||    " << endl;
-	cout << "    |||||    " << endl;
-	cout << "   |||||||   " << endl;
-	cout << "  |||||||||  " << endl;
+vector<string> Display::printBlackKnight() {
+	vector<string> out;
+	out.push_back(" BLACK KNIGHT");
+	out.push_back("             ");
+	out.push_back("     |||     ");
+	out.push_back("  |||||||    ");
+	out.push_back("  |||||||    ");
+	out.push_back("    |||||    ");
+	out.push_back("   |||||||   ");
+	out.push_back("  |||||||||  ");
+	return out;
 }
 
-void Display::printBlackBishop() {
-	cout << "     ||      " << endl;
-	cout << "    ||  |   " << endl;
-	cout << "    |||||    " << endl;
-	cout << "     |||     " << endl;
-	cout << "     |||     " << endl;
-	cout << "    |||||    " << endl;
-	cout << "   |||||||   " << endl;
+vector<string> Display::printBlackBishop() {
+	vector<string> out;
+	out.push_back(" BLACK BISHOP");
+	out.push_back("     ||      ");
+	out.push_back("    ||  |    ");
+	out.push_back("    |||||    ");
+	out.push_back("     |||     ");
+	out.push_back("     |||     ");
+	out.push_back("    |||||    ");
+	out.push_back("   |||||||   ");
+	return out; 
 }
 
-void Display::printBlackRook() {
-	cout << "             " << endl;
-	cout << "   | | | |   " << endl;
-	cout << "   |||||||   " << endl;
-	cout << "    |||||    " << endl;
-	cout << "    |||||    " << endl;
-	cout << "   |||||||   " << endl;
-	cout << "  |||||||||  " << endl;
+vector<string> Display::printBlackRook() {
+	vector<string> out;
+	out.push_back("  BLACK ROOK ");
+	out.push_back("             ");
+	out.push_back("   | | | |   ");
+	out.push_back("   |||||||   ");
+	out.push_back("    |||||    ");
+	out.push_back("    |||||    ");
+	out.push_back("   |||||||   ");
+	out.push_back("  |||||||||  ");
+	return out;
 }
 
-void Display::printBlackQueen() {
-	cout << "    | | |    " << endl;
-	cout << "    |||||    " << endl;
-	cout << "     |||     " << endl;
-	cout << "     |||     " << endl;
-	cout << "     |||     " << endl;
-	cout << "    |||||    " << endl;
-	cout << "   |||||||   " << endl;
+vector<string> Display::printBlackQueen() {
+	vector<string> out;
+	out.push_back(" BLACK QUEEN ");
+	out.push_back("    | | |    ");
+	out.push_back("    |||||    ");
+	out.push_back("     |||     ");
+	out.push_back("     |||     ");
+	out.push_back("     |||     ");
+	out.push_back("    |||||    ");
+	out.push_back("   |||||||   ");
+	return out;
 }
 
-void Display::printBlackKing() {
-	cout << "      |      " << endl;
-	cout << "   |||||||    " << endl;
-	cout << "    |||||      " << endl;
-	cout << "     |||     " << endl;
-	cout << "     |||     " << endl;
-	cout << "    |||||    " << endl;
-	cout << "   |||||||   " << endl;
+vector<string> Display::printBlackKing() {
+	vector<string> out;
+	out.push_back("  BLACK KING ");
+	out.push_back("      |      ");
+	out.push_back("   |||||||   ");
+	out.push_back("    |||||    ");
+	out.push_back("     |||     ");
+	out.push_back("     |||     ");
+	out.push_back("    |||||    ");
+	out.push_back("   |||||||   ");
+	return out; 
 }

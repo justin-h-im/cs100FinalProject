@@ -1,7 +1,5 @@
 #pragma once
 
-#include "../include/Game.h"  
-
 class Piece;
 class Game;
 
