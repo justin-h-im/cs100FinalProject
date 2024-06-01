@@ -8,6 +8,7 @@ to terminal to prompt for more user input. */
 #include "../include/Game.h"
 #include "../include/Board.h"
 
+
 // Necessary includes for printing to terminal.
 
 using namespace std;
@@ -17,6 +18,8 @@ ui::ui() {
     board = new Board();
     game = new Game();
     board->setGame(game);
+    display = new Display();
+    display->setBoard(board);
 }
 
 bool ui::outputStartMenu() {
@@ -55,6 +58,8 @@ bool ui::outputTurnMenu() {
     }
     cout << "PLAYER " << turn << " TURN" << endl;
     int xCoord = 0; int yCoord = 0;
+
+    display->displayBoard();
 
     // Prints user for valid x and y locations for the piece that they want to move. 
     cout << "State the location of your vassal: " << endl;

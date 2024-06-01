@@ -14,6 +14,7 @@ to terminal to prompt for more user input. */
 #include "../include/piece.h"
 #include "../include/Board.h"
 #include "../include/Game.h"
+#include "../include/Display.h"
 
 #include <iostream>
 #include <ostream>
@@ -23,6 +24,7 @@ class ui {
     private:
         Board* board;
         Game* game;
+        Display* display;
 
     public:
         // Constructor
