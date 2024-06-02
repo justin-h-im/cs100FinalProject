@@ -140,6 +140,7 @@ bool ui::outputTurnMenu() {
         Combat combat(attacker, defender, display, game);
         combat.startCombat();
         /* Check for game ending within combat scenario (king death) and respond to death accordingly. */
+        // check if black king or white king is dead (currHP == 0)
         if (game->blackWin() || game->whiteWin()) {
             outputEndScreen();
         }
