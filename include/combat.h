@@ -28,15 +28,14 @@ public:
         : attacker(attacker), defender(defender), display(display), game(game) {}
 
     void startCombat() {
-        std::cout << "------------------------------------------------------\n";
-        std::cout << "Combat initiated between " << colorToString(attacker->getColor()) << " " << pieceToString(attacker->getType()) << 
-            " and " << colorToString(defender->getColor()) << " " << pieceToString(defender->getType()) << "!\n";
-        std::cout << "------------------------------------------------------\n";
+        std::cout << "------------------------------------\n";
+        std::cout << "         Combat initiated!          \n";
+        std::cout << "------------------------------------\n";
         
         std::cin.ignore();
         // combat loop
         while (attacker->getHp() > 0 && defender->getHp() > 0) {
-            std::cout << colorToString(attacker->getColor()) << pieceToString(attacker->getType()) << "'s turn! Press Enter to attack...";
+            std::cout << colorToString(attacker->getColor()) << " " << pieceToString(attacker->getType()) << "'s turn! Press Enter to attack...";
             std::cin.ignore();
 
             if (attemptAttack(attacker, defender)) {

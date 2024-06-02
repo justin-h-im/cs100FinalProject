@@ -104,6 +104,9 @@ void Display::displayBoard() {
 }
 
 void Display::displayCombat(Piece* attacker, Piece* defender) {
+	std::cout << "\n------------------------------------\n";
+
+	// white is attacker
 	if (attacker->getColor() == Color::WHITE) {
 		vector<string> attackPiece = displayWhitePiece(attacker);
 		vector<string> defendPiece = displayBlackPiece(defender);
@@ -114,9 +117,10 @@ void Display::displayCombat(Piece* attacker, Piece* defender) {
 			cout << defendPiece[i] << endl;
 		}
 	}
+	// black is attacker
 	else {
-		vector<string> attackPiece = displayWhitePiece(attacker);
 		vector<string> defendPiece = displayBlackPiece(defender);
+		vector<string> attackPiece = displayWhitePiece(attacker);
 		cout << attackPiece.at(0) << std::setfill(' ') << std::setw(2) << "" << "VERSUS" << std::setfill(' ') << std::setw(2) << "" << defendPiece[0] << endl;
 		for (int i = 1; i < 8; i++) {
 			cout << attackPiece[i];
