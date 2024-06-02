@@ -2,22 +2,22 @@
 
 #include <cmath>
 
-bool King::move(int x1, int y1, int x2, int y2, const Board& board) 
-{
-    if (isMoveValid(x1, y1, x2, y2)) 
-    {
-        // Update the position
-        x = x2;
-        y = y2;
-        hasMoved = true; // Mark the king as moved
-        return true;
+bool King::move(int x1, int y1, int x2, int y2) {
+    if (isMoveValid(x1, y1, x2, y2)) {
+        // Check if the destination is occupied by a piece of the same color
+        Piece* target = board->getPiece(x2, y2);
+        if (target == nullptr || target->getColor() != this->getColor()) {
+            // Update the position
+            x = x2;
+            y = y2;
+            hasMoved = true; // Mark the king as moved
+            return true;
+        }
     }
-    
     return false;
 }
 
-bool King::isMoveValid(int x1, int y1, int x2, int y2) 
-{
+bool King::isMoveValid(int x1, int y1, int x2, int y2) {
     int dx = std::abs(x2 - x1);
     int dy = std::abs(y2 - y1);
 

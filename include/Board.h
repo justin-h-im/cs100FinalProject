@@ -23,4 +23,6 @@ class Board {
 		// Returns whatever piece is at that square
 		Piece* getPiece(int x, int y) const;
 
+		void placePiece(int x, int y, Piece* piece);
+
 };

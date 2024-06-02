@@ -11,16 +11,17 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/build")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/build")
 
 add_library(game
-    lib/Board.cpp
-    lib/pawn.cpp
-    lib/king.cpp
-    lib/rook.cpp
     lib/bishop.cpp
-    lib/knight.cpp
-    lib/queen.cpp
+    lib/Board.cpp
     lib/Display.cpp
-    lib/ui.cpp
     lib/Game.cpp
+    lib/king.cpp
+    lib/knight.cpp
+    lib/pawn.cpp
+    lib/promotion.cpp
+    lib/queen.cpp
+    lib/rook.cpp
+    lib/ui.cpp
 )
 
 # Add executable target

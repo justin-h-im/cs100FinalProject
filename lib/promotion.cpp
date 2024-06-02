@@ -25,23 +25,25 @@ void Promotion::promote(Piece*& pawn, Board& board) {
 
 
     // Remove the old pawn and replace it with the new piece if not remaining a pawn
-    if (promotions[choice] != PieceType::Pawn) {
+    if (promotions[choice] != PieceType::Pawn) 
+    {
         delete pawn;  // Delete the existing pawn
         pawn = nullptr;  // Nullify the pointer after deleting
 
 
-        switch (promotions[choice]) {
+        switch (promotions[choice]) 
+        {
             case PieceType::Queen:
-                pawn = new Queen(color, x, y);
+                pawn = new Queen(color, x, y, &board);
                 break;
             case PieceType::Rook:
-                pawn = new Rook(color, x, y);
+                pawn = new Rook(color, x, y,&board);
                 break;
             case PieceType::Bishop:
-                pawn = new Bishop(color, x, y);
+                pawn = new Bishop(color, x, y, &board);
                 break;
             case PieceType::Knight:
-                pawn = new Knight(color, x, y);
+                pawn = new Knight(color, x, y, &board);
                 break;
             default:
                 break;
