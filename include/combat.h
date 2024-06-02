@@ -20,25 +20,33 @@ private:
         return false;
     }
 
-
+    // print both player's (currHP/maxHP) (atk) (acc)
+    void printStats(Piece* attacker, Piece* defender){}
 
 public:
     Combat(Piece* attacker, Piece* defender, Display* display, Game* game) 
         : attacker(attacker), defender(defender), display(display), game(game) {}
 
     void startCombat() {
-        std::cout << "Combat initiated between " << pieceToString(attacker->getType()) << " and " << pieceToString(defender->getType()) << "!\n";
+        std::cout << "------------------------------------------------------\n";
+        std::cout << "Combat initiated between " << colorToString(attacker->getColor()) << " " << pieceToString(attacker->getType()) << 
+            " and " << colorToString(defender->getColor()) << " " << pieceToString(defender->getType()) << "!\n";
+        std::cout << "------------------------------------------------------\n";
         
+        std::cin.ignore();
         // combat loop
         while (attacker->getHp() > 0 && defender->getHp() > 0) {
             std::cout << colorToString(attacker->getColor()) << pieceToString(attacker->getType()) << "'s turn! Press Enter to attack...";
             std::cin.ignore();
 
             if (attemptAttack(attacker, defender)) {
-                std::cout << colorToString(attacker->getColor()) << pieceToString(attacker->getType()) << "'s attack hits!\nDefender's HP: " << defender->getHp() << "\n";
+                std::cout << " > " << colorToString(attacker->getColor()) << " " << pieceToString(attacker->getType()) << "'s attack hits!\n";
+                std::cout << " > " << "Defender's HP: " << defender->getHp() << "\n";
             } else {
-                std::cout << colorToString(attacker->getColor()) << pieceToString(attacker->getType()) << "swings and misses!\n";
+                std::cout << " > " << colorToString(attacker->getColor()) << " " << pieceToString(attacker->getType()) << " swings and misses!\n";
             }
+
+            std::cout << "\n";
 
             if (defender->getHp() <= 0) break;
 
