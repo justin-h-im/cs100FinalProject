@@ -17,7 +17,6 @@ to terminal to prompt for more user input. */
 #include "../include/Display.h"
 
 #include <iostream>
-#include <ostream>
 #include <fstream>
 
 class ui {

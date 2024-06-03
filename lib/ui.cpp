@@ -144,7 +144,7 @@ bool ui::outputTurnMenu() {
 }
 
 void ui::outputUserGuide() {
-    ofstream userGuide("Combat Chess User Guide.txt");
+    ifstream userGuide("include/CombatChessUserGuide.txt");
     if (userGuide.is_open()) {
         cout << userGuide.rdbuf();
     }
