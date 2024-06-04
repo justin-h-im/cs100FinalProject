@@ -18,6 +18,13 @@ ui::ui() {
     display = new Display(board);
 }
 
+// Destructor
+ui::~ui() {
+    delete board;
+    delete display;
+    delete game;
+}
+
 bool ui::outputStartMenu() {
     int userInput = 0;
     cout << "Welcome to Combat Chess." << endl;
