@@ -48,7 +48,15 @@ int main() {
 
         /* If the king is dead during a combat scenario, the runGame flag is triggered to false.
         The game ends with a cout message.*/    
-    }
+		}
 
-    return 0;
+	// if (true) {
+	// 	Board *board = new Board();
+	// 	Display display(board);
+
+	// 	display.displayBoard();
+	// 	display.displayCombat(board->getPiece(0, 4), board->getPiece(7, 4));
+	// }
+    
+  return 0;
 }
