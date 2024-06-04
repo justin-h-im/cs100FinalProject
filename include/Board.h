@@ -6,7 +6,8 @@ class Game;
 // class responsible for storing where pieces are on the board
 class Board {
 	private:
-		// board is a 2d array storing pointers to the pieces (if there is no piece it stores nullptr)
+		// board is a 2d array storing pointers to the pieces (if there is no piece it stores nullptr) 
+		Game game;
 		Piece* square[8][8];
 		Game* game;
 	public:
@@ -22,5 +23,5 @@ class Board {
 		int verifyMove(int x, int y) const;
 		// Returns whatever piece is at that square
 		Piece* getPiece(int x, int y) const;
-
+		void placePiece(int x, int y, Piece* piece);
 };

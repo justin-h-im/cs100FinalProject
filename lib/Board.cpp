@@ -66,8 +66,14 @@ int Board::verifyMove(int x, int y) const {
     return -1;
 }
 
-
 // Correcting getPiece
 Piece* Board::getPiece(int x, int y) const {
     return square[x][y];
+}
+
+// allows a piece to be added to the board (for pawn promotion)
+void Board::placePiece(int x, int y, Piece* piece) {
+	if (square[x][y] == nullptr) {
+		square[x][y] = piece;
+	}
 }
