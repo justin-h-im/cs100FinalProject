@@ -25,11 +25,15 @@ add_library(game
 
 # Add executable target
 add_executable(ChessGameExecutable
-   main.cpp  # Replace with your actual main file
+  main.cpp  # Replace with your actual main file
+)
+add_executable(runAllTests
+	test/test.cpp
 )
 
 # Link the library to the executable
 target_link_libraries(ChessGameExecutable PRIVATE game)
+target_link_libraries(runAllTests gtest gtest_main game)
 
 # ptionally, you can set the output name explicitly
 # set_target_properties(ChessGameExecutable PROPERTIES OUTPUT_NAME "ChessGame")
