@@ -1,6 +1,19 @@
 #include "include/ui.h"
 #include "gtest/gtest.h"
 
+// Expect true when the first input is 1.
+TEST(UISuite, startMenuInput1) {
+  ui *testUI = new ui();
+  EXPECT_TRUE(testUI->outputStartMenu());
+}
+
+// Expect false when the first input is 3.
+TEST(UISuite, startMenuInput3) {
+  ui *testUI = new ui();
+  EXPECT_FALSE(testUI->outputStartMenu());
+}
+
+
 TEST(UISuite, turnMenu) {
     ui *testUI = new ui();
     EXPECT_NO_THROW(testUI->outputTurnMenu());

@@ -29,7 +29,7 @@ class ui {
         // Constructor
         ui();
         // Destructor
-        ~ui() {}
+        ~ui();
 
         /* Outputs start menu from before the game starts. If the return statement is true, then the game begins. 
          Otherwise, the game ends. */
