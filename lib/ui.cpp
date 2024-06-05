@@ -79,14 +79,6 @@ bool ui::outputTurnMenu() {
             break;
         }
     }
- 
-    // If board->verifyPieceToMove(x, y) is false, toggle game turn and return to main. 
-    if (!board->verifyPieceToMove(yCoord, xCoord)) {
-        cout << "Your mistaken hand has cost you your turn." << endl;
-        game->updateTurn();
-        return true;
-    }
-
     int newXCoord = 0; int newYCoord = 0;
     // Repeatedly prompts the user for the location that they want to move th epiece to.
     cout << "State the new location for your vassal: " << endl;
@@ -110,9 +102,9 @@ bool ui::outputTurnMenu() {
             break;
         }
     }
-
+    
     // Toggle Game turn and return to main if this returns false.
-    if (board->verifyMove(newYCoord, newXCoord) == -1) {
+    if (board->verifyMove(yCoord, xCoord, newYCoord, newXCoord) == -1) {
         cout << "Your careless command has cost you your turn." << endl;
         game->updateTurn();
         return true;

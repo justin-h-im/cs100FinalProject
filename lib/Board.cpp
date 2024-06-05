@@ -67,7 +67,7 @@ bool Board::verifyPieceToMove(int x, int y) const {
 }
 
 // returns -1 if a player attempts an invalid move, returns 1 if a piece initiates combat, returns 0 if a piece just moves
-int Board::verifyMove(int oldX, int oldY, int newX, int newY) const {
+int Board::verifyMove(int oldX, int oldY, int newX, int newY) {
 	if (!verifyPieceToMove(oldX, oldY)) {
 		game->updateTurn();
 		return -1;
@@ -83,7 +83,7 @@ int Board::verifyMove(int oldX, int oldY, int newX, int newY) const {
 	Color currentTurn = game->getTurn();
 	if (curr == nullptr) { 
 		game->updateTurn();
-		game->updateBoard(oldX, oldY, newX, newY);
+		updateBoard(oldX, oldY, newX, newY);
 		return 0;
 	}
 	else if (currentTurn == Color::WHITE && curr->getColor() == Color::BLACK || currentTurn == Color::BLACK && curr->getColor() == Color::WHITE) { 
