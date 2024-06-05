@@ -23,7 +23,7 @@ following classes:
 using namespace std;
 
 int main() {
-		// Generates a new ui for the game instance.
+		if (false) {// Generates a new ui for the game instance.
     ui *UserInterface = new ui();
     // Output Start Menu.
     /* This function reads input from the terminal and decides:
@@ -49,14 +49,22 @@ int main() {
         /* If the king is dead during a combat scenario, the runGame flag is triggered to false.
         The game ends with a cout message.*/    
 		}
+    }
 
-	// if (true) {
-	// 	Board *board = new Board();
-	// 	Display display(board);
+    Game *game = new Game();
+		Board *board = new Board();
+    board->setGame(game);
+		Display* display = new Display(board);
 
-	// 	display.displayBoard();
-	// 	display.displayCombat(board->getPiece(0, 4), board->getPiece(7, 4));
-	// }
-  delete UserInterface;
+		display->displayBoard();
+
+    board->verifyMove(7,1,5,0);
+		
+    display->displayBoard();
+    
+    delete board;
+    delete game;
+    delete display;
+
   return 0;
 }

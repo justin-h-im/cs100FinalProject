@@ -53,8 +53,10 @@ Board::~Board() {
 }
 
 void Board::updateBoard(int oldX, int oldY, int newX, int newY) {
-	square[newX][newY] = square[oldX][oldY];
-	square[oldX][oldY] = nullptr;
+	if (square[newX][newY] == nullptr) {
+		square[newX][newY] = square[oldX][oldY];
+		square[oldX][oldY] = nullptr;
+	}
 }
 
 void Board::setGame(Game* game) {
