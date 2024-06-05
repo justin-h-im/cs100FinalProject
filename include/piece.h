@@ -15,18 +15,19 @@ protected:
     int maxHp; // max health
     int atk; // attack stat
     int acc; // accuracy stat
+    Board* board;
 
 public:
-    Piece(Color color, int x, int y, PieceType type, int maxHp, int atk, int acc) 
+    Piece(Color color, int x, int y, PieceType type, int maxHp, int atk, int acc, Board* board) 
         : color(color), x(x), y(y), type(type), 
-          maxHp(maxHp), currHp(maxHp), atk(atk), acc(acc) {}
+          maxHp(maxHp), currHp(maxHp), atk(atk), acc(acc), board(board) {}
     virtual ~Piece() {}
 
     bool isInBounds(int x, int y) {
         return x >= 0 && x < 8 && y >= 0 && y < 8;
     }
     
-    virtual bool move(int x1, int y1, int x2, int y2, const Board& board) = 0;  
+    virtual bool move(int x1, int y1, int x2, int y2) = 0;  
 
     void takeDamage(int damage) {
         currHp -= damage;
