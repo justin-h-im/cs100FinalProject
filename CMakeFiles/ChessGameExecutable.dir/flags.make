@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/include
+CXX_INCLUDES = -I/home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/include
 
 CXX_FLAGS = -std=gnu++17
 
