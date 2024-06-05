@@ -59,7 +59,7 @@ bool ui::outputTurnMenu() {
         turn = "BLACK";
     }
     cout << "PLAYER " << turn << " TURN" << endl;
-    int xCoord = 0; int yCoord = 0;
+    int oldX = 0; int oldY = 0;
 
     display->displayBoard();
 
@@ -67,8 +67,8 @@ bool ui::outputTurnMenu() {
     cout << "State the location of your vassal: " << endl;
     while (1) {
         cout << "Proclaim the location, in the X direction: " << endl;
-        cin >> xCoord;
-        if (!cin.good() || xCoord < 0 || xCoord > 7) {
+        cin >> oldX;
+        if (!cin.good() || oldX < 0 || oldX > 7) {
             cout << "Your vassal cannot be outside the battlefield. They await new orders." << endl;
         }
         else {
@@ -77,21 +77,21 @@ bool ui::outputTurnMenu() {
     }
     while (1) {
         cout << "Decree the location, in the Y direction. " << endl;
-        cin >> yCoord;
-        if (!cin.good() || yCoord < 0 || yCoord > 7) {
+        cin >> oldY;
+        if (!cin.good() || oldY < 0 || oldY > 7) {
             cout << "Your vassal cannot be outside the battlefield. They await new orders." << endl;
         }
         else {
             break;
         }
     }
-    int newXCoord = 0; int newYCoord = 0;
+    int newX = 0; int newY = 0;
     // Repeatedly prompts the user for the location that they want to move th epiece to.
     cout << "State the new location for your vassal: " << endl;
     while (1) {
         cout << "Herald the new location in the X direction." << endl;
-        cin >> newXCoord;
-        if (!cin.good() || newXCoord < 0 || newXCoord > 7) {
+        cin >> newX;
+        if (!cin.good() || newX < 0 || newX > 7) {
             cout << "Your vassal does not understand your command." << endl;
         }
         else {
@@ -100,8 +100,8 @@ bool ui::outputTurnMenu() {
     }
     while(1) {
         cout << "Promulgate the new location in the Y direction." << endl;
-        cin >> newYCoord;
-        if (!cin.good() || newYCoord < 0 || newYCoord > 7) {
+        cin >> newY;
+        if (!cin.good() || newY < 0 || newY > 7) {
             cout << "Your vassal does not understand your command." << endl;
         }
         else {
@@ -109,7 +109,7 @@ bool ui::outputTurnMenu() {
         }
     }
     
-    int result = board->verifyMove(yCoord, xCoord, newYCoord, newXCoord);
+    int result = board->verifyMove(oldY, oldX, newY, newX);
     if (result == -1) {
         cout << "WOMP WOMP" << endl;
         return true;
@@ -121,8 +121,8 @@ bool ui::outputTurnMenu() {
     // If there is a piece at the new location, activate combat scenario
     else {
         // 
-        Piece* attacker = board->getPiece(yCoord, xCoord);
-        Piece* defender = board->getPiece(newYCoord, newXCoord);
+        Piece* attacker = board->getPiece(oldY, oldX);
+        Piece* defender = board->getPiece(newY, newX);
         display->displayCombat(attacker, defender);
         Combat combat(attacker, defender, display, game);
         combat.startCombat();
