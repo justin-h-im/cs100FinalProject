@@ -7,21 +7,22 @@ class Game;
 class Board {
 	private:
 		// board is a 2d array storing pointers to the pieces (if there is no piece it stores nullptr) 
-		Game game;
 		Piece* square[8][8];
 		Game* game;
+		// determines there a player can move whatever is at the location
+		bool verifyPieceToMove(int x, int y) const;
 	public:
 		// sets up the board to the standard start for chess
 		Board();
-		// sets the board's game to a pointer to a game
-		void setGame(Game* game);
+		~Board();
 		// moves a piece
 		void updateBoard(int oldX, int oldY, int newX, int newY);
-		// determines there a player can move whatever is at the location
-		bool verifyPieceToMove(int x, int y) const;
 		// determines if the player is making a possible move
-		int verifyMove(int x, int y) const;
+		int verifyMove(int oldX, int oldY, int newX, int newY);
 		// Returns whatever piece is at that square
 		Piece* getPiece(int x, int y) const;
+		// places a piece (for pawn promotion)
 		void placePiece(int x, int y, Piece* piece);
+		// sets the game
+		void setGame(Game* game);
 };

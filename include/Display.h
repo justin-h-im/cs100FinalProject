@@ -1,3 +1,5 @@
+#pragma once
+
 #include "piece.h"
 #include <vector>
 #include <string>
@@ -23,4 +25,5 @@ class Display {
 		Display(Board*);
 		void displayBoard();
 		void displayCombat(Piece*, Piece*);
+		void displayStats(Piece*, Piece*, int);
 };

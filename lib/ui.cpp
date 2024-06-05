@@ -18,7 +18,6 @@ ui::ui() {
     display = new Display(board);
 }
 
-// Destructor
 ui::~ui() {
     delete board;
     delete display;
@@ -86,14 +85,6 @@ bool ui::outputTurnMenu() {
             break;
         }
     }
- 
-    // If board->verifyPieceToMove(x, y) is false, toggle game turn and return to main. 
-    if (!board->verifyPieceToMove(yCoord, xCoord)) {
-        cout << "Your mistaken hand has cost you your turn." << endl;
-        game->updateTurn();
-        return true;
-    }
-
     int newXCoord = 0; int newYCoord = 0;
     // Repeatedly prompts the user for the location that they want to move th epiece to.
     cout << "State the new location for your vassal: " << endl;
@@ -117,36 +108,32 @@ bool ui::outputTurnMenu() {
             break;
         }
     }
-
-    // Toggle Game turn and return to main if this returns false.
-    if (board->verifyMove(newYCoord, newXCoord) == -1) {
-        cout << "Your careless command has cost you your turn." << endl;
-        game->updateTurn();
+    
+    int result = board->verifyMove(yCoord, xCoord, newYCoord, newXCoord);
+    if (result == -1) {
+        cout << "WOMP WOMP" << endl;
         return true;
     }
-    // If there is not a piece at the new location, just move the piece. Then toggle the turn and return to main.
-    Piece* possiblePiece = board->getPiece(newYCoord, newXCoord);
-    if (possiblePiece == nullptr) {
-        board->updateBoard(yCoord, xCoord, newYCoord, newXCoord);
-        cout << "Successful move, your highness." << endl;
-        game->updateTurn();
-        return true;
-    }
-    // If there is an allied piece at the new location, turn is switched and the game continues. 
-    else if (possiblePiece->getColor() == game->getTurn()) {
-        cout << "Your subject exists at that slot. Your actions have caused confusion on the battlefield, costing you your turn." << endl;
-        game->updateTurn();
+    else if (result == 0) {
+        cout << "Sucessful move, my God" << endl;
         return true;
     }
     // If there is a piece at the new location, activate combat scenario
     else {
+        // 
+        Piece* attacker = board->getPiece(yCoord, xCoord);
+        Piece* defender = board->getPiece(newYCoord, newXCoord);
+        display->displayCombat(attacker, defender);
+        Combat combat(attacker, defender, display, game);
+        combat.startCombat();
         /* Check for game ending within combat scenario (king death) and respond to death accordingly. */
+        // check if black king or white king is dead (currHP == 0)
         if (game->blackWin() || game->whiteWin()) {
             outputEndScreen();
         }
-        return false;
+        return true;
     }
-    game->updateTurn();
+    
     return true;
 }
 

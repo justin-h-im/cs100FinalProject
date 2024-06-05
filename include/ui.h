@@ -15,6 +15,7 @@ to terminal to prompt for more user input. */
 #include "../include/Board.h"
 #include "../include/Game.h"
 #include "../include/Display.h"
+#include "../include/combat.h"
 
 #include <iostream>
 #include <fstream>
