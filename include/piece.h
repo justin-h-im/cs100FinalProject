@@ -16,7 +16,6 @@ protected:
     int maxHp; // max health
     int atk; // attack stat
     int acc; // accuracy stat
-    Board* board;
 
 public:
     Piece(Color color, int x, int y, PieceType type, Board* board, int maxHp, int atk, int acc) 
