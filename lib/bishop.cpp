@@ -44,7 +44,7 @@ bool Bishop::move(int x1, int y1, int x2, int y2) {
     // does NOT check the actual destination coordinate (stops right before)
     while (x != x2 && y != y2) {
       // return false if any coordinate b/n start and end is NOT valid 
-      if (board->getPiece(x, y) != nullptr) {
+      if (board->getPiece(x, y) == nullptr) {
         return false;
       }
       // step towards destination coordinate

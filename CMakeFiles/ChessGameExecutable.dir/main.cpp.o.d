@@ -1,10 +1,10 @@
 CMakeFiles/ChessGameExecutable.dir/main.cpp.o: \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/main.cpp \
+ /class/classes/mhsie026/final-project-mhsie026-jim023-anels048-vselv001/main.cpp \
  /usr/include/stdc-predef.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/include/ui.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/include/../include/piece.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/include/../include/../include/Board.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/include/../include/../include/enums.h \
+ /class/classes/mhsie026/final-project-mhsie026-jim023-anels048-vselv001/include/ui.h \
+ /class/classes/mhsie026/final-project-mhsie026-jim023-anels048-vselv001/include/../include/piece.h \
+ /class/classes/mhsie026/final-project-mhsie026-jim023-anels048-vselv001/include/../include/../include/Board.h \
+ /class/classes/mhsie026/final-project-mhsie026-jim023-anels048-vselv001/include/../include/../include/enums.h \
  /usr/include/c++/8/string \
  /usr/include/c++/8/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/bits/wordsize.h \
@@ -100,14 +100,14 @@ CMakeFiles/ChessGameExecutable.dir/main.cpp.o: \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/bits/types/error_t.h \
  /usr/include/c++/8/bits/basic_string.tcc \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/include/../include/Game.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/include/../include/Display.h \
+ /class/classes/mhsie026/final-project-mhsie026-jim023-anels048-vselv001/include/../include/Game.h \
+ /class/classes/mhsie026/final-project-mhsie026-jim023-anels048-vselv001/include/../include/Display.h \
  /usr/include/c++/8/vector /usr/include/c++/8/bits/stl_construct.h \
  /usr/include/c++/8/bits/stl_uninitialized.h /usr/include/c++/8/utility \
  /usr/include/c++/8/bits/stl_relops.h \
  /usr/include/c++/8/bits/stl_vector.h \
  /usr/include/c++/8/bits/stl_bvector.h /usr/include/c++/8/bits/vector.tcc \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/include/../include/combat.h \
+ /class/classes/mhsie026/final-project-mhsie026-jim023-anels048-vselv001/include/../include/combat.h \
  /usr/include/c++/8/iostream /usr/include/c++/8/ostream \
  /usr/include/c++/8/ios /usr/include/c++/8/bits/ios_base.h \
  /usr/include/c++/8/bits/locale_classes.h \
@@ -141,11 +141,11 @@ CMakeFiles/ChessGameExecutable.dir/main.cpp.o: \
  /usr/include/c++/8/x86_64-redhat-linux/bits/basic_file.h \
  /usr/include/c++/8/x86_64-redhat-linux/bits/c++io.h \
  /usr/include/c++/8/bits/fstream.tcc \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/include/pawn.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/include/knight.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/include/rook.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/include/../include/king.h \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/include/bishop.h \
+ /class/classes/mhsie026/final-project-mhsie026-jim023-anels048-vselv001/include/pawn.h \
+ /class/classes/mhsie026/final-project-mhsie026-jim023-anels048-vselv001/include/knight.h \
+ /class/classes/mhsie026/final-project-mhsie026-jim023-anels048-vselv001/include/rook.h \
+ /class/classes/mhsie026/final-project-mhsie026-jim023-anels048-vselv001/include/../include/king.h \
+ /class/classes/mhsie026/final-project-mhsie026-jim023-anels048-vselv001/include/bishop.h \
  /usr/include/c++/8/cmath /usr/include/math.h \
  /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
  /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
@@ -166,4 +166,4 @@ CMakeFiles/ChessGameExecutable.dir/main.cpp.o: \
  /usr/include/c++/8/tr1/poly_hermite.tcc \
  /usr/include/c++/8/tr1/poly_laguerre.tcc \
  /usr/include/c++/8/tr1/riemann_zeta.tcc \
- /home/csmajs/anels048/final-project-mhsie026-jim023-anels048-vselv001/include/queen.h
+ /class/classes/mhsie026/final-project-mhsie026-jim023-anels048-vselv001/include/queen.h
