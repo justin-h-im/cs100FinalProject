@@ -26,7 +26,7 @@ public:
     Combat(Piece* attacker, Piece* defender, Display* display, Game* game) 
         : attacker(attacker), defender(defender), display(display), game(game) {}
 
-    void startCombat() {
+    int startCombat() {
         std::cout << "------------------------------------\n";
         std::cout << "         Combat initiated!          \n";
         std::cout << "------------------------------------\n";
@@ -58,8 +58,12 @@ public:
         // end combat loop, display results
         if (attacker->getHp() <= 0) {
             std::cout << pieceToString(attacker->getType()) << " has been defeated!\n";
+            delete attacker;
+            return 1;
         } else {
             std::cout << pieceToString(defender->getType()) << " has been defeated!\n";
+            delete defender;
+            return 0;
         }
         // ADD PRINT STATS HERE
 
