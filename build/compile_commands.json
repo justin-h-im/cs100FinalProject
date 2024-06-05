@@ -1,14 +1,74 @@
 [
 {
-  "directory": "/class/classes/jim023/final-project-mhsie026-jim023-anels048-vselv001/build",
-  "command": "/usr/bin/c++  -I/class/classes/jim023/final-project-mhsie026-jim023-anels048-vselv001/include -g -std=gnu++17 -o CMakeFiles/game.dir/lib/Board.cpp.o -c /class/classes/jim023/final-project-mhsie026-jim023-anels048-vselv001/lib/Board.cpp",
-  "file": "/class/classes/jim023/final-project-mhsie026-jim023-anels048-vselv001/lib/Board.cpp",
+  "directory": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/build",
+  "command": "/usr/bin/c++  -I/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/include -g -std=gnu++17 -o CMakeFiles/game.dir/lib/Board.cpp.o -c /home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/Board.cpp",
+  "file": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/Board.cpp",
   "output": "CMakeFiles/game.dir/lib/Board.cpp.o"
 },
 {
-  "directory": "/class/classes/jim023/final-project-mhsie026-jim023-anels048-vselv001/build",
-  "command": "/usr/bin/c++  -I/class/classes/jim023/final-project-mhsie026-jim023-anels048-vselv001/include -g -std=gnu++17 -o CMakeFiles/game.dir/lib/Game.cpp.o -c /class/classes/jim023/final-project-mhsie026-jim023-anels048-vselv001/lib/Game.cpp",
-  "file": "/class/classes/jim023/final-project-mhsie026-jim023-anels048-vselv001/lib/Game.cpp",
+  "directory": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/build",
+  "command": "/usr/bin/c++  -I/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/include -g -std=gnu++17 -o CMakeFiles/game.dir/lib/pawn.cpp.o -c /home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/pawn.cpp",
+  "file": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/pawn.cpp",
+  "output": "CMakeFiles/game.dir/lib/pawn.cpp.o"
+},
+{
+  "directory": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/build",
+  "command": "/usr/bin/c++  -I/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/include -g -std=gnu++17 -o CMakeFiles/game.dir/lib/king.cpp.o -c /home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/king.cpp",
+  "file": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/king.cpp",
+  "output": "CMakeFiles/game.dir/lib/king.cpp.o"
+},
+{
+  "directory": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/build",
+  "command": "/usr/bin/c++  -I/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/include -g -std=gnu++17 -o CMakeFiles/game.dir/lib/rook.cpp.o -c /home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/rook.cpp",
+  "file": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/rook.cpp",
+  "output": "CMakeFiles/game.dir/lib/rook.cpp.o"
+},
+{
+  "directory": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/build",
+  "command": "/usr/bin/c++  -I/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/include -g -std=gnu++17 -o CMakeFiles/game.dir/lib/bishop.cpp.o -c /home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/bishop.cpp",
+  "file": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/bishop.cpp",
+  "output": "CMakeFiles/game.dir/lib/bishop.cpp.o"
+},
+{
+  "directory": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/build",
+  "command": "/usr/bin/c++  -I/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/include -g -std=gnu++17 -o CMakeFiles/game.dir/lib/knight.cpp.o -c /home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/knight.cpp",
+  "file": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/knight.cpp",
+  "output": "CMakeFiles/game.dir/lib/knight.cpp.o"
+},
+{
+  "directory": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/build",
+  "command": "/usr/bin/c++  -I/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/include -g -std=gnu++17 -o CMakeFiles/game.dir/lib/queen.cpp.o -c /home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/queen.cpp",
+  "file": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/queen.cpp",
+  "output": "CMakeFiles/game.dir/lib/queen.cpp.o"
+},
+{
+  "directory": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/build",
+  "command": "/usr/bin/c++  -I/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/include -g -std=gnu++17 -o CMakeFiles/game.dir/lib/Display.cpp.o -c /home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/Display.cpp",
+  "file": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/Display.cpp",
+  "output": "CMakeFiles/game.dir/lib/Display.cpp.o"
+},
+{
+  "directory": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/build",
+  "command": "/usr/bin/c++  -I/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/include -g -std=gnu++17 -o CMakeFiles/game.dir/lib/ui.cpp.o -c /home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/ui.cpp",
+  "file": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/ui.cpp",
+  "output": "CMakeFiles/game.dir/lib/ui.cpp.o"
+},
+{
+  "directory": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/build",
+  "command": "/usr/bin/c++  -I/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/include -g -std=gnu++17 -o CMakeFiles/game.dir/lib/Game.cpp.o -c /home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/Game.cpp",
+  "file": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/Game.cpp",
   "output": "CMakeFiles/game.dir/lib/Game.cpp.o"
+},
+{
+  "directory": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/build",
+  "command": "/usr/bin/c++  -I/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/include -g -std=gnu++17 -o CMakeFiles/game.dir/lib/enums.cpp.o -c /home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/enums.cpp",
+  "file": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/lib/enums.cpp",
+  "output": "CMakeFiles/game.dir/lib/enums.cpp.o"
+},
+{
+  "directory": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/build",
+  "command": "/usr/bin/c++  -I/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/include -g -std=gnu++17 -o CMakeFiles/ChessGameExecutable.dir/main.cpp.o -c /home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/main.cpp",
+  "file": "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/main.cpp",
+  "output": "CMakeFiles/ChessGameExecutable.dir/main.cpp.o"
 }
 ]
