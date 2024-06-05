@@ -4,9 +4,9 @@
 
 class Queen : public Piece {
 public:
-    Queen(Color color, int x, int y) 
-        : Piece(color, x, y, PieceType::Queen, 50, 30, 85) {}
+    Queen(Color color, int x, int y, Board* board) 
+        : Piece(color, x, y, PieceType::Queen, 50, 30, 85, board) {}
 
-    bool move(int x1, int y1, int x2, int y2, const Board& board) override;
+    bool move(int x1, int y1, int x2, int y2) override;
 };
 

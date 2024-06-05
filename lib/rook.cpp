@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool Rook::move(int x1, int y1, int x2, int y2, const Board& board) 
+bool Rook::move(int x1, int y1, int x2, int y2) 
 {
 
     if (x1 == x2 || y1 == y2)
@@ -20,7 +20,7 @@ bool Rook::move(int x1, int y1, int x2, int y2, const Board& board)
         {
             for (int i = startY; i < endY; ++i)
             {
-                if (board.getPiece(x1, i) != nullptr) 
+                if (board->getPiece(x1, i) != nullptr) 
                 {
                     return false;
                 }
@@ -30,7 +30,7 @@ bool Rook::move(int x1, int y1, int x2, int y2, const Board& board)
         {
             for (int i = startX; i < endX; ++i) 
             {
-                if (board.getPiece(i, y1) != nullptr) 
+                if (board->getPiece(i, y1) != nullptr) 
                 {
                     return false;
                 }
@@ -43,7 +43,7 @@ bool Rook::move(int x1, int y1, int x2, int y2, const Board& board)
     return false;
 }
 
-bool Rook::canCastle(const King& king, int rookX, int rookY, int kingX, int kingY, const Board& board) const
+bool Rook::canCastle(const King& king, int rookX, int rookY, int kingX, int kingY) const
  {
 
     if (hasMoved || king.hasMoved) 
@@ -66,7 +66,7 @@ bool Rook::canCastle(const King& king, int rookX, int rookY, int kingX, int king
 
     for (int i = startX; i < endX; ++i)
     {
-        if (board.getPiece(i, kingY) != nullptr)
+        if (board->getPiece(i, kingY) != nullptr)
         {
             return false;
         }
@@ -74,7 +74,7 @@ bool Rook::canCastle(const King& king, int rookX, int rookY, int kingX, int king
 
     for (int i = kingX; i != (rookX > kingX ? kingX + 2 : kingX - 2); i += (rookX > kingX ? 1 : -1)) 
     {
-        if (isSquareUnderAttack(i, kingY, king.getColor(), board)) 
+        if (isSquareUnderAttack(i, kingY, king.getColor())) 
         {
             return false;
         }
@@ -83,18 +83,18 @@ bool Rook::canCastle(const King& king, int rookX, int rookY, int kingX, int king
     return true;
 }
 
-bool Rook::isSquareUnderAttack(int x, int y, Color color, const Board& board) const 
+bool Rook::isSquareUnderAttack(int x, int y, Color color) const 
 {
     // Iterate over all pieces on the board
     for (int i = 0; i < 8; ++i) 
     {
         for (int j = 0; j < 8; ++j) 
         {
-            Piece* piece = board.getPiece(i, j);
+            Piece* piece = board->getPiece(i, j);
 
             if (piece != nullptr && piece->getColor() != color) 
             {
-                if (piece->move(piece->getX(), piece->getY(), x, y, board))
+                if (piece->move(piece->getX(), piece->getY(), x, y))
                 {
                     return true;
                 }

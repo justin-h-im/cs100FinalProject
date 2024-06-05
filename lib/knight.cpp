@@ -19,7 +19,7 @@
 // [start coordinate] (x1, y1) 
 //  move to 
 // [destination coordinate] (x2, y2)
-bool Knight::move(int x1, int y1, int x2, int y2, const Board& board) {
+bool Knight::move(int x1, int y1, int x2, int y2) {
     if (!isInBounds(x2, y2) || (x1 == x2 && y1 == y2)) {
         return false;
     }
@@ -33,7 +33,7 @@ bool Knight::move(int x1, int y1, int x2, int y2, const Board& board) {
         return false;
     }
 
-    Piece* target = board.getPiece(x2, y2);
+    Piece* target = board->getPiece(x2, y2);
     // check if destination is empty or occupied by opponent's piece
     if (target == nullptr || target->getColor() != this->getColor()) {
         /* athena does this in board */

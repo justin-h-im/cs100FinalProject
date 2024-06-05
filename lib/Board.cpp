@@ -50,9 +50,9 @@ Board::~Board() {
 	}
 }
 
-void Board::updateBoard(int oldY, int oldX, int newY, int newX) {
-	square[newY][newX] = square[oldY][oldX];
-	square[oldY][oldX] = nullptr;
+void Board::updateBoard(int oldX, int oldY, int newX, int newY) {
+	square[newX][newY] = square[oldX][oldY];
+	square[oldX][oldY] = nullptr;
 }
 
 void Board::setGame(Game* game) {
@@ -60,20 +60,20 @@ void Board::setGame(Game* game) {
 }
 
 // Correcting verifyPieceToMove
-bool Board::verifyPieceToMove(int y, int x) const {
-	Piece* curr = square[y][x];
+bool Board::verifyPieceToMove(int x, int y) const {
+	Piece* curr = square[x][y];
 	if (curr == nullptr) { return false; }
 	return curr->getColor() == game->getTurn();
 }
 
 // returns -1 if a player attempts an invalid move, returns 1 if a piece initiates combat, returns 0 if a piece just moves
-int Board::verifyMove(int oldY, int oldX, int newY, int newX) const {
-	if (!verifyPieceToMove(oldY, oldX)) {
+int Board::verifyMove(int oldX, int oldY, int newX, int newY) {
+	if (!verifyPieceToMove(oldX, oldY)) {
 		game->updateTurn();
 		return -1;
 	}
 
-	Piece* curr = square[oldY][oldX];
+	Piece* curr = square[oldX][oldY];
 	if (!curr->move(oldX, oldY, newX, newY)) {
 		cout << "Your troop cannot reach that location.\n";
 		game->updateTurn();
@@ -83,7 +83,7 @@ int Board::verifyMove(int oldY, int oldX, int newY, int newX) const {
 	Color currentTurn = game->getTurn();
 	if (curr == nullptr) { 
 		game->updateTurn();
-		game->updateBoard(oldY, oldX, newY, newX);
+		updateBoard(oldX, oldY, newX, newY);
 		return 0;
 	}
 	else if (currentTurn == Color::WHITE && curr->getColor() == Color::BLACK || currentTurn == Color::BLACK && curr->getColor() == Color::WHITE) { 
@@ -96,13 +96,6 @@ int Board::verifyMove(int oldY, int oldX, int newY, int newX) const {
 }
 
 // Correcting getPiece
-Piece* Board::getPiece(int y, int x) const {
-	return square[y][x];
-}
-
-// allows a piece to be added to the board (for pawn promotion)
-void Board::placePiece(int y, int x, Piece* piece) {
-	if (square[y][x] == nullptr) {
-		square[y][x] = piece;
-	}
+Piece* Board::getPiece(int x, int y) const {
+    return square[x][y];
 }
