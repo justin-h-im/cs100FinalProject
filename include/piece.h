@@ -1,5 +1,4 @@
-#ifndef PIECE_H
-#define PIECE_H
+#pragma once
 
 #include "../include/Board.h"
 #include "../include/enums.h" 
@@ -44,5 +43,3 @@ public:
     int getX() const { return x; }
     int getY() const { return y; }
 };
-
-#endif

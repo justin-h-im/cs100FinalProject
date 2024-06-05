@@ -18,7 +18,7 @@ class Board {
 		// moves a piece
 		void updateBoard(int oldY, int oldX, int newY, int newX);
 		// determines if the player is making a possible move
-		int verifyMove(int y, int x) const;
+		int verifyMove(int oldY, int oldX, int newY, int newX) const;
 		// Returns whatever piece is at that square
 		Piece* getPiece(int y, int x) const;
 		// places a piece (for pawn promotion)
