@@ -4,6 +4,8 @@
 #include "../include/Board.h"
 #include "../include/enums.h"
 
+#include <string>
+
 class Board; // Forward declaration
 
 class Piece {
@@ -27,6 +29,37 @@ public:
 
     Color getColor() const { return color; }
     PieceType getType() const { return type; }
+
+    std::string getPieceTypeString(PieceType type) {
+    switch (type) {
+        case PieceType::Pawn:
+            return "Pawn";
+        case PieceType::Rook:
+            return "Rook";
+        case PieceType::Knight:
+            return "Knight";
+        case PieceType::Bishop:
+            return "Bishop";
+        case PieceType::Queen:
+            return "Queen";
+        case PieceType::King:
+            return "King";
+        default:
+            return "Unknown";
+    }
+    }
+
+    std::string getColorString(Color color) {
+    switch (color) {
+        case Color::WHITE:
+            return "White";
+        case Color::BLACK:
+            return "Black";
+        default:
+            return "Unknown";
+    }
+    }
+
     void getPosition(int& outX, int& outY) const { outX = x; outY = y; }
     int getHp() const { return hp; }
     int getX() const { return x; }

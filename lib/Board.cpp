@@ -59,14 +59,39 @@ bool Board::verifyPieceToMove(int x, int y) const {
     return curr->getColor() == game->getTurn();
 }
 
-int Board::verifyMove(int x, int y) const {
-    Piece* curr = square[x][y];
-    if (curr == nullptr) { return 0; }
-    Color currentTurn = game->getTurn();
-    if (currentTurn == Color::WHITE && curr->getColor() == Color::BLACK || currentTurn == Color::BLACK && curr->getColor() == Color::WHITE) { return 1; }
-    return -1;
-}
+// returns -1 if a player attempts an invalid move, returns 1 if a piece initiates combat, returns 0 if a piece just moves
+int Board::verifyMove(int oldY, int oldX, int newY, int newX) {
+    if (!verifyPieceToMove(oldY, oldX)) {
+        cout << "Flag A\n";
+        game->updateTurn();
+        return -1;
+    }
 
+    Piece* curr = square[oldY][oldX];
+
+	cout << "moving from " << curr->getPieceTypeString(curr->getType()) <<  curr->getColorString(curr->getColor()) <<curr->getX() << ", " << curr->getY() << endl;
+
+    if (!curr->move(oldY, oldX, newY, newX)) {
+        cout << "Flag B\n";
+        return -1; 
+    }
+
+    Color currentTurn = game->getTurn();
+    if (curr == nullptr) { 
+        cout << "Flag C\n";
+        game->updateTurn();
+		updateBoard(oldY, oldX, newY, newX);
+        return 0;
+    }
+    else if (currentTurn == Color::WHITE && curr->getColor() == Color::BLACK || currentTurn == Color::BLACK && curr->getColor() == Color::WHITE) { 
+        return 1;
+    }
+    else {
+        cout << "Flag D\n";
+        game->updateTurn();
+        return -1;
+    }
+}
 
 // Correcting getPiece
 Piece* Board::getPiece(int x, int y) const {

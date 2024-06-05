@@ -104,41 +104,53 @@ bool ui::outputTurnMenu() {
         cout << "Promulgate the new location in the Y direction." << endl;
         cin >> newYCoord;
         if (!cin.good() || newYCoord < 0 || newYCoord > 7) {
-            cout << "Your vassal does not understand your command." << endl;
+            cout << "Your vassal does not understand your com mand." << endl;
         }
         else {
             break;
         }
     }
 
-    // Toggle Game turn and return to main if this returns false.
-    if (board->verifyMove(newYCoord, newXCoord) == -1) {
-        cout << "Your careless command has cost you your turn." << endl;
-        game->updateTurn();
-        return true;
+    int action = board->verifyMove(yCoord, xCoord, newYCoord, newXCoord);
+
+    if (action == 1) {
+
     }
-    // If there is not a piece at the new location, just move the piece. Then toggle the turn and return to main.
-    Piece* possiblePiece = board->getPiece(newYCoord, newXCoord);
-    if (possiblePiece == nullptr) {
-        board->updateBoard(yCoord, xCoord, newYCoord, newXCoord);
-        cout << "Successful move, your highness." << endl;
-        game->updateTurn();
-        return true;
+    else if (action == 0) {
+
     }
-    // If there is an allied piece at the new location, turn is switched and the game continues. 
-    else if (possiblePiece->getColor() == game->getTurn()) {
-        cout << "Your subject exists at that slot. Your actions have caused confusion on the battlefield, costing you your turn." << endl;
-        game->updateTurn();
-        return true;
-    }
-    // If there is a piece at the new location, activate combat scenario
     else {
-        /* Check for game ending within combat scenario (king death) and respond to death accordingly. */
-        if (game->blackWin() || game->whiteWin()) {
-            outputEndScreen();
-        }
-        return false;
+
     }
+
+    // // Toggle Game turn and return to main if this returns false.
+    // if (board->verifyMove(yCoord, xCoord, newYCoord, newXCoord) == -1) {
+    //     cout << "Your careless command has cost you your turn." << endl;
+    //     game->updateTurn();
+    //     return true;
+    // }
+    // // If there is not a piece at the new location, just move the piece. Then toggle the turn and return to main.
+    // Piece* possiblePiece = board->getPiece(newYCoord, newXCoord);
+    // if (possiblePiece == nullptr) {
+    //     board->updateBoard(yCoord, xCoord, newYCoord, newXCoord);
+    //     cout << "Successful move, your highness." << endl;
+    //     game->updateTurn();
+    //     return true;
+    // }
+    // // If there is an allied piece at the new location, turn is switched and the game continues. 
+    // else if (possiblePiece->getColor() == game->getTurn()) {
+    //     cout << "Your subject exists at that slot. Your actions have caused confusion on the battlefield, costing you your turn." << endl;
+    //     game->updateTurn();
+    //     return true;
+    // }
+    // If there is a piece at the new location, activate combat scenario
+    // else {
+    //     /* Check for game ending within combat scenario (king death) and respond to death accordingly. */
+    //     if (game->blackWin() || game->whiteWin()) {
+    //         outputEndScreen();
+    //     }
+    //     return false;
+    // }
     game->updateTurn();
     return true;
 }

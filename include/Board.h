@@ -19,7 +19,7 @@ class Board {
 		// determines there a player can move whatever is at the location
 		bool verifyPieceToMove(int x, int y) const;
 		// determines if the player is making a possible move
-		int verifyMove(int x, int y) const;
+		int verifyMove(int x1, int y1, int x2, int y2);
 		// Returns whatever piece is at that square
 		Piece* getPiece(int x, int y) const;
 
