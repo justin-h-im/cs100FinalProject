@@ -104,6 +104,9 @@ void Display::displayBoard() {
 }
 
 void Display::displayCombat(Piece* attacker, Piece* defender) {
+	std::cout << "\n------------------------------------\n";
+
+	// white is attacker
 	if (attacker->getColor() == Color::WHITE) {
 		vector<string> attackPiece = displayWhitePiece(attacker);
 		vector<string> defendPiece = displayBlackPiece(defender);
@@ -114,16 +117,46 @@ void Display::displayCombat(Piece* attacker, Piece* defender) {
 			cout << defendPiece[i] << endl;
 		}
 	}
+	// black is attacker
 	else {
-		vector<string> attackPiece = displayWhitePiece(attacker);
 		vector<string> defendPiece = displayBlackPiece(defender);
-		cout << attackPiece.at(0) << std::setfill(' ') << std::setw(2) << "" << "VERSUS" << std::setfill(' ') << std::setw(2) << "" << defendPiece[0] << endl;
+		vector<string> attackPiece = displayWhitePiece(attacker);
+		cout << defendPiece.at(0) << std::setfill(' ') << std::setw(2) << "" << "VERSUS" << std::setfill(' ') << std::setw(2) << "" << attackPiece[0] << endl;
 		for (int i = 1; i < 8; i++) {
-			cout << attackPiece[i];
+			cout << defendPiece[i];
 			cout << std::setfill(' ') << std::setw(10) << "";
-			cout << defendPiece[i] << endl;
+			cout << attackPiece[i] << endl;
 		}
 	}
+}
+
+void Display::displayStats(Piece* attacker, Piece* defender, int turn){
+	std::string colorAndType = colorToString(attacker->getColor()) + " " 
+								+ pieceToString(attacker->getType()) + "'s Stats";
+    int totalWidth = 32; // total width of box
+    int padding = (totalWidth - 2 - colorAndType.size()) / 2; // padding for centering text
+
+	std::cout << std::setw((totalWidth/2)+6) << "Turn " << turn << "\n";
+	// Attacker stats
+    std::cout << " ╔══════════════════════════════╗\n";
+    std::cout << " ║" << std::string(padding, ' ') << colorAndType << std::string(padding + (colorAndType.size() % 2 == 0 ? 0 : 1), ' ') << "║\n";
+    std::cout << " ╠══════════════════════════════╣\n"; 
+    std::cout << " ║" << std::setw(9) << "HP:" << std::setw(11) << attacker->getHp() << " / " << attacker->getMaxHp() << std::setw(9) << "║\n";
+    std::cout << " ║" << std::setw(13) << "Attack:" << std::setw(7) << attacker->getAtk() << std::setw(14) << "║\n";
+    std::cout << " ║" << std::setw(15) << "Accuracy:" << std::setw(5) << attacker->getAcc() << " %" << std::setw(12) << "║\n";
+    std::cout << " ╚══════════════════════════════╝\n";
+
+	colorAndType = colorToString(defender->getColor()) + " " 
+					+ pieceToString(defender->getType()) + "'s Stats";
+	padding = (totalWidth - 2 - colorAndType.size()) / 2;
+    // Defender stats
+    std::cout << " ╔══════════════════════════════╗\n";
+    std::cout << " ║" << std::string(padding, ' ') << colorAndType << std::string(padding + (colorAndType.size() % 2 == 0 ? 0 : 1), ' ') << "║\n";
+    std::cout << " ╠══════════════════════════════╣\n"; 
+    std::cout << " ║" << std::setw(9) << "HP:" << std::setw(11) << defender->getHp() << " / " << defender->getMaxHp() << std::setw(9) << "║\n";
+    std::cout << " ║" << std::setw(13) << "Attack:" << std::setw(7) << defender->getAtk() << std::setw(14) << "║\n";
+    std::cout << " ║" << std::setw(15) << "Accuracy:" << std::setw(5) << defender->getAcc() << " %" << std::setw(12) << "║\n";
+    std::cout << " ╚══════════════════════════════╝\n";
 }
 
 vector<string> Display::displayWhitePiece(Piece* piece) {

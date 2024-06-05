@@ -133,11 +133,18 @@ bool ui::outputTurnMenu() {
     }
     // If there is a piece at the new location, activate combat scenario
     else {
+        // 
+        Piece* attacker = board->getPiece(yCoord, xCoord);
+        Piece* defender = board->getPiece(newYCoord, newXCoord);
+        display->displayCombat(attacker, defender);
+        Combat combat(attacker, defender, display, game);
+        combat.startCombat();
         /* Check for game ending within combat scenario (king death) and respond to death accordingly. */
+        // check if black king or white king is dead (currHP == 0)
         if (game->blackWin() || game->whiteWin()) {
             outputEndScreen();
         }
-        return false;
+        return true;
     }
     game->updateTurn();
     return true;
