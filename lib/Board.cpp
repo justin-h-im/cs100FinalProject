@@ -66,8 +66,7 @@ int Board::verifyMove(int x, int y) const {
     return -1;
 }
 
-
 // Correcting getPiece
-Piece* Board::getPiece(int x, int y) const {
+Piece* Board::getPiece(int x, int y) {
     return square[x][y];
 }
