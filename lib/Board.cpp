@@ -71,27 +71,32 @@ bool Board::verifyPieceToMove(int x, int y) const {
 // returns -1 if a player attempts an invalid move, returns 1 if a piece initiates combat, returns 0 if a piece just moves
 int Board::verifyMove(int oldX, int oldY, int newX, int newY) {
 	if (!verifyPieceToMove(oldX, oldY)) {
+		cout << "A\n";
 		game->updateTurn();
 		return -1;
 	}
 
 	Piece* curr = square[oldX][oldY];
-	if (!curr->move(oldX, oldY, newX, newY)) {
-		cout << "Your troop cannot reach that location.\n";
+
+	if (!curr->move(oldY, oldX, newY, newX)) {
+		cout << "B\n";
 		game->updateTurn();
 		return -1; 
 	}
 
+	curr = square[newX][newY];
+
 	Color currentTurn = game->getTurn();
 	if (curr == nullptr) { 
 		game->updateTurn();
-		updateBoard(oldX, oldY, newX, newY);
+		updateBoard(oldY, oldX, newY, newX);
 		return 0;
 	}
 	else if (currentTurn == Color::WHITE && curr->getColor() == Color::BLACK || currentTurn == Color::BLACK && curr->getColor() == Color::WHITE) { 
 		return 1;
 	}
 	else {
+		cout << "C\n";
 		game->updateTurn();
 		return -1;
 	}

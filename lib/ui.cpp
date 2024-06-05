@@ -112,7 +112,7 @@ bool ui::outputTurnMenu() {
     // Toggle Game turn and return to main if this returns false.
     if (board->verifyMove(yCoord, xCoord, newYCoord, newXCoord) == -1) {
         cout << "Your careless command has cost you your turn." << endl;
-        game->updateTurn();
+        
         return true;
     }
     // If there is not a piece at the new location, just move the piece. Then toggle the turn and return to main.
@@ -120,13 +120,13 @@ bool ui::outputTurnMenu() {
     if (possiblePiece == nullptr) {
         board->updateBoard(yCoord, xCoord, newYCoord, newXCoord);
         cout << "Successful move, your highness." << endl;
-        game->updateTurn();
+        
         return true;
     }
     // If there is an allied piece at the new location, turn is switched and the game continues. 
     else if (possiblePiece->getColor() == game->getTurn()) {
         cout << "Your subject exists at that slot. Your actions have caused confusion on the battlefield, costing you your turn." << endl;
-        game->updateTurn();
+        
         return true;
     }
     // If there is a piece at the new location, activate combat scenario
@@ -144,7 +144,7 @@ bool ui::outputTurnMenu() {
         }
         return true;
     }
-    game->updateTurn();
+    
     return true;
 }
 
