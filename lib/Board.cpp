@@ -78,6 +78,7 @@ int Board::verifyMove(int oldX, int oldY, int newX, int newY) {
 
 	Piece* curr = square[oldX][oldY];
 
+	cout << "moving " << colorToString(curr->getColor()) << " " << pieceToString(curr->getType()) << endl;
 	if (!curr->move(oldY, oldX, newY, newX)) {
 		cout << "B\n";
 		game->updateTurn();
@@ -89,7 +90,7 @@ int Board::verifyMove(int oldX, int oldY, int newX, int newY) {
 	Color currentTurn = game->getTurn();
 	if (curr == nullptr) { 
 		game->updateTurn();
-		updateBoard(oldY, oldX, newY, newX);
+		updateBoard(oldX, oldY, newX, newY);
 		return 0;
 	}
 	else if (currentTurn == Color::WHITE && curr->getColor() == Color::BLACK || currentTurn == Color::BLACK && curr->getColor() == Color::WHITE) { 
