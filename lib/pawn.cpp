@@ -1,23 +1,31 @@
 #include "../include/pawn.h"
 #include "../include/promotion.h"
 #include <cmath> 
+#include <iostream>
 
-bool Pawn::move(int x1, int y1, int x2, int y2) {
+using namespace std;
+
+
+bool Pawn::move(int y1, int x1, int y2, int x2) {
     if (!isInBounds(x2, y2) || (x1 == x2 && y1 == y2)) {
         return false;
     }
 
-    int direction = (getColor() == Color::WHITE) ? 1 : -1;
+    int direction = (getColor() == Color::WHITE) ? -1 : 1;
 
-    Piece* target = board->getPiece(x2, y2);
+    Piece* target = board->getPiece(y2, x2); //change
 
     if (x1 == x2 && (y2 - y1) == direction && target == nullptr) {
+
         if (y2 == (getColor() == Color::WHITE ? 7 : 0)) {
+            cout << "oh no?" << endl;
             Piece* tempThis = this;
             Promotion::promote(tempThis, *board);
         }
+
         this->x = x2;
         this->y = y2;
+
         return true;
     }
 
