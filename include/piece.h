@@ -9,6 +9,7 @@ class Piece {
 protected:
     Color color;      
     PieceType type;
+    Board* board; 
     int x;
     int y;
     int currHp; // current health
@@ -17,8 +18,8 @@ protected:
     int acc; // accuracy stat
 
 public:
-    Piece(Color color, int x, int y, PieceType type, int maxHp, int atk, int acc) 
-        : color(color), x(x), y(y), type(type), 
+    Piece(Color color, int x, int y, PieceType type, Board* board, int maxHp, int atk, int acc) 
+        : color(color), x(x), y(y), type(type), board(board),
           maxHp(maxHp), currHp(maxHp), atk(atk), acc(acc) {}
     virtual ~Piece() {}
 
@@ -26,7 +27,7 @@ public:
         return x >= 0 && x < 8 && y >= 0 && y < 8;
     }
     
-    virtual bool move(int x1, int y1, int x2, int y2, const Board& board) = 0;  
+    virtual bool move(int x1, int y1, int x2, int y2) = 0;  
 
     void takeDamage(int damage) {
         currHp -= damage;

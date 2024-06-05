@@ -7,8 +7,8 @@ class Game;
 class Board {
 	private:
 		// board is a 2d array storing pointers to the pieces (if there is no piece it stores nullptr) 
-		Game game;
 		Piece* square[8][8];
+		Game* game;
 		// determines there a player can move whatever is at the location
 		bool verifyPieceToMove(int y, int x) const;
 	public:
@@ -18,7 +18,7 @@ class Board {
 		// moves a piece
 		void updateBoard(int oldY, int oldX, int newY, int newX);
 		// determines if the player is making a possible move
-		int verifyMove(int oldY, int oldX, int newY, int newX) const;
+		int verifyMove(int oldY, int oldX, int newY, int newX);
 		// Returns whatever piece is at that square
 		Piece* getPiece(int y, int x) const;
 		// places a piece (for pawn promotion)

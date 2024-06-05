@@ -15,31 +15,33 @@ using std::endl;
 
 // Constructor sets up the Board
 Board::Board() {
-	// set up black pieces
-	square[0][0] = new Rook(Color::BLACK, 0, 0, this);
-	square[0][1] = new Knight(Color::BLACK, 0, 1, this);
-	square[0][2] = new Bishop(Color::BLACK, 0, 2, this);
-	square[0][3] = new Queen(Color::BLACK, 0, 3, this);
-	square[0][4] = new King(Color::BLACK, 0, 4, this);
-	square[0][5] = new Bishop(Color::BLACK, 0, 5, this);
-	square[0][6] = new Knight(Color::BLACK, 0, 6, this);
-	square[0][7] = new Rook(Color::BLACK, 0, 7, this);
-	for (int i = 0; i < 8; i++) {
-		square[1][i] = new Pawn(Color::BLACK, 1, i, this);
-	}
+    // set up black pieces
+    King* blackKing = new King(Color::BLACK, 0, 4, this);
+    square[0][0] = new Rook(Color::BLACK, 0, 0, this, blackKing);
+    square[0][1] = new Knight(Color::BLACK, 0, 1, this);
+    square[0][2] = new Bishop(Color::BLACK, 0, 2, this);
+    square[0][3] = new Queen(Color::BLACK, 0, 3, this);
+    square[0][4] = blackKing;
+    square[0][5] = new Bishop(Color::BLACK, 0, 5, this);
+    square[0][6] = new Knight(Color::BLACK, 0, 6, this);
+    square[0][7] = new Rook(Color::BLACK, 0, 7, this, blackKing);
+    for (int i = 0; i < 8; i++) {
+        square[1][i] = new Pawn(Color::BLACK, 1, i, this);
+    }
 
-	// set up white pieces
-	square[7][0] = new Rook(Color::WHITE, 7, 0, this);
-	square[7][1] = new Knight(Color::WHITE, 7, 1, this);
-	square[7][2] = new Bishop(Color::WHITE, 7, 2, this);
-	square[7][3] = new Queen(Color::WHITE, 7, 3, this);
-	square[7][4] = new King(Color::WHITE, 7, 4, this);
-	square[7][5] = new Bishop(Color::WHITE, 7, 5, this);
-	square[7][6] = new Knight(Color::WHITE, 7, 6, this);
-	square[7][7] = new Rook(Color::WHITE, 7, 7, this);
-	for (int i = 0; i < 8; i++) {
-		square[6][i] = new Pawn(Color::WHITE, 6, i, this);
-	}
+    // set up white pieces
+    King* whiteKing = new King(Color::WHITE, 7, 4, this);
+    square[7][0] = new Rook(Color::WHITE, 7, 0, this, whiteKing);
+    square[7][1] = new Knight(Color::WHITE, 7, 1, this);
+    square[7][2] = new Bishop(Color::WHITE, 7, 2, this);
+    square[7][3] = new Queen(Color::WHITE, 7, 3, this);
+    square[7][4] = whiteKing;
+    square[7][5] = new Bishop(Color::WHITE, 7, 5, this);
+    square[7][6] = new Knight(Color::WHITE, 7, 6, this);
+    square[7][7] = new Rook(Color::WHITE, 7, 7, this, whiteKing);
+    for (int i = 0; i < 8; i++) {
+        square[6][i] = new Pawn(Color::WHITE, 6, i, this);
+    }
 }
 
 Board::~Board() {
@@ -67,7 +69,7 @@ bool Board::verifyPieceToMove(int y, int x) const {
 }
 
 // returns -1 if a player attempts an invalid move, returns 1 if a piece initiates combat, returns 0 if a piece just moves
-int Board::verifyMove(int oldY, int oldX, int newY, int newX) const {
+int Board::verifyMove(int oldY, int oldX, int newY, int newX) {
 	if (!verifyPieceToMove(oldY, oldX)) {
 		game->updateTurn();
 		return -1;
@@ -83,7 +85,7 @@ int Board::verifyMove(int oldY, int oldX, int newY, int newX) const {
 	Color currentTurn = game->getTurn();
 	if (curr == nullptr) { 
 		game->updateTurn();
-		game->updateBoard(oldY, oldX, newY, newX);
+		updateBoard(oldY, oldX, newY, newX);
 		return 0;
 	}
 	else if (currentTurn == Color::WHITE && curr->getColor() == Color::BLACK || currentTurn == Color::BLACK && curr->getColor() == Color::WHITE) { 
