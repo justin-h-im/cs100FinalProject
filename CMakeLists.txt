@@ -25,15 +25,16 @@ add_library(game
     lib/Display.cpp
     lib/ui.cpp
     lib/Game.cpp
+    lib/enums.cpp
 )
 
 # Add executable target
-# add_executable(ChessGameExecutable
-#    main.cpp  # Replace with your actual main file
-# )
+add_executable(ChessGameExecutable
+    main.cpp  # Replace with your actual main file
+)
 
 # # Link the library to the executable
-# target_link_libraries(ChessGameExecutable PRIVATE game)
+target_link_libraries(ChessGameExecutable PRIVATE game)
 
 # Add executable testing target
 add_Executable(test
