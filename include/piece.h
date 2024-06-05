@@ -9,6 +9,7 @@ class Piece {
 protected:
     Color color;      
     PieceType type;
+    Board* board; 
     int x;
     int y;
     int currHp; // current health
@@ -18,9 +19,9 @@ protected:
     Board* board;
 
 public:
-    Piece(Color color, int x, int y, PieceType type, int maxHp, int atk, int acc, Board* board) 
-        : color(color), x(x), y(y), type(type), 
-          maxHp(maxHp), currHp(maxHp), atk(atk), acc(acc), board(board) {}
+    Piece(Color color, int x, int y, PieceType type, Board* board, int maxHp, int atk, int acc) 
+        : color(color), x(x), y(y), type(type), board(board),
+          maxHp(maxHp), currHp(maxHp), atk(atk), acc(acc) {}
     virtual ~Piece() {}
 
     bool isInBounds(int x, int y) {

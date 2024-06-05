@@ -7,8 +7,8 @@ class Game;
 class Board {
 	private:
 		// board is a 2d array storing pointers to the pieces (if there is no piece it stores nullptr) 
-		Game* game;
 		Piece* square[8][8];
+		Game* game;
 		// determines there a player can move whatever is at the location
 		bool verifyPieceToMove(int x, int y) const;
 	public:
