@@ -42,7 +42,6 @@ Board::Board() {
     for (int i = 0; i < 8; i++) {
         square[6][i] = new Pawn(Color::WHITE, 6, i, this);
     }
-	square[3][4] = new Queen(Color::WHITE, 3, 4, this);
 }
 
 Board::~Board() {
