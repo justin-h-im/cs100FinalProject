@@ -13,7 +13,7 @@ TEST(UISuite, startMenuInput3) {
   EXPECT_FALSE(testUI->outputStartMenu());
 }
 
-
+// Expect true after inputting values that exist on the board.
 TEST(UISuite, turnMenu) {
     ui *testUI = new ui();
     EXPECT_NO_THROW(testUI->outputTurnMenu());
