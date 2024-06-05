@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/class/classes/jim023/final-project-mhsie026-jim023-anels048-vselv001/build",
+  "command": "/usr/bin/c++  -I/class/classes/jim023/final-project-mhsie026-jim023-anels048-vselv001/include -g -std=gnu++17 -o CMakeFiles/game.dir/lib/Board.cpp.o -c /class/classes/jim023/final-project-mhsie026-jim023-anels048-vselv001/lib/Board.cpp",
+  "file": "/class/classes/jim023/final-project-mhsie026-jim023-anels048-vselv001/lib/Board.cpp",
+  "output": "CMakeFiles/game.dir/lib/Board.cpp.o"
+},
+{
+  "directory": "/class/classes/jim023/final-project-mhsie026-jim023-anels048-vselv001/build",
+  "command": "/usr/bin/c++  -I/class/classes/jim023/final-project-mhsie026-jim023-anels048-vselv001/include -g -std=gnu++17 -o CMakeFiles/game.dir/lib/Game.cpp.o -c /class/classes/jim023/final-project-mhsie026-jim023-anels048-vselv001/lib/Game.cpp",
+  "file": "/class/classes/jim023/final-project-mhsie026-jim023-anels048-vselv001/lib/Game.cpp",
+  "output": "CMakeFiles/game.dir/lib/Game.cpp.o"
+}
+]
