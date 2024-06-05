@@ -21,6 +21,7 @@ add_library(game
     lib/Display.cpp
     lib/ui.cpp
     lib/Game.cpp
+    lib/enums.cpp
 )
 
 # Add executable target
