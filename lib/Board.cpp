@@ -78,6 +78,7 @@ int Board::verifyMove(int oldX, int oldY, int newX, int newY) {
 		return -1;
 	}
 
+	// see what piece is at the old location
 	Piece* curr = square[oldX][oldY];
 
 	cout << "moving " << colorToString(curr->getColor()) << " " << pieceToString(curr->getType()) << endl;
@@ -87,6 +88,7 @@ int Board::verifyMove(int oldX, int oldY, int newX, int newY) {
 		return -1; 
 	}
 
+	// check what is at the new location
 	curr = square[newX][newY];
 
 	Color currentTurn = game->getTurn();

@@ -12,15 +12,29 @@
 
 TEST(BoardTests, testConstructor) {
 	EXPECT_NO_THROW({
-		Board* test;
+		Board* board = new Board();
 	});
 }
 
 TEST(BoardTests, testUpdateBoard) {
-	Board* test;
-	Piece* testPiece = test->getPiece(1, 0);
-	test->updateBoard(0, 0, 4, 0);
-	// EXPECT_EQ(test->getPiece(4, 0), testPiece);
+	Board* board = new Board();
+	Piece* testPiece = board->getPiece(1, 0);
+	board->updateBoard(1, 0, 4, 0);
+	EXPECT_EQ(board->getPiece(4, 0), testPiece);
+}
+
+TEST(DisplayTests, testDisplayBoard) {
+	EXPECT_NO_THROW({
+		Game* game = new Game();
+		Board* board = new Board();
+		board->setGame(game);
+		Display* display = new Display(board);
+		display->displayBoard();
+	});
+}
+
+TEST(DisplayTests, ) {
+	
 }
 
 int main(int argc, char **argv) {
