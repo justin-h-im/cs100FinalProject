@@ -17,6 +17,13 @@ TEST(BoardTests, testConstructor) {
 	});
 }
 
+TEST(BoardTests, testGetPiece) {
+	EXPECT_NO_THROW({
+		Board* board = new Board();
+		board->getPiece(0, 0);
+	});
+}
+
 // Test if update board works on its own
 TEST(BoardTests, testUpdateBoard) {
 	Board* board = new Board();
@@ -52,6 +59,7 @@ TEST(BoardTests, testInvalidMoveNormal) {
 	EXPECT_EQ(board->verifyMove(7, 0, 3, 0), -1);
 }
 
+// Test what happens when a piece of the same color is moved onto a piece of the same color
 TEST(BoardTests, testMovePieceOntoPiece) {
 	Game* game = new Game();
 	Board* board = new Board();
@@ -60,12 +68,23 @@ TEST(BoardTests, testMovePieceOntoPiece) {
 	EXPECT_EQ(board->verifyMove(7, 1, 6, 3), -1);
 }
 
+// TEST if place piece works as intended
+TEST(BoardTests, testPlacePiece) {
+	Board* board = new Board();
+	Display* display = new Dispaly(board);
+	Piece* piece = new Queen(Color::WHITE, 3, 3, board);
+
+	display->displayBoard();
+
+	board->placePiece(piece);
+
+	display->displayBoard();
+}
+
 // Test basic display
 TEST(DisplayTests, testDisplayBoard) {
 	EXPECT_NO_THROW({
-		Game* game = new Game();
 		Board* board = new Board();
-		board->setGame(game);
 		Display* display = new Display(board);
 		display->displayBoard();
 	});
