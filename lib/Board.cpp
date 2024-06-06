@@ -112,9 +112,9 @@ Piece* Board::getPiece(int x, int y) const {
     return square[x][y];
 }
 
-// allows a piece to be added to the board (for pawn promotion)
-void Board::placePiece(int y, int x, Piece* piece) {
-	if (square[y][x] == nullptr) {
-		square[y][x] = piece;
-	}
+void Board::placePiece(int x, int y, Piece* piece) {
+	// if is in bounds
+    if (x >= 0 && x < 8 && y >= 0 && y < 8) {
+        square[x][y] = piece;
+    }
 }
