@@ -15,6 +15,8 @@ ui::ui() {
     board = new Board();
     game = new Game();
     board->setGame(game);
+    game->setBlackKing(board->getPiece(0, 4));
+    game->setWhiteKing(board->getPiece(7, 4));
     display = new Display(board);
 }
 
@@ -163,7 +165,10 @@ void ui::outputEndScreen() {
     if (game->blackWin()) {
         cout << "Black wins!" << endl;
     }
-    else {
+    else if (game->whiteWin()) {
         cout << "White wins!" << endl;
+    }
+    else {
+        cout << "Both kings remain!" << endl;
     }
 }
