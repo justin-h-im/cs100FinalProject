@@ -113,11 +113,11 @@ bool ui::outputTurnMenu() {
     
     int result = board->verifyMove(yCoord, xCoord, newYCoord, newXCoord);
     if (result == -1) {
-        cout << "WOMP WOMP" << endl;
+        cout << "Thou are fit to be a court jester, not a lord." << endl;
         return true;
     }
     else if (result == 0) {
-        cout << "Sucessful move, my God" << endl;
+        cout << "Sucessful move, my liege." << endl;
         return true;
     }
     // If there is a piece at the new location, activate combat scenario

@@ -43,10 +43,6 @@ class ui {
         and choose a different piece. */
         bool outputTurnMenu();
 
-        /* Prints the game from the display class depending on the context. It will call the normal print if the 
-        game is in normal mode, and will call the combat print if the game is in a combat scenario. */
-        void printGame();
-
         /* Introduces the rules and mechanics of the game to the user. Then prompts them with a return to menu option. */
         void outputUserGuide();
 
