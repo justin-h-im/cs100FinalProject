@@ -45,7 +45,7 @@ bool Queen::move(int x1, int y1, int x2, int y2) {
     // check if all squares between the start and end are empty
     // (stops right before destination coordinate!)
     while (x != x2 || y != y2) {
-        if (board->getPiece(x, y) != nullptr) {
+        if (board->getPiece(y, x) != nullptr) {
             return false;
         }
         x += xStep;
