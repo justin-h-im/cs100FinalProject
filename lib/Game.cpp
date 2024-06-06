@@ -12,11 +12,11 @@ void Game::updateTurn() {
 }
 
 bool Game::whiteWin() {
-	return (blackKing->getHp() == 0);
+	return (blackKing == nullptr);
 }
 
 bool Game::blackWin() {
-	return (whiteKing->getHp() == 0);
+	return (whiteKing == nullptr);
 }
 
 void Game::setWhiteKing(Piece* piece) {

@@ -10,6 +10,62 @@
 #include "../include/queen.h"
 #include "../include/king.h"
 
+//===============================================
+//								 GAME TESTS
+//===============================================
+
+// Test if you can create a game with no errors
+TEST(GameTests, testConstructor) {
+	EXPECT_NO_THROW({
+		Game* game = new Game();
+	});
+}
+
+// Test get turn
+TEST(GameTests, testGetTurn) {
+	Game* game = new Game();
+	EXPECT_EQ(game->getTurn(), Color::WHITE);
+}
+
+// Test update turn
+TEST(GameTests, testUpdateTurn) {
+	Game* game = new Game();
+	game->updateTurn();
+	EXPECT_EQ(game->getTurn(), Color::BLACK);
+}
+
+// Test set white king
+TEST(GameTests, testSetWhiteKing) {
+	EXPECT_NO_THROW({
+		Game* game = new Game();
+		Board* board = new Board();
+		game->setWhiteKing(board->getPiece(7, 4));
+	});
+}
+
+// Test set black king
+TEST(GameTests, testSetBlackKing) {
+	EXPECT_NO_THROW({
+		Game* game = new Game();
+		Board* board = new Board();
+		game->setBlackKing(board->getPiece(0, 4));
+	});
+}
+
+// // Test white win
+// TEST(GameTests, testWhiteWin) {
+// 	Game* game = new Game();
+// 	Board* board = new Board();
+// 	Piece* blackKing = board->getPiece(0, 4);
+// 	game->setWhiteKing(blackKing);
+// 	blackKing->takeDamage(blackKing->getMaxHp());
+// 	EXPECT_EQ(game->whiteWin(), true);
+// }
+
+//===============================================
+//								BOARD TESTS
+//===============================================
+
 // Test if you can create a board with no errors
 TEST(BoardTests, testConstructor) {
 	EXPECT_NO_THROW({
@@ -17,6 +73,14 @@ TEST(BoardTests, testConstructor) {
 	});
 }
 
+TEST(BoardTests, testSetGame) {
+	EXPECT_NO_THROW({
+		Game* game = new Game();
+		Board* board = new Board();
+		board->setGame(game);
+	});
+}
+// ensure that get piece does not throw errors
 TEST(BoardTests, testGetPiece) {
 	EXPECT_NO_THROW({
 		Board* board = new Board();
@@ -71,15 +135,18 @@ TEST(BoardTests, testMovePieceOntoPiece) {
 // TEST if place piece works as intended
 TEST(BoardTests, testPlacePiece) {
 	Board* board = new Board();
-	Display* display = new Dispaly(board);
+	Display* display = new Display(board);
 	Piece* piece = new Queen(Color::WHITE, 3, 3, board);
 
 	display->displayBoard();
-
-	board->placePiece(piece);
-
+	cout << endl;
+	board->placePiece(3, 3, piece);
 	display->displayBoard();
 }
+
+//===============================================
+//								DISPLAY TESTS
+//===============================================
 
 // Test basic display
 TEST(DisplayTests, testDisplayBoard) {
