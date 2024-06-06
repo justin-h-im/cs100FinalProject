@@ -106,6 +106,43 @@ TEST(DisplayTests, testDisplayCombatRooks) {
 		display->displayCombat(board->getPiece(7, 0), board->getPiece(0, 0));
 	});
 }
+
+ // Test combat for queens
+TEST(DisplayTests, testDisplayCombatKnights) {
+	EXPECT_NO_THROW({
+		Game* game = new Game();
+		Board* board = new Board();
+		board->setGame(game);
+		Display* display = new Display(board);
+		
+		display->displayCombat(board->getPiece(7, 1), board->getPiece(0, 1));
+	});
+}
+
+ // Test combat for queens
+TEST(DisplayTests, testDisplayCombatBishops) {
+	EXPECT_NO_THROW({
+		Game* game = new Game();
+		Board* board = new Board();
+		board->setGame(game);
+		Display* display = new Display(board);
+		
+		display->displayCombat(board->getPiece(7, 2), board->getPiece(0, 2));
+	});
+}
+
+ // Test combat for queens
+TEST(DisplayTests, testDisplayCombatPawns) {
+	EXPECT_NO_THROW({
+		Game* game = new Game();
+		Board* board = new Board();
+		board->setGame(game);
+		Display* display = new Display(board);
+		
+		display->displayCombat(board->getPiece(6, 0), board->getPiece(1, 0));
+	});
+}
+
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
