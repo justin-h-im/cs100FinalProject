@@ -111,3 +111,10 @@ int Board::verifyMove(int oldX, int oldY, int newX, int newY) {
 Piece* Board::getPiece(int x, int y) const {
     return square[x][y];
 }
+
+// allows a piece to be added to the board (for pawn promotion)
+void Board::placePiece(int y, int x, Piece* piece) {
+	if (square[y][x] == nullptr) {
+		square[y][x] = piece;
+	}
+}
