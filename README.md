@@ -151,19 +151,37 @@ UNICODE courtesy of https://www.unicode.org/charts/PDF/U2600.pdf.
 ### UML Diagram
 ![UML drawio](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/166081771/253fd69c-3e56-42ce-9a0c-1afc299ce382)
 
+## Output Screenshots
+### Start Menu
+![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/1827e1a1-d86c-48fe-b218-550fced720a6)
 
-### Output Screenshots
+### User Guide
+![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/0358518c-42b7-46f8-88c0-fc4638a6fca0)
+
+### Piece Navigation
 ![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/c90772c5-1666-4995-b6bb-1244e8931ab3) ![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/008c798b-2712-40ce-a551-a9fa1f5fda55)  
 ![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/95adfb87-03f6-4b2c-a4c1-bec705582e4e)  
+![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/b60a7f4c-0542-4eab-ac12-e469e411fc10)
 
-### Class Descriptions
+### Combat Scenarios
+![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/ea1b8a1d-55ac-41cf-abe9-46649cf0a982)
+![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/c5757ad3-4738-4961-aa3c-0fb7efda84a6)
+![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/03010b06-654d-4d09-a041-9432a206b676)
+
+### Mid-Game Quit
+![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/bf3fdb45-b1e4-4373-84a9-677985aab2c6)
+
+### Victory Attained!
+
+
+## Class Descriptions
 The Game class will be the board and control the turns. Since it is the board, it is responsible for setting up the board which holds pointers to pieces in an 8 by 8 2D array and displaying the visuals. Along with that it will also control what phase the game is in (i.e. player turn, combat, and end game when king hp is 0).
 For the chess pieces there is a base class called Piece which contains a color, the coordinates of the piece, the type of piece it is, and the health of the piece for combat. The color of the piece and the pieceType have separate enums to make it simpler for identifying pieces for interactions. It also has cooresponding getters and setters. Along with the base class there are 6 derived classes for each of the unique chess piece types. These are responsible for the pieces specific movements and what they do in encounters.
 
-### Class Description SOLID Updates
+## Class Description SOLID Updates
 In the previous phase the class diagram for this project had several violations of SOLID principles. The main violation was a violation of the single responsibility principle by the Game class which was responsible for 3 actions: updating the board, tracking the game's status, and display. In order to fix this violation, two additional classes were created, the Display class and the Board class. The Game class now only has the responsibility of tracking the game's status while the Display class prints the chess board and combat interactions and the Board class keeps track of the pieces' locations. This made the code significantly more organized. Along with this violation, there was also a violation of the dependency inversion principle as there was no class for user interactions as it was planned that main would handle this. This would result in the main (a high level module) interacting with the low level modules like Board and Piece. To fix this a UI class was added to communicate with the user. This ensures that the main function at the end of this project will be much cleaner than before.
 
-### Testing Procedure
+## Testing Procedure
 Our tests mainly used the google test suite. We started by testing the smaller classes, such as the pieces, and then moving up in scale to the display, board, and game, and ending with 
  integration tests held by UI. Since UI is heavily depenendent on user input because it acts as a user interface, all of the user inputs are simulated with text files that hold commands.  
  The unit tests would read through those text files to get input for the tests. We also utilized gcov and lcov to get understandings of what our code was missing during the unit tests. In 
