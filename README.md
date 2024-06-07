@@ -215,6 +215,15 @@ To run our game, please follow the below steps, then perhaps you may be worthy o
 5. CRUSADE!!
 ```
 
+User Guide
+===========================
+```
+1. Cmake .
+2. make
+3. ./build/ChessGameExecutable
+```
+
+
 Updating Chess Crusaders (Developer)
 ====================================
 (For Windows)
