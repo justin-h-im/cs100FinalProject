@@ -19,6 +19,7 @@ to terminal to prompt for more user input. */
 
 #include <iostream>
 #include <fstream>
+using namespace std;
 
 class ui {
     private:

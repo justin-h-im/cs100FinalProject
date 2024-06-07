@@ -70,6 +70,16 @@ bool ui::outputTurnMenu() {
     while (1) {
         cout << "Proclaim the location, in the X direction: " << endl;
         cin >> xCoord;
+        if (cin.good() && xCoord == -1) {
+            cout << "Do you want to end the game? Y/N" << endl;
+            char option;
+            cin >> option;
+            if (option == 'Y' || option == 'y') {
+                cout << "Farewell." << endl;
+                return false;
+            }
+            continue;
+        }
         if (!cin.good() || xCoord < 0 || xCoord > 7) {
             cout << "Your vassal cannot be outside the battlefield. They await new orders." << endl;
         }
@@ -80,6 +90,16 @@ bool ui::outputTurnMenu() {
     while (1) {
         cout << "Decree the location, in the Y direction. " << endl;
         cin >> yCoord;
+        if (cin.good() && yCoord == -1) {
+            cout << "Do you want to end the game? Y/N" << endl;
+            char option;
+            cin >> option;
+            if (option == 'Y' || option == 'y') {
+                cout << "Farewell." << endl; 
+                return false;
+            }
+            continue;
+        }
         if (!cin.good() || yCoord < 0 || yCoord > 7) {
             cout << "Your vassal cannot be outside the battlefield. They await new orders." << endl;
         }
@@ -91,6 +111,16 @@ bool ui::outputTurnMenu() {
     // Repeatedly prompts the user for the location that they want to move th epiece to.
     cout << "State the new location for your vassal: " << endl;
     while (1) {
+        if (cin.good() && newXCoord == -1) {
+            cout << "Do you want to end the game? Y/N" << endl;
+            char option;
+            cin >> option;
+            if (option == 'Y' || option == 'y') {
+                cout << "Farewell;" << endl;
+                return false;
+            }
+            continue;
+        }
         cout << "Herald the new location in the X direction." << endl;
         cin >> newXCoord;
         if (!cin.good() || newXCoord < 0 || newXCoord > 7) {
@@ -103,6 +133,16 @@ bool ui::outputTurnMenu() {
     while(1) {
         cout << "Promulgate the new location in the Y direction." << endl;
         cin >> newYCoord;
+        if (cin.good() && newYCoord == -1 ) {
+            cout << "Do you want to end the game? Y/N" << endl;
+            char option;
+            cin >> option;
+            if (option == 'Y' || option == 'y') {
+                cout << "Farewell." << endl;
+                return false;
+            }
+            continue;
+        }
         if (!cin.good() || newYCoord < 0 || newYCoord > 7) {
             cout << "Your vassal does not understand your command." << endl;
         }
