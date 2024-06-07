@@ -1,7 +1,5 @@
 #include "../include/bishop.h"
 #include <cmath>
-#include <iostream>
-using std::cout;
 
 /*
   0 1 2 3 4 5 6 7
@@ -20,10 +18,8 @@ using std::cout;
 //  move to 
 // [destination coordinate] (x2, y2)
 bool Bishop::move(int x1, int y1, int x2, int y2) {
-  cout << "start move\n";
   if (!isInBounds(x2, y2) || (x1 == x2 && y1 == y2)) {
-    cout << "FALSE 1\n";
-    return false;
+      return false;
   }
 
   int dx = std::abs(x2 - x1);
@@ -31,8 +27,7 @@ bool Bishop::move(int x1, int y1, int x2, int y2) {
 
   // bishops move diagonally, so absolute difference b/n x and y coordinates must be equal
   if (dx != dy) {
-    cout << "FALSE 2\n";
-    return false;
+      return false;
   }
 
   /* determine (diagonal) direction of bishop movement */
@@ -48,12 +43,10 @@ bool Bishop::move(int x1, int y1, int x2, int y2) {
   // check if all squares b/n start and end are empty
   // does NOT check the actual destination coordinate (stops right before)
   while (x != x2 && y != y2) {
-    cout << "checking inb/n coords...\n";
     // return false if any coordinate b/n start and end is NOT valid 
     // if getPiece at currLocation is NOT nullptr then there's a piece there
     // THEREFORE should return false
     if (board->getPiece(y, x) != nullptr) {
-      cout << "FALSE 3\n";
       return false;
     }
     // step towards destination coordinate
@@ -77,9 +70,9 @@ bool Bishop::move(int x1, int y1, int x2, int y2) {
     // update own coordinates
     this->x = x2;
     this->y = y2;
-    cout << "moved!\n";
+
     return true; // has moved
   }
-  cout << "FALSE 4\n";
+
   return false;
 }

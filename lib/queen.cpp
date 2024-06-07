@@ -23,19 +23,19 @@ bool Queen::move(int x1, int y1, int x2, int y2) {
     
     /* determine direction of movement (calculate step movement) */
     // vertical movement (if horizontal coordinate is same)
-    if (x1 == x2) { 
-        yStep = (y2 > y1) ? 1 : -1;
+    if (y1 == y2) { 
+        xStep = (x2 > x1) ? 1 : -1;
     } 
     
     // horizontal movement (if vertical coordinate is same)
-    else if (y1 == y2) { 
-        xStep = (x2 > x1) ? 1 : -1;
+    else if (x1 == x2) { 
+        yStep = (y2 > y1) ? 1 : -1;
     } 
     
     // diagonal movement (else)
     else { 
-        xStep = (x2 > x1) ? 1 : -1;
-        yStep = (y2 > y1) ? 1 : -1;
+        xStep = (x2 > x1) ? 1 : -1; // -
+        yStep = (y2 > y1) ? 1 : -1; // +
     }
 
     // start moving towards destination coordinates
@@ -45,7 +45,7 @@ bool Queen::move(int x1, int y1, int x2, int y2) {
     // check if all squares between the start and end are empty
     // (stops right before destination coordinate!)
     while (x != x2 || y != y2) {
-        if (board->getPiece(y, x) != nullptr) {
+        if (board->getPiece(x, y) != nullptr) {
             return false;
         }
         x += xStep;
@@ -68,7 +68,7 @@ bool Queen::move(int x1, int y1, int x2, int y2) {
         // update own coordinates
         this->x = x2;
         this->y = y2;
-
+    
         return true; // has moved
     }
 
