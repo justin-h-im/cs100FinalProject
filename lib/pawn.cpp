@@ -85,9 +85,9 @@ bool Pawn::move(int y1, int x1, int y2, int x2)
     return false;
 }
 
-void Pawn::promoteToQueen(int x, int y) 
-{
-    // delete board[y][x];
-    // board[y][x] = new Queen(getColor(), x, y); // Assuming Queen constructor is defined.
-    return;
-}
+// void Pawn::promoteToQueen(int x, int y) 
+// {
+//     // delete board[y][x];
+//     // board[y][x] = new Queen(getColor(), x, y); // Assuming Queen constructor is defined.
+//     return;
+// }

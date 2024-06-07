@@ -26,7 +26,6 @@ TEST(KingTests, testKingBasicMovement) {
     EXPECT_TRUE(king->move(4, 4, 3, 4));
     testBoard->updateBoard(4, 4, 3, 4);
     EXPECT_EQ(testBoard->getPiece(3, 4), king); 
-
 }
 
 TEST(KingTests, testKingCaptureMovement) {
@@ -39,7 +38,6 @@ TEST(KingTests, testKingCaptureMovement) {
     EXPECT_TRUE(king->move(4, 4, 3, 3));
     testBoard->updateBoard(4, 4, 3, 3);
     EXPECT_EQ(testBoard->getPiece(3, 3), king); 
-
 }
 
 /* 
