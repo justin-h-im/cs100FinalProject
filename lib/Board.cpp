@@ -15,7 +15,7 @@ using std::endl;
 
 // Constructor sets up the Board
 Board::Board() {
-    // set up black pieces
+    //set up black pieces
     King* blackKing = new King(Color::BLACK, 0, 4, this);
     square[0][0] = new Rook(Color::BLACK, 0, 0, this, blackKing);
     square[0][1] = new Knight(Color::BLACK, 0, 1, this);
@@ -42,6 +42,7 @@ Board::Board() {
     for (int i = 0; i < 8; i++) {
         square[6][i] = new Pawn(Color::WHITE, 6, i, this);
     }
+
 }
 
 Board::~Board() {
@@ -53,10 +54,8 @@ Board::~Board() {
 }
 
 void Board::updateBoard(int oldX, int oldY, int newX, int newY) {
-	if (square[newX][newY] == nullptr) {
-		square[newX][newY] = square[oldX][oldY];
-		square[oldX][oldY] = nullptr;
-	}
+	square[newX][newY] = square[oldX][oldY];
+	square[oldX][oldY] = nullptr;
 }
 
 void Board::setGame(Game* game) {
@@ -73,31 +72,37 @@ bool Board::verifyPieceToMove(int x, int y) const {
 // returns -1 if a player attempts an invalid move, returns 1 if a piece initiates combat, returns 0 if a piece just moves
 int Board::verifyMove(int oldX, int oldY, int newX, int newY) {
 	if (!verifyPieceToMove(oldX, oldY)) {
-		cout << "A\n";
 		game->updateTurn();
 		return -1;
 	}
 
-	// see what piece is at the old location
-	Piece* curr = square[oldX][oldY];
+	Piece* selectedPiece = square[oldX][oldY];
 
-	cout << "moving " << colorToString(curr->getColor()) << " " << pieceToString(curr->getType()) << endl;
-	if (!curr->move(oldY, oldX, newY, newX)) {
-		cout << "B\n";
+	if (!selectedPiece->move(oldX, oldY, newX, newY)) {
 		game->updateTurn();
 		return -1; 
 	}
 
-	// check what is at the new location
-	curr = square[newX][newY];
+	Piece* targetPiece = square[newX][newY];
 
 	Color currentTurn = game->getTurn();
-	if (curr == nullptr) { 
+
+	if (targetPiece == nullptr) 
+	{ 
 		game->updateTurn();
 		updateBoard(oldX, oldY, newX, newY);
 		return 0;
 	}
-	else if (currentTurn == Color::WHITE && curr->getColor() == Color::BLACK || currentTurn == Color::BLACK && curr->getColor() == Color::WHITE) { 
+	else if(((targetPiece->getType() == PieceType::King) && (selectedPiece->getType() == PieceType::Rook))) 
+	{
+		game->updateTurn();
+		Piece* temp = square[newX][newY];
+		square[newX][newY] = square[oldX][oldY];
+		square[oldX][oldY] = temp;
+		return 0;
+	}
+	// for castling purposes
+	else if (currentTurn == Color::WHITE && targetPiece->getColor() == Color::BLACK || currentTurn == Color::BLACK && targetPiece->getColor() == Color::WHITE) { 
 		return 1;
 	}
 	else {

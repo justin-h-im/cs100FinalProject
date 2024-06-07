@@ -14,9 +14,7 @@ public:
         : Piece(color, x, y, PieceType::Rook, board, 40, 20, 75), hasMoved(false), king(king) {}
 
     bool move(int x1, int y1, int x2, int y2) override;
-    bool canCastle(const King& king, int rookX, int rookY, int kingX, int kingY, const Board& board) const;
-    bool isSquareUnderAttack(int x, int y, Color color, const Board& board) const;
+    bool canCastle(int x1, int y1, int x2, int y2);
 
     bool hasMoved; 
 };
-

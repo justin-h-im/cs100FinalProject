@@ -10,5 +10,6 @@ public:
     bool move(int x1, int y1, int x2, int y2) override;
     bool isMoveValid(int x1, int y1, int x2, int y2);
     bool hasMoved; // Track if the King has moved
-};
 
+    bool hasMovedBefore() const; // Check if the King has moved before
+};

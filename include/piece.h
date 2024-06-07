@@ -32,6 +32,27 @@ public:
     void takeDamage(int damage) {
         currHp -= damage;
         if (currHp < 0) { currHp = 0; }
+    }
+
+    std::string colorToString(const Piece* piece) {
+    if (piece == nullptr) {
+        return "No piece";
+    }
+    return colorToString(piece->getColor());
+    }
+
+    std::string colorToString(Color color) {
+    if (color == Color::WHITE) {
+        return "White";
+    } else {
+        return "Black";
+    }
+    }
+    std::string pieceTypeToString(const Piece* piece) {
+        if (piece == nullptr) {
+            return "No piece";  // Handle the case where the pointer is null.
+        }
+        return pieceToString(piece->getType());
     } 
 
     Color getColor() const { return color; }
