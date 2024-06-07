@@ -57,9 +57,19 @@ TEST(GameTests, testSetBlackKing) {
 // 	Game* game = new Game();
 // 	Board* board = new Board();
 // 	Piece* blackKing = board->getPiece(0, 4);
-// 	game->setWhiteKing(blackKing);
+// 	game->setBlackKing(blackKing);
 // 	blackKing->takeDamage(blackKing->getMaxHp());
 // 	EXPECT_EQ(game->whiteWin(), true);
+// }
+
+// // Test black win
+// TEST(GameTests, testBlackWin) {
+// 	Game* game = new Game();
+// 	Board* board = new Board();
+// 	Piece* whiteKing = board->getPiece(7, 4);
+// 	game->setWhiteKing(whiteKing);
+// 	whiteKing->takeDamage(whiteKing->getMaxHp());
+// 	EXPECT_EQ(game->blackWin(), true);
 // }
 
 //===============================================
@@ -227,11 +237,11 @@ TEST(DisplayTests, testDisplayCombatPawns) {
 		
 		display->displayCombat(board->getPiece(6, 0), board->getPiece(1, 0));
 	});
+}
 
 //===============================================
 //								QUEEN TESTS
 //===============================================
-
 
 TEST(QueenTests, testQueenMovementDiagonal) {
     Board* test = new Board();
