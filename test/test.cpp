@@ -135,11 +135,9 @@ TEST(QueenTests, testQueenMovementInvalid) {
     EXPECT_EQ(test->getPiece(5, 6), queen);
 }
 
-/* 
- *
- * 	Bishop Piece Tests
- *
- */
+//===============================================
+//								BISHOP TESTS
+//===============================================
 
 TEST(BishopTests, testBishopMovementDiagonal1) {
     Board* test = new Board();
@@ -173,11 +171,11 @@ TEST(BishopTests, testBishopMovementInvalid) {
     EXPECT_EQ(test->getPiece(4, 6), bishop);
 }
 
-/* 
- *
- * 	Knight Piece Tests
- *
- */
+
+//===============================================
+//								KNIGHT TESTS
+//===============================================
+
 
 TEST(KnightTests, testKnightMovementL1) {
     Board* test = new Board();
