@@ -17,6 +17,7 @@ to terminal to prompt for more user input. */
 #include "../include/Display.h"
 #include "../include/combat.h"
 
+#include <limits>
 #include <iostream>
 #include <fstream>
 using namespace std;

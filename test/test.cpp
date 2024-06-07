@@ -265,6 +265,24 @@ TEST(PawnTests, testPawnInvalidDoubleStepAfterMoving) {
  * 	UI Tests
  *
  */
+
+TEST(UISuite, destroyUI) {
+  ui *testUI = new ui();
+  EXPECT_NO_THROW(delete testUI);
+}
+
+TEST(UISuite, invalidInput) {
+  ui *testUI = new ui();
+  std::ifstream ifs;
+  ifs.open("test/invalidInput.txt", std::ifstream::in);
+  if (!ifs.is_open()) {
+    cout << "Failure to open file." << endl;
+    FAIL();
+  }
+  EXPECT_FALSE(testUI->outputStartMenu(ifs));
+  ifs.close();
+}
+
 TEST(UISuite, startGameFromMenu) {
   ui *testUI = new ui();
   std::ifstream ifs;
@@ -289,7 +307,7 @@ TEST(UISuite, openUserGuide) {
   ifs.close();
 }
 
-TEST(UISuite, startMenuInput3) {
+TEST(UISuite, closeMenu) {
   ui *testUI = new ui();
   std::ifstream ifs;
   ifs.open("test/closeMenu.txt", std::ifstream::in);
@@ -315,6 +333,20 @@ TEST(UISuite, simulateMove) {
   ifs.close();
 }
 
+TEST(UISuite, outOfBounds) {
+  ui *testUI = new ui();
+  std::ifstream ifs;
+  ifs.open("test/outOfBounds.txt", std::ifstream::in);
+  if (!ifs.is_open()) {
+    cout << "Failure to open file." << endl;
+    FAIL();
+  }
+  EXPECT_TRUE(testUI->outputTurnMenu(ifs));
+  delete testUI;
+  testUI = nullptr;
+  ifs.close();
+}
+
 TEST(UISuite, endGameMidTurn) {
   ui *testUI = new ui();
   std::ifstream ifs;
@@ -323,8 +355,13 @@ TEST(UISuite, endGameMidTurn) {
     cout << "Failure to open file." << endl;
     FAIL();
   }
-  EXPECT_TRUE(testUI->outputTurnMenu(ifs));
-  EXPECT_TRUE(testUI->outputTurnMenu(ifs));
+  /* While grabbing first x */
+  EXPECT_FALSE(testUI->outputTurnMenu(ifs));
+  /* While grabbing first y */
+  EXPECT_FALSE(testUI->outputTurnMenu(ifs));
+  /* While grabbing new x */
+  EXPECT_FALSE(testUI->outputTurnMenu(ifs));
+  /* While grabbing new y */
   EXPECT_FALSE(testUI->outputTurnMenu(ifs));
   ifs.close();
 }

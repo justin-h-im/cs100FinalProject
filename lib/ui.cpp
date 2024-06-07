@@ -30,7 +30,6 @@ bool ui::outputStartMenu(std::istream& input) {
     int userInput = 0;
     cout << "Welcome to Combat Chess." << endl;
     while (1) {
-        input.clear();
         cout << "Make your selection." << endl;
         cout << "1: Start game." << endl;
         cout << "2: Rule book." << endl;
@@ -49,6 +48,8 @@ bool ui::outputStartMenu(std::istream& input) {
         }
         else {
             cout << "Invalid input. Try again." << endl;
+            input.clear();
+            input.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
     }
     cout << "Farewell." << endl;
@@ -83,6 +84,8 @@ bool ui::outputTurnMenu(std::istream& input) {
         }
         if (!input.good() || oldX < 0 || oldX > 7) {
             cout << "Your vassal cannot be outside the battlefield. They await new orders." << endl;
+            input.clear();
+            input.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
         else {
             break;
@@ -103,6 +106,8 @@ bool ui::outputTurnMenu(std::istream& input) {
         }
         if (!input.good() || oldY < 0 || oldY > 7) {
             cout << "Your vassal cannot be outside the battlefield. They await new orders." << endl;
+            input.clear();
+            input.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
         else {
             break;
@@ -126,6 +131,8 @@ bool ui::outputTurnMenu(std::istream& input) {
         input >> newX;
         if (!input.good() || newX < 0 || newX > 7) {
             cout << "Your vassal does not understand your command." << endl;
+            input.clear();
+            input.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
         else {
             break;
@@ -146,6 +153,8 @@ bool ui::outputTurnMenu(std::istream& input) {
         }
         if (!input.good() || newY < 0 || newY > 7) {
             cout << "Your vassal does not understand your command." << endl;
+            input.clear();
+            input.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
         else {
             break;
