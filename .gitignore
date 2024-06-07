@@ -5,3 +5,11 @@ CMakeFiles
 Makefile
 cmake_install.cmake
 .gitignore
+googletest
+a.out
+debug
+myProgram
+lib/libgmock_main.a
+lib/libgmock.a
+lib/libgtest_main.a
+lib/libgtest.a

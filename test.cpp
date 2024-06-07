@@ -9,6 +9,47 @@
 #include "../include/bishop.h"
 #include "../include/queen.h"
 #include "../include/king.h"
+using namespace std;
+
+
+// Expect true when the first input is 1.
+TEST(UISuite, startMenuInput1) {
+  std::cout << "For this test, user inputs 1. " << endl;
+  ui *testUI = new ui();
+  EXPECT_TRUE(testUI->outputStartMenu());
+}
+
+TEST(UISuite, startMenuInput2) {
+  std::cout << "For this test, user inputs 2, then q, then 3." << endl;
+  ui *testUI = new ui();
+  EXPECT_NO_THROW(testUI->outputStartMenu());
+}
+
+// Expect false when the first input is 3.
+TEST(UISuite, startMenuInput3) {
+  std::cout << "For this test, user inputs 3." << endl;
+  ui *testUI = new ui();
+  EXPECT_FALSE(testUI->outputStartMenu());
+}
+
+// Expect true after inputting values that exist on the board.
+// For this test, the values will be 6, 7, 5, 5.
+TEST(UISuite, turnMenu) {
+  std::cout << "For this test, user inputs 6, 7, 5, 5 for a successful turn." << endl;
+  ui *testUI = new ui();
+  EXPECT_TRUE(testUI->outputTurnMenu());
+}
+
+TEST(UISuite, outputEndScreen) {
+  ui *testUI = new ui();
+  EXPECT_NO_THROW(testUI->outputEndScreen());
+}
+
+TEST(UISuite, outputUserGuide) {
+  std::cout << "For this test, user inputs q after the manual." << endl;
+  ui *testUI = new ui();
+  EXPECT_NO_THROW(testUI->outputUserGuide());
+}
 
 /* 
  *
