@@ -112,8 +112,6 @@ int Board::verifyMove(int oldX, int oldY, int newX, int newY) {
 	
 	// if combat
 	else if (currentTurn == Color::WHITE && targetPiece->getColor() == Color::BLACK || currentTurn == Color::BLACK && targetPiece->getColor() == Color::WHITE) { 
-		cout<<"condition3\n";
-
 		return 1;
 	}
 	
