@@ -168,11 +168,21 @@ bool ui::outputTurnMenu(std::istream& input) {
         Piece* defender = board->getPiece(newY, newX);
         display->displayCombat(attacker, defender);
         Combat combat(attacker, defender, display, game);
-        combat.startCombat();
+        int result = combat.startCombat();
         /* Check for game ending within combat scenario (king death) and respond to death accordingly. */
         // check if black king or white king is dead (currHP == 0)
         if (game->blackWin() || game->whiteWin()) {
             outputEndScreen();
+        }
+        /* Attacker has been killed. His square is set to nullptr and the defender remains.*/
+        if (result == 1) {
+            board->placePiece(oldY, oldX, nullptr);
+        }
+        /* Defender has been killed. The attacker moves to his piece (via updateBoard) and the 
+        attackers old piece is set to nullptr. */
+        else {
+            board->updateBoard(oldY, oldX, newY, newX);
+            board->placePiece(oldY, oldX, nullptr);
         }
         return true;
     }
