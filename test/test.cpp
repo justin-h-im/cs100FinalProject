@@ -54,6 +54,118 @@ TEST(RookTests, testRookInvalidDiagonalMovement) {
     EXPECT_FALSE(rook->move(0, 0, 2, 2));
     EXPECT_EQ(testBoard->getPiece(0, 0), rook);
 
+ /*
+ * 	General Piece Tests
+ *
+ */
+
+TEST(PieceTests, testBlackGetters) {
+  Board* test = new Board();
+
+  // Black special pieces
+  std::cout << "Black special pieces: \n";
+  int c = 0;
+  for(int i=0; i<8; ++i) {
+    EXPECT_NO_THROW(std::cout << 
+      test->getPiece(c, i)->colorToString(test->getPiece(c, i)) <<
+      test->getPiece(c, i)->pieceTypeToString(test->getPiece(c, i)) <<
+      " = HP: " <<
+      test->getPiece(c, i)->getHp() << "/" << 
+      test->getPiece(c, i)->getMaxHp() <<
+      ", ATK: " << 
+      test->getPiece(c, i)->getAtk() <<
+      ", ACC: " <<
+      test->getPiece(c, i)->getAcc() <<
+      ", (" << test->getPiece(c, i)->getX() <<
+      ", " << test->getPiece(c, i)->getY() <<
+      ")\n");
+  }
+
+  std::cout << "\n";
+
+  // Black pawn pieces
+  std::cout << "Black pawn pieces: \n";
+  c = 1;
+  for(int i=0; i<8; ++i) {
+    EXPECT_NO_THROW(std::cout << 
+      test->getPiece(c, i)->colorToString(test->getPiece(c, i)->getColor()) <<
+      test->getPiece(c, i)->pieceTypeToString(test->getPiece(c, i)) <<
+      " = HP: " <<
+      test->getPiece(c, i)->getHp() << "/" << 
+      test->getPiece(c, i)->getMaxHp() <<
+      ", ATK: " << 
+      test->getPiece(c, i)->getAtk() <<
+      ", ACC: " <<
+      test->getPiece(c, i)->getAcc() <<
+      ", (" << test->getPiece(c, i)->getX() <<
+      ", " << test->getPiece(c, i)->getY() <<
+      ")\n");
+  }
+  std::cout << "\n";
+}
+
+TEST(PieceTests, testWhiteGetters) {
+  Board* test = new Board();
+
+  // White special pieces
+  std::cout << "White special pieces: \n";
+  int c = 7;
+  for(int i=0; i<8; ++i) {
+    EXPECT_NO_THROW(std::cout << 
+      test->getPiece(c, i)->colorToString(test->getPiece(c, i)) <<
+      test->getPiece(c, i)->pieceTypeToString(test->getPiece(c, i)) <<
+      " = HP: " <<
+      test->getPiece(c, i)->getHp() << "/" << 
+      test->getPiece(c, i)->getMaxHp() <<
+      ", ATK: " << 
+      test->getPiece(c, i)->getAtk() <<
+      ", ACC: " <<
+      test->getPiece(c, i)->getAcc() <<
+      ", (" << test->getPiece(c, i)->getX() <<
+      ", " << test->getPiece(c, i)->getY() <<
+      ")\n");
+  }
+
+  std::cout << "\n";
+
+  // White pawn pieces
+  std::cout << "White pawn pieces: \n";
+  c = 6;
+  for(int i=0; i<8; ++i) {
+    EXPECT_NO_THROW(std::cout << 
+      test->getPiece(c, i)->colorToString(test->getPiece(c, i)->getColor()) <<
+      test->getPiece(c, i)->pieceTypeToString(test->getPiece(c, i)) <<
+      " = HP: " <<
+      test->getPiece(c, i)->getHp() << "/" << 
+      test->getPiece(c, i)->getMaxHp() <<
+      ", ATK: " << 
+      test->getPiece(c, i)->getAtk() <<
+      ", ACC: " <<
+      test->getPiece(c, i)->getAcc() <<
+      ", (" << test->getPiece(c, i)->getX() <<
+      ", " << test->getPiece(c, i)->getY() <<
+      ")\n");
+  }
+  std::cout << "\n";
+}
+
+
+/* 
+ *
+ * 	PAWN Tests
+ *
+ */
+TEST(PawnTests, testPawnForwardMovement) {
+    Board* testBoard = new Board();  
+    Piece* pawn = testBoard->getPiece(6, 0);  
+
+    ASSERT_TRUE(pawn != nullptr && pawn->getType() == PieceType::Pawn);
+
+    // Move one step forward
+    EXPECT_TRUE(pawn->move(6, 0, 5, 0));
+    testBoard->updateBoard(6, 0, 5, 0);
+    EXPECT_EQ(testBoard->getPiece(5, 0), pawn);
+
     delete testBoard;
 }
 
@@ -89,6 +201,62 @@ TEST(RookTests, testRookCastling) {
     EXPECT_EQ(testBoard->getPiece(0, 4), rook);
 
     delete testBoard;
+}
+
+// Test pawn's initial double-step forward movement
+TEST(PawnTests, testPawnDoubleStep) {
+    Board* testBoard = new Board();
+    Piece* pawn = testBoard->getPiece(6, 1);  
+
+    ASSERT_TRUE(pawn != nullptr && pawn->getType() == PieceType::Pawn);
+
+    // Move two steps forward from initial position
+    EXPECT_TRUE(pawn->move(6, 1, 4, 1));
+    testBoard->updateBoard(6, 1, 4, 1);
+    EXPECT_EQ(testBoard->getPiece(4, 1), pawn);
+}
+
+// Test pawn's diagonal capture move
+TEST(PawnTests, testPawnDiagonalCapture) {
+    Board* testBoard = new Board();
+    Piece* pawn = testBoard->getPiece(6, 4);  // Assuming a white pawn starts at (6,4)
+    Piece* enemyPawn = new Pawn(Color::BLACK, 5, 5, testBoard);
+    testBoard->placePiece(5, 5, enemyPawn);
+
+    // Check if the pawn is not nullptr and is indeed a pawn before proceeding
+    ASSERT_TRUE(pawn != nullptr && pawn->getType() == PieceType::Pawn);
+
+    // Diagonal capture
+    EXPECT_TRUE(pawn->move(6, 4, 5, 5));
+    testBoard->updateBoard(6, 4, 5, 5);
+    EXPECT_EQ(testBoard->getPiece(5, 5), pawn);
+}
+
+// Test pawn's invalid backward movement
+TEST(PawnTests, testPawnInvalidBackwardMovement) {
+    Board* testBoard = new Board();
+    Piece* pawn = testBoard->getPiece(6, 2);  // Assuming a pawn has moved to (5,2)
+
+    // Check if the pawn is not nullptr and is indeed a pawn before proceeding
+    ASSERT_TRUE(pawn != nullptr && pawn->getType() == PieceType::Pawn);
+
+    // Attempt to move backward
+    EXPECT_FALSE(pawn->move(6, 2, 7, 2));
+    EXPECT_EQ(testBoard->getPiece(6, 2), pawn);
+}
+
+// Test pawn's invalid two-step forward after moving
+TEST(PawnTests, testPawnInvalidDoubleStepAfterMoving) {
+    Board* testBoard = new Board();
+    Piece* pawn = testBoard->getPiece(6, 1);  // Assuming a pawn is initially at (6,1)
+
+    // Move one step forward first
+    ASSERT_TRUE(pawn->move(6, 1, 5, 1));
+    testBoard->updateBoard(6, 1, 5, 1);
+
+    // Then try moving two steps
+    EXPECT_FALSE(pawn->move(5, 1, 3, 1));
+    EXPECT_EQ(testBoard->getPiece(5, 1), pawn);
 }
 
 /* 
@@ -287,8 +455,6 @@ TEST(KnightTests, testKnightMovementInvalid) {
     EXPECT_FALSE(knight->move(4, 3, 0, 0));
     EXPECT_EQ(test->getPiece(4, 3), knight);
 }
-
-/////////////////////////////////////////
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
