@@ -3,7 +3,7 @@
 [Code Analysis](#code-analysis)   
 [User Interface Specifications](#user-interface-specifications)   
 [UML Diagram](#uml-diagram)   
-[Output Screenshots](#output-screenshots)
+[Output Screenshots](#output-screenshots)    
 [Download Chess Crusaders](#downloading-chess-crusaders)    
 [Updating Chess Crusaders (for developers)](#updating-chess-crusaders-developer)    
 
