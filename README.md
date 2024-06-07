@@ -217,11 +217,18 @@ To run our game, please follow the below steps, then perhaps you may be worthy o
 
 User Guide
 ===========================
+In order to run the program please open the terminal and run these commands in the order porvided:
 ```
 1. Cmake .
 2. make
 3. ./build/ChessGameExecutable
 ```
+Controls in the game:
+
+| Command | Description |
+| --- | --- |
+| 1, 2, 3 | Menu controls for the user |
+| 1, 2, 3, 4, 5, 6, 7, 8, 9 | Player inputs for the x and y coordinates. User is asked to enter the coordinates of the chess piece they want to move and then the are asked to enter the coordinates of the piece's next location|
 
 
 Updating Chess Crusaders (Developer)
