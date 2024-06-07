@@ -1,5 +1,13 @@
-# Authors
+### Table of Contents
+[Game Description](#game-description)   
+[Code Analysis](#code-analysis)   
+[User Interface Specifications](#user-interface-specifications)   
+[UML Diagram](#uml-diagram)   
+[Output Screenshots](#output-screenshots)
+[Download Chess Crusaders](#downloading-chess-crusaders)    
+[Updating Chess Crusaders (for developers)](#updating-chess-crusaders-developer)    
 
+# Authors
 
 [Justin Im](https://github.com/justin-h-im)
 
@@ -186,3 +194,54 @@ Our tests mainly used the google test suite. We started by testing the smaller c
  integration tests held by UI. Since UI is heavily depenendent on user input because it acts as a user interface, all of the user inputs are simulated with text files that hold commands.  
  The unit tests would read through those text files to get input for the tests. We also utilized gcov and lcov to get understandings of what our code was missing during the unit tests. In 
  between, we used Valgrind to locate memory errors and check that the program has no memory leaks, or memcheck--clean. As a final check, we ran a .yml workflow that will run the program through tests during pushes. The .yml workflow will trigger whenever there is a push or pull from main. 
+
+Downloading Chess Crusaders
+===========================
+Hi there!
+
+Before we start, please navigate to our Google Drive containing the game.
+
+[Click here to download Chess Crusaders!](https://drive.google.com/drive/folders/1xPG693grDS8F_R7MQ1X-C0YWTCdH_U1N?usp=drive_link)
+
+Once successfully navigated, press "Download all" on the top right of the page.
+
+Thank you for downloading our game, Chess Crusaders.
+
+To run our game, please follow the below steps, then perhaps you may be worthy of becoming a TRUE crusader...
+```
+1. Install all files from the "chess-crusaders" folder
+2. Unzip the downloaded folder
+3. Navigate through the unzipped folder and run "chess-crusaders\run_chess_crusaders.bat"
+4. If you receive a pop-up stating "Windows protected your PC," press "More info" and "Run anyway" 
+5. CRUSADE!!
+```
+
+Updating Chess Crusaders (Developer)
+====================================
+(For Windows)
+In a Windows environment...
+ 1. Copy/overwrite `include/` and `lib/` into the folder with our latest published update (which should have the below files)
+```
+run_chess_crusaders.bat
+main.cpp
+include/
+lib/
+ChessCrusaders.exe
+```
+ 2. Recompile code with the following line of code in the terminal
+```
+$ g++ lib/*.cpp main.cpp -o ChessCrusaders.exe
+```
+ 3. Copy code into the Google Drive folder that is being distributed
+4. Distribute!
+
+Note: `main.cpp` shouldn't be updated, but if so, ensure it has the following lines of code
+```c++
+...
+#include <stdio.h>
+#include <windows.h>
+...
+int main() {
+  system("chcp 65001  > nul");
+  ...
+```
