@@ -56,15 +56,30 @@ public:
         }
 
         // end combat loop, display results
-        if (attacker->getHp() <= 0) {
-            std::cout << pieceToString(attacker->getType()) << " has been defeated!\n";
-            delete attacker;
-            return 1;
-        } else {
-            std::cout << pieceToString(defender->getType()) << " has been defeated!\n";
-            delete defender;
-            return 0;
+        if (turnCounter % 2 != 0) {
+            if (attacker->getHp() <= 0) {
+                std::cout << pieceToString(attacker->getType()) << " has been defeated!\n";
+                delete attacker;
+                return 1;
+            } else {
+                std::cout << pieceToString(defender->getType()) << " has been defeated!\n";
+                delete defender;
+                return 0;
+            }
         }
+        else {
+            if (attacker->getHp() <= 0) {
+                std::cout << pieceToString(attacker->getType()) << " has been defeated!\n";
+                delete attacker;
+                return 0;
+            } else {
+                std::cout << pieceToString(defender->getType()) << " has been defeated!\n";
+                delete defender;
+                return 1;
+            }
+        }
+        return -1;
+
         // ADD PRINT STATS HERE
 
         /* 
