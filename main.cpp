@@ -20,20 +20,24 @@ following classes:
 #include "include/queen.h"
 #include "include/king.h"
 
+#include <stdio.h>
+#include <windows.h>
+
 using namespace std;
 
 int main() {
-		// Generates a new ui for the game instance.
-    ui *UserInterface = new ui();
-    // Output Start Menu.
-    /* This function reads input from the terminal and decides:
-    *1: Start the game. First player is white and second player is black by default. Enters the infinite game cycle while loop.
-    *2: Quit the game. IDoes not enter the game cycle loop and returns 0.  */
-    bool runGame = UserInterface->outputStartMenu(std::cin);
-    if (!runGame) {
-        return 0;
-    }
-    while(UserInterface->outputTurnMenu(std::cin)) {}
+  system("chcp 65001  > nul");
+  // Generates a new ui for the game instance.
+  ui *UserInterface = new ui();
+  // Output Start Menu.
+  /* This function reads input from the terminal and decides:
+  *1: Start the game. First player is white and second player is black by default. Enters the infinite game cycle while loop.
+  *2: Quit the game. IDoes not enter the game cycle loop and returns 0.  */
+  bool runGame = UserInterface->outputStartMenu(std::cin);
+  if (!runGame) {
+      return 0;
+  }
+  while(UserInterface->outputTurnMenu(std::cin)) {}
 
   delete UserInterface;
   return 0;
