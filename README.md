@@ -149,7 +149,8 @@ Game Over: Display a "GAME OVER" screen and declare the victor of the game.
 UNICODE courtesy of https://www.unicode.org/charts/PDF/U2600.pdf.  
 
 ### UML Diagram
-![Chess UML Diagram](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/166081771/e1737286-9bde-486f-9892-ed63ac264202)
+![UML drawio](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/166081771/253fd69c-3e56-42ce-9a0c-1afc299ce382)
+
 
 ### Output Screenshots
 ![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/c90772c5-1666-4995-b6bb-1244e8931ab3) ![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/008c798b-2712-40ce-a551-a9fa1f5fda55)  
