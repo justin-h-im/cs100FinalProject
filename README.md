@@ -217,11 +217,16 @@ To run our game, please follow the below steps, then perhaps you may be worthy o
 
 User Guide
 ===========================
-In order to run the program please open the terminal and run these commands in the order porvided:
+To run the program, please open your terminal and execute the following commands in the specified order. Ensure that the repository is located in the correct directory before proceeding:
 ```
 1. Cmake .
 2. make
 3. ./build/ChessGameExecutable
+```
+Alternative commands
+```
+1. g++ main.cpp lib/*.cpp -oChess
+2. ./Chess
 ```
 Controls in the game:
 
