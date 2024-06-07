@@ -35,18 +35,18 @@ public:
     }
 
     std::string colorToString(const Piece* piece) {
-    if (piece == nullptr) {
-        return "No piece";
-    }
-    return colorToString(piece->getColor());
+        if (piece == nullptr) {
+            return "No piece";
+        }
+        return colorToString(piece->getColor());
     }
 
     std::string colorToString(Color color) {
-    if (color == Color::WHITE) {
-        return "White";
-    } else {
-        return "Black";
-    }
+        if (color == Color::WHITE) {
+            return "White";
+        } else {
+            return "Black";
+        }
     }
     std::string pieceTypeToString(const Piece* piece) {
         if (piece == nullptr) {
