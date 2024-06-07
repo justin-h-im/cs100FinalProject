@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/class/classes/mhsie026/final-project-mhsie026-jim023-anels048-vselv001/main.cpp" "CMakeFiles/ChessGameExecutable.dir/main.cpp.o" "gcc" "CMakeFiles/ChessGameExecutable.dir/main.cpp.o.d"
+  "/home/csmajs/vselv001/final-project-mhsie026-jim023-anels048-vselv001/main.cpp" "CMakeFiles/ChessGameExecutable.dir/main.cpp.o" "gcc" "CMakeFiles/ChessGameExecutable.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

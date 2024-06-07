@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-bool King::move(int x1, int y1, int x2, int y2) 
+bool King::move(int y1, int x1, int y2, int x2) 
 {
     if (isMoveValid(x1, y1, x2, y2)) 
     {
@@ -23,4 +23,8 @@ bool King::isMoveValid(int x1, int y1, int x2, int y2)
 
     // A King can move one square in any direction
     return (dx <= 1 && dy <= 1);
+}
+
+bool King::hasMovedBefore() const {
+    return hasMoved;
 }

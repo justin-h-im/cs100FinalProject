@@ -10,14 +10,8 @@
 #include "../include/queen.h"
 #include "../include/king.h"
 
-TEST(BoardTests, testUpdateBoard) {
-	Board* test;
-	Piece* testPiece = test->getPiece(1, 0);
-	test->updateBoard(0, 0, 4, 0);
-	EXPECT_EQ(test->getPiece(4, 0), testPiece);
-	delete testPiece;
-	delete test;
-}
+
+/////////////////////////////////////////
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);

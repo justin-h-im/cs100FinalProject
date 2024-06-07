@@ -1,4 +1,4 @@
-#include "enums.h"
+#include "../include/enums.h"
 
 // convert enum to string
 std::string colorToString(Color color) {
