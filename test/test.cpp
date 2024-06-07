@@ -13,6 +13,48 @@ using namespace std;
 
 /* 
  *
+ * 	ROOK Tests
+ *
+ */
+TEST(RookTests, testRookVerticalMovement) {
+    Board* testBoard = new Board();
+   
+    testBoard->updateBoard(6, 0, 3, 0);
+
+    Piece* rook = testBoard->getPiece(7, 0);  
+    ASSERT_TRUE(rook != nullptr && rook->getType() == PieceType::Rook);
+
+    // Move right horizontally
+    EXPECT_TRUE(rook->move(7, 0, 4, 0));
+    testBoard->updateBoard(7, 0, 4, 0);
+    EXPECT_EQ(testBoard->getPiece(4, 0), rook);
+}
+
+TEST(RookTests, testRookHorizontalMovement) {
+    Board* testBoard = new Board();
+    
+    testBoard->updateBoard(0, 0, 3, 3); 
+
+    Piece* rook = testBoard->getPiece(3, 3);  
+    ASSERT_TRUE(rook != nullptr && rook->getType() == PieceType::Rook);
+
+    // Move down vertically
+    EXPECT_TRUE(rook->move(3, 3, 3, 7));
+    testBoard->updateBoard(3, 3, 3, 7);
+    EXPECT_EQ(testBoard->getPiece(3, 7), rook);
+}
+
+TEST(RookTests, testRookInvalidDiagonalMovement) {
+    Board* testBoard = new Board();
+
+    Piece* rook = testBoard->getPiece(0, 0); 
+    ASSERT_TRUE(rook != nullptr && rook->getType() == PieceType::Rook);
+
+    // Attempt diagonal move
+    EXPECT_FALSE(rook->move(0, 0, 2, 2));
+    EXPECT_EQ(testBoard->getPiece(0, 0), rook);
+
+ /*
  * 	General Piece Tests
  *
  */
@@ -127,6 +169,40 @@ TEST(PawnTests, testPawnForwardMovement) {
     delete testBoard;
 }
 
+TEST(RookTests, testRookBlockedMovement) {
+    Board* testBoard = new Board();
+
+    Piece* blockingPiece = new Pawn(Color::BLACK, 0, 1, testBoard);  
+    testBoard->placePiece(0, 1, blockingPiece);
+
+    Piece* rook = testBoard->getPiece(0, 0);  
+    ASSERT_TRUE(rook != nullptr && rook->getType() == PieceType::Rook);
+
+    // Attempt to move past a blocking piece
+    EXPECT_FALSE(rook->move(0, 0, 0, 4));
+    EXPECT_EQ(testBoard->getPiece(0, 0), rook);
+
+    delete testBoard;
+}
+
+TEST(RookTests, testRookCastling) {
+    Board* testBoard = new Board();
+
+    testBoard->updateBoard(0, 1, 2, 1); 
+    testBoard->updateBoard(0, 2, 2, 2); 
+    testBoard->updateBoard(0, 3, 2, 3); 
+
+    Piece* rook = testBoard->getPiece(0, 0);  
+    ASSERT_TRUE(rook != nullptr && rook->getType() == PieceType::Rook);
+
+    // Attempt diagonal move
+    EXPECT_TRUE(rook->move(0, 0, 0, 4));
+    testBoard->updateBoard(0, 0, 0, 4); 
+    EXPECT_EQ(testBoard->getPiece(0, 4), rook);
+
+    delete testBoard;
+}
+
 // Test pawn's initial double-step forward movement
 TEST(PawnTests, testPawnDoubleStep) {
     Board* testBoard = new Board();
@@ -182,7 +258,6 @@ TEST(PawnTests, testPawnInvalidDoubleStepAfterMoving) {
     EXPECT_FALSE(pawn->move(5, 1, 3, 1));
     EXPECT_EQ(testBoard->getPiece(5, 1), pawn);
 }
-
 
 /* 
  *
@@ -380,8 +455,6 @@ TEST(KnightTests, testKnightMovementInvalid) {
     EXPECT_FALSE(knight->move(4, 3, 0, 0));
     EXPECT_EQ(test->getPiece(4, 3), knight);
 }
-
-/////////////////////////////////////////
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
