@@ -29,14 +29,11 @@ int main() {
     /* This function reads input from the terminal and decides:
     *1: Start the game. First player is white and second player is black by default. Enters the infinite game cycle while loop.
     *2: Quit the game. IDoes not enter the game cycle loop and returns 0.  */
-    bool runGame = UserInterface->outputStartMenu();
+    bool runGame = UserInterface->outputStartMenu(std::cin);
     if (!runGame) {
         return 0;
     }
-    UserInterface->outputTurnMenu();
-
-
-    // while() {}
+    while(UserInterface->outputTurnMenu(std::cin)) {}
 
   delete UserInterface;
   return 0;

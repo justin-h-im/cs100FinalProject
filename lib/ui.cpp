@@ -26,35 +26,36 @@ ui::~ui() {
     delete game;
 }
 
-bool ui::outputStartMenu() {
+bool ui::outputStartMenu(std::istream& input) {
     int userInput = 0;
     cout << "Welcome to Combat Chess." << endl;
     while (1) {
+        input.clear();
         cout << "Make your selection." << endl;
         cout << "1: Start game." << endl;
         cout << "2: Rule book." << endl;
         cout << "3: Quit." << endl;
-        cin >> userInput;
-        if (!cin.good()) {
-            continue;
-        }
+        input >> userInput;
         // FIXME: Implement a switch statement.
-        else if (userInput == 1) {
+        if (userInput == 1) {
             cout << "Game Starto!" << endl;
             return true;
         }
         else if (userInput == 2) {
-            outputUserGuide();
+            outputUserGuide(input);
+        }
+        else if (userInput == 3) {
+            break;
         }
         else {
-            break;
+            cout << "Invalid input. Try again." << endl;
         }
     }
     cout << "Farewell." << endl;
     return false;
 }
 
-bool ui::outputTurnMenu() {
+bool ui::outputTurnMenu(std::istream& input) {
     // Prints color turn.
     string turn = "WHITE";
     if (game->getTurn() == Color::BLACK) {
@@ -69,18 +70,18 @@ bool ui::outputTurnMenu() {
     cout << "State the location of your vassal: " << endl;
     while (1) {
         cout << "Proclaim the location, in the X direction: " << endl;
-        cin >> oldX;
-        if (cin.good() && oldX == -1) {
+        input >> oldX;
+        if (input.good() && oldX == -1) {
             cout << "Do you want to end the game? Y/N" << endl;
             char option;
-            cin >> option;
+            input >> option;
             if (option == 'Y' || option == 'y') {
                 cout << "Farewell." << endl;
                 return false;
             }
             continue;
         }
-        if (!cin.good() || oldX < 0 || oldX > 7) {
+        if (!input.good() || oldX < 0 || oldX > 7) {
             cout << "Your vassal cannot be outside the battlefield. They await new orders." << endl;
         }
         else {
@@ -89,18 +90,18 @@ bool ui::outputTurnMenu() {
     }
     while (1) {
         cout << "Decree the location, in the Y direction. " << endl;
-        cin >> oldY;
-        if (cin.good() && oldY == -1) {
+        input >> oldY;
+        if (input.good() && oldY == -1) {
             cout << "Do you want to end the game? Y/N" << endl;
             char option;
-            cin >> option;
+            input >> option;
             if (option == 'Y' || option == 'y') {
                 cout << "Farewell." << endl; 
                 return false;
             }
             continue;
         }
-        if (!cin.good() || oldY < 0 || oldY > 7) {
+        if (!input.good() || oldY < 0 || oldY > 7) {
             cout << "Your vassal cannot be outside the battlefield. They await new orders." << endl;
         }
         else {
@@ -111,10 +112,10 @@ bool ui::outputTurnMenu() {
     // Repeatedly prompts the user for the location that they want to move th epiece to.
     cout << "State the new location for your vassal: " << endl;
     while (1) {
-        if (cin.good() && newX == -1) {
+        if (input.good() && newX == -1) {
             cout << "Do you want to end the game? Y/N" << endl;
             char option;
-            cin >> option;
+            input >> option;
             if (option == 'Y' || option == 'y') {
                 cout << "Farewell;" << endl;
                 return false;
@@ -122,8 +123,8 @@ bool ui::outputTurnMenu() {
             continue;
         }
         cout << "Herald the new location in the X direction." << endl;
-        cin >> newX;
-        if (!cin.good() || newX < 0 || newX > 7) {
+        input >> newX;
+        if (!input.good() || newX < 0 || newX > 7) {
             cout << "Your vassal does not understand your command." << endl;
         }
         else {
@@ -132,18 +133,18 @@ bool ui::outputTurnMenu() {
     }
     while(1) {
         cout << "Promulgate the new location in the Y direction." << endl;
-        cin >> newY;
-        if (cin.good() && newY == -1 ) {
+        input >> newY;
+        if (input.good() && newY == -1 ) {
             cout << "Do you want to end the game? Y/N" << endl;
             char option;
-            cin >> option;
+            input >> option;
             if (option == 'Y' || option == 'y') {
                 cout << "Farewell." << endl;
                 return false;
             }
             continue;
         }
-        if (!cin.good() || newY < 0 || newY > 7) {
+        if (!input.good() || newY < 0 || newY > 7) {
             cout << "Your vassal does not understand your command." << endl;
         }
         else {
@@ -179,7 +180,7 @@ bool ui::outputTurnMenu() {
     return true;
 }
 
-void ui::outputUserGuide() {
+void ui::outputUserGuide(std::istream& input) {
     ifstream userGuide("include/CombatChessUserGuide.txt");
     if (userGuide.is_open()) {
         cout << userGuide.rdbuf();
@@ -187,15 +188,17 @@ void ui::outputUserGuide() {
     else {
         cout << "The guide has failed to open! Please return to menu and try again." << endl;
     }
-
     string quitChar;
     cout << "Press 'q' to quit." << endl;
+    userGuide.close();
     while (1) {
-        cin >> quitChar;
-        if (!cin.good() || quitChar != "q") {
+        input >> quitChar;
+        if (!input.good() || quitChar != "q") {
             continue;
         }
         if (quitChar == "q") {
+            input.ignore();
+            input.clear();
             return;
         }
     }

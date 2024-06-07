@@ -12,43 +12,78 @@
 using namespace std;
 
 
-// Expect true when the first input is 1.
-TEST(UISuite, startMenuInput1) {
-  std::cout << "For this test, user inputs 1. " << endl;
+/* 
+ *
+ * 	UI Tests
+ *
+ */
+TEST(UISuite, startGameFromMenu) {
   ui *testUI = new ui();
-  EXPECT_TRUE(testUI->outputStartMenu());
+  std::ifstream ifs;
+  ifs.open("test/startGameFromMenu.txt", std::ifstream::in);
+  if (!ifs.is_open()) {
+    cout << "Failure to open file." << endl;
+    FAIL();
+  }
+  EXPECT_TRUE(testUI->outputStartMenu(ifs));
+  ifs.close();
 }
 
-TEST(UISuite, startMenuInput2) {
-  std::cout << "For this test, user inputs 2, then q, then 3." << endl;
+TEST(UISuite, openUserGuide) {
   ui *testUI = new ui();
-  EXPECT_NO_THROW(testUI->outputStartMenu());
+  std::ifstream ifs;
+  ifs.open("test/openUserGuide.txt", std::ifstream::in);
+  if (!ifs.is_open()) {
+    cout << "Failure to open file." << endl;
+    FAIL();
+  }
+  EXPECT_FALSE(testUI->outputStartMenu(ifs));
+  ifs.close();
 }
 
-// Expect false when the first input is 3.
 TEST(UISuite, startMenuInput3) {
-  std::cout << "For this test, user inputs 3." << endl;
   ui *testUI = new ui();
-  EXPECT_FALSE(testUI->outputStartMenu());
+  std::ifstream ifs;
+  ifs.open("test/closeMenu.txt", std::ifstream::in);
+  if (!ifs.is_open()) {
+    cout << "Failure to open file." << endl;
+    FAIL();
+  }
+  EXPECT_FALSE(testUI->outputStartMenu(ifs));
+  ifs.close();
 }
 
-// Expect true after inputting values that exist on the board.
-// For this test, the values will be 6, 7, 5, 5.
-TEST(UISuite, turnMenu) {
-  std::cout << "For this test, user inputs 6, 7, 5, 5 for a successful turn." << endl;
+
+TEST(UISuite, simulateMove) {
   ui *testUI = new ui();
-  EXPECT_TRUE(testUI->outputTurnMenu());
+  std::ifstream ifs;
+  ifs.open("test/simulateMove.txt", std::ifstream::in);
+  if (!ifs.is_open()) {
+    cout << "Failure to open file." << endl;
+    FAIL();
+  }
+  EXPECT_TRUE(testUI->outputTurnMenu(ifs));
+  EXPECT_TRUE(testUI->outputTurnMenu(ifs));
+  ifs.close();
+}
+
+TEST(UISuite, endGameMidTurn) {
+  ui *testUI = new ui();
+  std::ifstream ifs;
+  ifs.open("test/endGameMidTurn.txt", std::ifstream::in);
+  if (!ifs.is_open()) {
+    cout << "Failure to open file." << endl;
+    FAIL();
+  }
+  EXPECT_TRUE(testUI->outputTurnMenu(ifs));
+  EXPECT_TRUE(testUI->outputTurnMenu(ifs));
+  EXPECT_FALSE(testUI->outputTurnMenu(ifs));
+  ifs.close();
 }
 
 TEST(UISuite, outputEndScreen) {
   ui *testUI = new ui();
   EXPECT_NO_THROW(testUI->outputEndScreen());
-}
-
-TEST(UISuite, outputUserGuide) {
-  std::cout << "For this test, user inputs q after the manual." << endl;
-  ui *testUI = new ui();
-  EXPECT_NO_THROW(testUI->outputUserGuide());
 }
 
 /* 
