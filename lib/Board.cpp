@@ -103,6 +103,7 @@ int Board::verifyMove(int oldX, int oldY, int newX, int newY) {
 	}
 	// for castling purposes
 	else if (currentTurn == Color::WHITE && targetPiece->getColor() == Color::BLACK || currentTurn == Color::BLACK && targetPiece->getColor() == Color::WHITE) { 
+		game->updateTurn();
 		return 1;
 	}
 	else {

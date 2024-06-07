@@ -1,51 +1,49 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.15)
+project(gtest_coverage)
 
+set(CMAKE_CXX_STANDARD 20)
 
-project(ChessGame)
+set(CMAKE_CXX_FLAGS --coverage)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/bin")
 
-include_directories(include)
+# Reference: https://github.com/google/googletest/tree/main/googletest#incorporating-into-an-existing-cmake-project
+# Download and unpack googletest at configure time
+configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
+execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
+        RESULT_VARIABLE result
+        WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/googletest-download)
+if (result)
+    message(FATAL_ERROR "CMake step for googletest failed: ${result}")
+endif ()
+execute_process(COMMAND ${CMAKE_COMMAND} --build .
+        RESULT_VARIABLE result
+        WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/googletest-download)
+if (result)
+    message(FATAL_ERROR "Build step for googletest failed: ${result}")
+endif ()
 
-ADD_SUBDIRECTORY(googletest)
+# Prevent overriding the parent project's compiler/linker
+# settings on Windows
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/build")
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/build")
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/build")
+# Add googletest directly to our build. This defines
+# the gtest and gtest_main targets.
+add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
+        ${CMAKE_CURRENT_BINARY_DIR}/googletest-build
+        EXCLUDE_FROM_ALL)
 
-add_library(game
-    lib/Board.cpp
-    lib/pawn.cpp
-    lib/king.cpp
-    lib/rook.cpp
-    lib/bishop.cpp
-    lib/knight.cpp
-    lib/queen.cpp
-    lib/Display.cpp
-    lib/ui.cpp
-    lib/Game.cpp
-    lib/enums.cpp
-)
+# The gtest/gtest_main targets carry header search path
+# dependencies automatically when using CMake 2.8.11 or
+# later. Otherwise we have to add them here ourselves.
+if (CMAKE_VERSION VERSION_LESS 2.8.11)
+    include_directories("${gtest_SOURCE_DIR}/include")
+endif ()
 
-# Add executable target
-add_executable(ChessGameExecutable
-    main.cpp  # Replace with your actual main file
-)
+set(SOURCE_FILES lib/bishop.cpp lib/Board.cpp lib/Display.cpp lib/enums.cpp lib/Game.cpp lib/king.cpp lib/knight.cpp lib/pawn.cpp lib/queen.cpp lib/rook.cpp lib/ui.cpp)
+add_executable(main main.cpp ${SOURCE_FILES})
 
-# # Link the library to the executable
-target_link_libraries(ChessGameExecutable PRIVATE game)
+set(TEST_FILES test/test.cpp)
+add_executable(test ${TEST_FILES} ${SOURCE_FILES})
 
-# Add executable testing target
-add_Executable(test
-    test/test.cpp
-)
-
-TARGET_LINK_LIBRARIES(test game)
-TARGET_LINK_LIBRARIES(test gtest)
-
-# Necessary edit for gtest compatibility
-TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)
-
-# ptionally, you can set the output name explicitly
-# set_target_properties(ChessGameExecutable PROPERTIES OUTPUT_NAME "ChessGame")
+target_link_libraries(test gtest gtest_main)
