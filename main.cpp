@@ -33,22 +33,11 @@ int main() {
     if (!runGame) {
         return 0;
     }
-    while(UserInterface->outputTurnMenu()) {
-        /* Print output menu. Get user coordinate selection
-        * Send that selection to board class for verification.
-        * If bad flag, print again.
-        * If good flag, get user new position coords.
-        * Send that selection to piece class for verification.
-        * 
-        * Get a next action from board.
-        * 1. No piece there: print output menu but toggle for color.
-        * 2. Piece there: combat scenario.
-        * 3. Invalid turn: invalid new slot.
-        * */
+    UserInterface->outputTurnMenu();
 
-        /* If the king is dead during a combat scenario, the runGame flag is triggered to false.
-        The game ends with a cout message.*/    
-		}
 
+    // while() {}
+
+  delete UserInterface;
   return 0;
 }
