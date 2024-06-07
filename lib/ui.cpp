@@ -61,7 +61,7 @@ bool ui::outputTurnMenu(std::istream& input) {
     if (game->getTurn() == Color::BLACK) {
         turn = "BLACK";
     }
-    cout << "PLAYER " << turn << " TURN" << endl;
+    cout << "\nPLAYER " << turn << " TURN" << endl;
     int oldX = 0; int oldY = 0;
 
     display->displayBoard();
@@ -184,6 +184,7 @@ bool ui::outputTurnMenu(std::istream& input) {
             board->updateBoard(oldY, oldX, newY, newX);
             board->placePiece(oldY, oldX, nullptr);
         }
+        game->updateTurn();
         return true;
     }
     

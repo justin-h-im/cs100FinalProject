@@ -42,7 +42,6 @@ public:
 
             if (attemptAttack(attacker, defender)) {
                 std::cout << " > " << colorToString(attacker->getColor()) << " " << pieceToString(attacker->getType()) << "'s attack hits!\n";
-                std::cout << " > " << "Defender's HP: " << defender->getHp() << "\n"; // REMOVE THIS
             } else {
                 std::cout << " > " << colorToString(attacker->getColor()) << " " << pieceToString(attacker->getType()) << " swings and misses!\n";
             }
@@ -56,6 +55,8 @@ public:
         }
 
         // end combat loop, display results
+
+
         if (turnCounter % 2 != 0) {
             if (attacker->getHp() <= 0) {
                 std::cout << pieceToString(attacker->getType()) << " has been defeated!\n";
