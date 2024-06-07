@@ -65,25 +65,19 @@ void Board::setGame(Game* game) {
 // Correcting verifyPieceToMove
 bool Board::verifyPieceToMove(int x, int y) const {
 	Piece* curr = square[x][y];
-	cout << "at verifyPieceToMove\n";
-	if (curr == nullptr) { cout<<"false1\n"; return false; }
-	cout<<"false2\n";
+	if (curr == nullptr) { return false; }
 	return curr->getColor() == game->getTurn();
 }
 
 // returns -1 if a player attempts an invalid move, returns 1 if a piece initiates combat, returns 0 if a piece just moves
 int Board::verifyMove(int oldX, int oldY, int newX, int newY) {
-	cout << "start verifyMove\n";
 	if (!verifyPieceToMove(oldX, oldY)) {
-		cout<<"false from verifyPieceToMove\n";
 		game->updateTurn();
 		return -1;
 	}
 
 	Piece* selectedPiece = square[oldX][oldY];
-	cout<<"2nd check\n";
 	if (!selectedPiece->move(oldX, oldY, newX, newY)) {
-		cout<<"false from move func\n";
 		game->updateTurn();
 		return -1; 
 	}
@@ -94,7 +88,6 @@ int Board::verifyMove(int oldX, int oldY, int newX, int newY) {
 	
 	if (targetPiece == nullptr) 
 	{ 
-		cout<<"condition1\n";
 		game->updateTurn();
 		updateBoard(oldX, oldY, newX, newY);
 		return 0;
@@ -102,7 +95,6 @@ int Board::verifyMove(int oldX, int oldY, int newX, int newY) {
 	
 	else if(((targetPiece->getType() == PieceType::King) && (selectedPiece->getType() == PieceType::Rook))) 
 	{
-		cout<<"condition2\n";
 		game->updateTurn();
 		Piece* temp = square[newX][newY];
 		square[newX][newY] = square[oldX][oldY];
@@ -116,8 +108,6 @@ int Board::verifyMove(int oldX, int oldY, int newX, int newY) {
 	}
 	
 	else {
-		cout<<"condition4\n";
-		cout << "C\n";
 		game->updateTurn();
 		return -1;
 	}
