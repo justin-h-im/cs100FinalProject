@@ -11,6 +11,102 @@
 #include "../include/king.h"
 using namespace std;
 
+/* 
+ *
+ * 	General Piece Tests
+ *
+ */
+
+TEST(PieceTests, testBlackGetters) {
+  Board* test = new Board();
+
+  // Black special pieces
+  std::cout << "Black special pieces: \n";
+  int c = 0;
+  for(int i=0; i<8; ++i) {
+    EXPECT_NO_THROW(std::cout << 
+      test->getPiece(c, i)->colorToString(test->getPiece(c, i)) <<
+      test->getPiece(c, i)->pieceTypeToString(test->getPiece(c, i)) <<
+      " = HP: " <<
+      test->getPiece(c, i)->getHp() << "/" << 
+      test->getPiece(c, i)->getMaxHp() <<
+      ", ATK: " << 
+      test->getPiece(c, i)->getAtk() <<
+      ", ACC: " <<
+      test->getPiece(c, i)->getAcc() <<
+      ", (" << test->getPiece(c, i)->getX() <<
+      ", " << test->getPiece(c, i)->getY() <<
+      ")\n");
+  }
+
+  std::cout << "\n";
+
+  // Black pawn pieces
+  std::cout << "Black pawn pieces: \n";
+  c = 1;
+  for(int i=0; i<8; ++i) {
+    EXPECT_NO_THROW(std::cout << 
+      test->getPiece(c, i)->colorToString(test->getPiece(c, i)->getColor()) <<
+      test->getPiece(c, i)->pieceTypeToString(test->getPiece(c, i)) <<
+      " = HP: " <<
+      test->getPiece(c, i)->getHp() << "/" << 
+      test->getPiece(c, i)->getMaxHp() <<
+      ", ATK: " << 
+      test->getPiece(c, i)->getAtk() <<
+      ", ACC: " <<
+      test->getPiece(c, i)->getAcc() <<
+      ", (" << test->getPiece(c, i)->getX() <<
+      ", " << test->getPiece(c, i)->getY() <<
+      ")\n");
+  }
+  std::cout << "\n";
+}
+
+TEST(PieceTests, testWhiteGetters) {
+  Board* test = new Board();
+
+  // White special pieces
+  std::cout << "White special pieces: \n";
+  int c = 7;
+  for(int i=0; i<8; ++i) {
+    EXPECT_NO_THROW(std::cout << 
+      test->getPiece(c, i)->colorToString(test->getPiece(c, i)) <<
+      test->getPiece(c, i)->pieceTypeToString(test->getPiece(c, i)) <<
+      " = HP: " <<
+      test->getPiece(c, i)->getHp() << "/" << 
+      test->getPiece(c, i)->getMaxHp() <<
+      ", ATK: " << 
+      test->getPiece(c, i)->getAtk() <<
+      ", ACC: " <<
+      test->getPiece(c, i)->getAcc() <<
+      ", (" << test->getPiece(c, i)->getX() <<
+      ", " << test->getPiece(c, i)->getY() <<
+      ")\n");
+  }
+
+  std::cout << "\n";
+
+  // White pawn pieces
+  std::cout << "White pawn pieces: \n";
+  c = 6;
+  for(int i=0; i<8; ++i) {
+    EXPECT_NO_THROW(std::cout << 
+      test->getPiece(c, i)->colorToString(test->getPiece(c, i)->getColor()) <<
+      test->getPiece(c, i)->pieceTypeToString(test->getPiece(c, i)) <<
+      " = HP: " <<
+      test->getPiece(c, i)->getHp() << "/" << 
+      test->getPiece(c, i)->getMaxHp() <<
+      ", ATK: " << 
+      test->getPiece(c, i)->getAtk() <<
+      ", ACC: " <<
+      test->getPiece(c, i)->getAcc() <<
+      ", (" << test->getPiece(c, i)->getX() <<
+      ", " << test->getPiece(c, i)->getY() <<
+      ")\n");
+  }
+  std::cout << "\n";
+}
+
 
 /* 
  *

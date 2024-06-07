@@ -20,13 +20,13 @@ following classes:
 #include "include/queen.h"
 #include "include/king.h"
 
-#include <stdio.h>
-#include <windows.h>
+// #include <stdio.h>
+// #include <windows.h>
 
 using namespace std;
 
 int main() {
-  system("chcp 65001  > nul");
+  // system("chcp 65001  > nul");
   // Generates a new ui for the game instance.
   ui *UserInterface = new ui();
   // Output Start Menu.
