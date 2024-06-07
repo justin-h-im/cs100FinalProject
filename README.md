@@ -228,7 +228,8 @@ Controls in the game:
 | Command | Description |
 | --- | --- |
 | 1, 2, 3 | Menu controls for the user |
-| 1, 2, 3, 4, 5, 6, 7, 8, 9 | Player inputs for the x and y coordinates. User is asked to enter the coordinates of the chess piece they want to move and then the are asked to enter the coordinates of the piece's next location|
+| 1, 2, 3, 4, 5, 6, 7, 8, 9 | The player is prompted to input the x and y coordinates for both the current position of the chess piece they wish to move and the desired new position for that piece.|
+|Enter | Combat controls for the user| 
 
 
 Updating Chess Crusaders (Developer)
