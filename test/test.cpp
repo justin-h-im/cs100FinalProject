@@ -53,6 +53,7 @@ TEST(RookTests, testRookInvalidDiagonalMovement) {
     // Attempt diagonal move
     EXPECT_FALSE(rook->move(0, 0, 2, 2));
     EXPECT_EQ(testBoard->getPiece(0, 0), rook);
+}
 
  /*
  * 	General Piece Tests
