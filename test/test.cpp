@@ -13,6 +13,37 @@ using namespace std;
 
 /* 
  *
+ * 	KING Tests
+ *
+ */
+
+TEST(KingTests, testKingBasicMovement) {
+    Board* testBoard = new Board();
+    testBoard->updateBoard(7, 4, 4, 4); // Place king at center
+
+    Piece* king = testBoard->getPiece(4, 4); 
+    // Move to an adjacent square
+    EXPECT_TRUE(king->move(4, 4, 3, 4));
+    testBoard->updateBoard(4, 4, 3, 4);
+    EXPECT_EQ(testBoard->getPiece(3, 4), king); 
+
+}
+
+TEST(KingTests, testKingCaptureMovement) {
+    Board* testBoard = new Board();
+    testBoard->updateBoard(7, 4, 4, 4); // Place king at center
+    testBoard->updateBoard(1, 3, 3, 3);
+
+    Piece* king = testBoard->getPiece(4, 4); 
+    // Move to an adjacent square
+    EXPECT_TRUE(king->move(4, 4, 3, 3));
+    testBoard->updateBoard(4, 4, 3, 3);
+    EXPECT_EQ(testBoard->getPiece(3, 3), king); 
+
+}
+
+/* 
+ *
  * 	ROOK Tests
  *
  */
@@ -53,6 +84,40 @@ TEST(RookTests, testRookInvalidDiagonalMovement) {
     // Attempt diagonal move
     EXPECT_FALSE(rook->move(0, 0, 2, 2));
     EXPECT_EQ(testBoard->getPiece(0, 0), rook);
+}
+
+TEST(RookTests, testRookBlockedMovement) {
+    Board* testBoard = new Board();
+
+    Piece* blockingPiece = new Pawn(Color::BLACK, 0, 1, testBoard);  
+    testBoard->placePiece(0, 1, blockingPiece);
+
+    Piece* rook = testBoard->getPiece(0, 0);  
+    ASSERT_TRUE(rook != nullptr && rook->getType() == PieceType::Rook);
+
+    // Attempt to move past a blocking piece
+    EXPECT_FALSE(rook->move(0, 0, 0, 4));
+    EXPECT_EQ(testBoard->getPiece(0, 0), rook);
+
+    delete testBoard;
+}
+
+TEST(RookTests, testRookCastling) {
+    Board* testBoard = new Board();
+
+    testBoard->updateBoard(0, 1, 2, 1); 
+    testBoard->updateBoard(0, 2, 2, 2); 
+    testBoard->updateBoard(0, 3, 2, 3); 
+
+    Piece* rook = testBoard->getPiece(0, 0);  
+    ASSERT_TRUE(rook != nullptr && rook->getType() == PieceType::Rook);
+
+    // Attempt diagonal move
+    EXPECT_TRUE(rook->move(0, 0, 0, 4));
+    testBoard->updateBoard(0, 0, 0, 4); 
+    EXPECT_EQ(testBoard->getPiece(0, 4), rook);
+
+    delete testBoard;
 }
 
  /*
@@ -166,40 +231,6 @@ TEST(PawnTests, testPawnForwardMovement) {
     EXPECT_TRUE(pawn->move(6, 0, 5, 0));
     testBoard->updateBoard(6, 0, 5, 0);
     EXPECT_EQ(testBoard->getPiece(5, 0), pawn);
-
-    delete testBoard;
-}
-
-TEST(RookTests, testRookBlockedMovement) {
-    Board* testBoard = new Board();
-
-    Piece* blockingPiece = new Pawn(Color::BLACK, 0, 1, testBoard);  
-    testBoard->placePiece(0, 1, blockingPiece);
-
-    Piece* rook = testBoard->getPiece(0, 0);  
-    ASSERT_TRUE(rook != nullptr && rook->getType() == PieceType::Rook);
-
-    // Attempt to move past a blocking piece
-    EXPECT_FALSE(rook->move(0, 0, 0, 4));
-    EXPECT_EQ(testBoard->getPiece(0, 0), rook);
-
-    delete testBoard;
-}
-
-TEST(RookTests, testRookCastling) {
-    Board* testBoard = new Board();
-
-    testBoard->updateBoard(0, 1, 2, 1); 
-    testBoard->updateBoard(0, 2, 2, 2); 
-    testBoard->updateBoard(0, 3, 2, 3); 
-
-    Piece* rook = testBoard->getPiece(0, 0);  
-    ASSERT_TRUE(rook != nullptr && rook->getType() == PieceType::Rook);
-
-    // Attempt diagonal move
-    EXPECT_TRUE(rook->move(0, 0, 0, 4));
-    testBoard->updateBoard(0, 0, 0, 4); 
-    EXPECT_EQ(testBoard->getPiece(0, 4), rook);
 
     delete testBoard;
 }
