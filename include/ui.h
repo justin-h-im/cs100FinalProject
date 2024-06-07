@@ -35,17 +35,17 @@ class ui {
 
         /* Outputs start menu from before the game starts. If the return statement is true, then the game begins. 
          Otherwise, the game ends. */
-        bool outputStartMenu();
+        bool outputStartMenu(std::istream& input);
 
         // Outputs the menu that occurs during the game cycle.
         /* Should have interface for turns, such as selecting
         a piece, and asking for the move location. Since it is 
         one touch chess, the player should not be allowed to revert
         and choose a different piece. */
-        bool outputTurnMenu();
+        bool outputTurnMenu(std::istream& input);
 
         /* Introduces the rules and mechanics of the game to the user. Then prompts them with a return to menu option. */
-        void outputUserGuide();
+        void outputUserGuide(std::istream& input);
 
         /* Prints the end screen at the end of the game. */
         void outputEndScreen();

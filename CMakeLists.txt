@@ -38,7 +38,7 @@ target_link_libraries(ChessGameExecutable PRIVATE game)
 
 # Add executable testing target
 add_Executable(test
-    test.cpp
+    test/test.cpp
 )
 
 TARGET_LINK_LIBRARIES(test game)
