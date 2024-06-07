@@ -17,31 +17,31 @@ using std::endl;
 Board::Board() {
     //set up black pieces
     King* blackKing = new King(Color::BLACK, 0, 4, this);
-    // square[0][0] = new Rook(Color::BLACK, 0, 0, this, blackKing);
-    // square[0][1] = new Knight(Color::BLACK, 0, 1, this);
-    // square[0][2] = new Bishop(Color::BLACK, 0, 2, this);
-    // square[0][3] = new Queen(Color::BLACK, 0, 3, this);
+    square[0][0] = new Rook(Color::BLACK, 0, 0, this, blackKing);
+    square[0][1] = new Knight(Color::BLACK, 0, 1, this);
+    square[0][2] = new Bishop(Color::BLACK, 0, 2, this);
+    square[0][3] = new Queen(Color::BLACK, 0, 3, this);
     square[0][4] = blackKing;
-    // square[0][5] = new Bishop(Color::BLACK, 0, 5, this);
-    // square[0][6] = new Knight(Color::BLACK, 0, 6, this);
-    // square[0][7] = new Rook(Color::BLACK, 0, 7, this, blackKing);
-    // for (int i = 0; i < 8; i++) {
-    //     square[1][i] = new Pawn(Color::BLACK, 1, i, this);
-    // }
+    square[0][5] = new Bishop(Color::BLACK, 0, 5, this);
+    square[0][6] = new Knight(Color::BLACK, 0, 6, this);
+    square[0][7] = new Rook(Color::BLACK, 0, 7, this, blackKing);
+    for (int i = 0; i < 8; i++) {
+        square[1][i] = new Pawn(Color::BLACK, 1, i, this);
+    }
 
     // set up white pieces
     King* whiteKing = new King(Color::WHITE, 7, 4, this);
-    // square[7][0] = new Rook(Color::WHITE, 7, 0, this, whiteKing);
-    // square[7][1] = new Knight(Color::WHITE, 7, 1, this);
-    // square[7][2] = new Bishop(Color::WHITE, 7, 2, this);
-    // square[7][3] = new Queen(Color::WHITE, 7, 3, this);
+    square[7][0] = new Rook(Color::WHITE, 7, 0, this, whiteKing);
+    square[7][1] = new Knight(Color::WHITE, 7, 1, this);
+    square[7][2] = new Bishop(Color::WHITE, 7, 2, this);
+    square[7][3] = new Queen(Color::WHITE, 7, 3, this);
     square[7][4] = whiteKing;
-    // square[7][5] = new Bishop(Color::WHITE, 7, 5, this);
-    // square[7][6] = new Knight(Color::WHITE, 7, 6, this);
-    // square[7][7] = new Rook(Color::WHITE, 7, 7, this, whiteKing);
-    // for (int i = 0; i < 8; i++) {
-    //     square[6][i] = new Pawn(Color::WHITE, 6, i, this);
-    // }
+    square[7][5] = new Bishop(Color::WHITE, 7, 5, this);
+    square[7][6] = new Knight(Color::WHITE, 7, 6, this);
+    square[7][7] = new Rook(Color::WHITE, 7, 7, this, whiteKing);
+    for (int i = 0; i < 8; i++) {
+        square[6][i] = new Pawn(Color::WHITE, 6, i, this);
+    }
 
 }
 
