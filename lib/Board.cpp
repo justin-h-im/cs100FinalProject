@@ -116,3 +116,10 @@ int Board::verifyMove(int oldX, int oldY, int newX, int newY) {
 Piece* Board::getPiece(int x, int y) const {
     return square[x][y];
 }
+
+void Board::placePiece(int x, int y, Piece* piece) {
+	// if is in bounds
+    if (x >= 0 && x < 8 && y >= 0 && y < 8) {
+        square[x][y] = piece;
+    }
+}
