@@ -193,6 +193,9 @@ Our tests mainly used the google test suite. We started by testing the smaller c
  integration tests held by UI. Since UI is heavily dependent on user input because it acts as a user interface, all of the user inputs are simulated with text files that hold commands.  
  The unit tests would read through those text files to get input for the tests. We also utilized gcov and lcov to get understandings of what our code was missing during the unit tests. In 
  between, we used Valgrind to locate memory errors and check that the program has no memory leaks, or memcheck--clean. As a final check, we ran a .yml workflow that will run the program through tests during pushes. The .yml workflow will trigger whenever there is a push or pull from main. 
+ ### The Valgrind Results
+ ![image](https://github.com/cs100/final-project-mhsie026-jim023-anels048-vselv001/assets/93964548/c8a02e60-5464-4a1d-a1ce-a5872aee35f7)
+
 
 Downloading Chess Crusaders
 ===========================
